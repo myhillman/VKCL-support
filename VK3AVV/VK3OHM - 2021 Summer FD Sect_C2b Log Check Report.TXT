@@ -1,0 +1,192 @@
+
+Contest     :     2021 Summer Field Day
+
+Name        :     Marc Hillman
+Call        :     VK3OHM
+
+Section     :     C2b - Home Station,  8 hours, Four-bands
+Rank in Sect:     8th   (Entries: 28)
+
+eMail       :     vk3ohm@wia.org.au
+
+======================================================================
+
+Repeating again from previous field days, many logs are still not checked after the 
+field day (which is allowed and almost expected in this contest) before uploading, 
+and it is sad to see heaps of points being lost due to simple typing errors that 
+could have been easily corrected.
+ 
+A great improvement this time has been in time keeping, with only a few time errors
+and none over 10 minutes.
+
+However, there is an inordinate increase in the number of cross-band contacts where 
+the station at fault could not be reliably determined, hence the lower score band was
+used in both logs. Surprisingly, most of the time, the bands involved were 6m, 2m, 
+and 70cm, bands on which the rig frequency should be easily read by OmniRig.
+
+It is pleasing to note an increase in activity in VK7, although they seem to have
+problems working the mainland, and return of some activity in VK6 compared to 
+nothing being heard from there in the Spring field day last year, although they
+also still seem to have problems getting across their border.
+
+
+For interest, the 6-year statistics for Summer field day are as follows.
+
+
+Summer Field Day statistics:
+       2021  (2020   2019   2018    2017   2016)  Year
+
+        103  (  92     80     53      72     81)  Number of submitted logs
+        175  ( 171    178    159     158    191)  Other participating stations 
+         43  (  42     43     37      43     50)  Other participating stations making at
+                                                     least 10 contacts
+
+       8261  (6720   6629   5977    6473   9064)  Number of contacts logged
+       5392  (4049   3750   3355    3853   5993)  Number of contacts checked
+        65%  ( 60%    57%    56%     60%    66%)  Percentage of logged contacts checked
+
+Errors:
+         17  (  10     24      8      21     25)  Not in log
+         32  (  25     23     15      18     34)  Call copied incorrectly
+
+         64  (  45     50     27      85    133)  Exchange copied incorrectly
+         45  (  20     20      ?       ?      ?)  Exchange possibly sent incorrectly
+                                                      (off by 1)
+
+         10  (   6      9      4       0     11)  Contacts logged on wrong band
+         48  (   6     16      8      19      9)  Cross-band contacts unresolved
+
+          0  (   3     27      3       ?      ?)  Time stamp difference above 10 minutes
+          5  (   0     10      5       ?      ?)  Time stamp difference 5 to 10 minutes
+          3  (  22     17     10      42      ?)  Time stamp difference unresolved
+
+        153  ( 102    172     98     200      ?)  Corrected worked locators
+
+
+Worth mentioning is the logging of VK7KPC who worked portable in VK5 call area.
+Unfortunately, no one logged contacts with him correctly. In VKCL, single characters
+after a '/' following the call sign are ignored unless 'P' or 'M' signifying portable
+in home call area, and 'Q' for QRP. Contacts logged as VK7KPC/P would therefore be assigned
+to his home call area of VK7.  Multiple characters after the '/' designate the call 
+area where the station is operating, so VK7KPC/P5 would put him in North Korea, introducing
+spurious DX contacts in the statistics.
+
+The correct way to log stations operating outside their home call area, and this applies to
+all contests, is to append the call area where the station is working after the home call,
+for example, VK7KPC/VK5.  (Some contests prefer it the other way around, that is VK5/VK7KPC,
+and VKCL accepts both.)
+
+
+
+If there are entries in the last section of the report, please study them carefully
+to see whether you can change and/or improve your operating technique to avoid others
+copying you incorrectly. Particularly consider the use of ACMA recommended phonetics.
+
+
+73,
+Mike,  VK3AVV,       7th February 2021
+VHF-UHF Field Day Contest Log Checking
+email:  vk3avv@wia.org.au
+
+
+======================================================================
+
+SUMMARY:
+-------
+
+      57   Claimed QSO (for reference)
+      57   Counted QSO before checking
+      56   Final   QSO after checking
+     1.8%  QSO Reduction
+
+    6757   Claimed score (for reference)
+    6757   Calculated score before checking
+    6643   Final score after checking
+     1.7%  Score Reduction
+      91%  Contacts checked
+
+Results by band:
+---------------
+
+     Band        6 m     2 m    70 cm   23 cm 
+
+    Contacts       22      12      16       6 
+
+    Claimed      3541     536    1552    1128 
+    Final        3541     536    1552    1014 
+
+    Longest      1442     125      89      89  km
+    Average       155      44      35      48  km
+
+
+Not in Log (QSO Removed):
+----------
+
+    None.
+
+Duplicate Contact (QSO Removed/Reinstated):
+-----------------
+
+    None.
+
+Call Incorrectly Copied (QSO Removed):
+-----------------------
+
+    None.
+
+Exchange Copied Incorrectly (QSO Removed):
+--------------------------
+
+    None.
+
+Exchange Possibly Sent Incorrectly (Information):
+==================================
+
+    None.
+
+Logged on incorrect band (QSO Removed):
+------------------------
+
+    05:33  <1.2G>  PH   VK3AUQ      033  039     Other Log:   50      -56 pts
+
+Cross Band Contact (Using Lower Score Band in both Logs):
+------------------
+
+    05:33  <1.2G>  PH   VK3OM       034  043     Other Log:   50      -58 pts
+    08:20  <  50>  PH   VK3MB       056  011     Other Log:  432       +0 pts
+
+Time Stamp Difference Exceed 5 mins Limit:
+(50% points loss if <=10 mins, all points loss if greater!)
+----------------------------------------------------------
+
+    None.
+
+Unresolved Time Stamp Difference (NO Penalty in Either Log)
+================================
+    None.
+
+Incorrect Worked Locator (Corrected, with 20% Points Penalty):
+(Correct points reduced by 20%  less  claimed points!)
+------------------------------------------------------
+
+    None.
+
+Unique calls (worked once in your log only) (Information - QSO NOT removed):
+===========================================
+
+    None.
+
+Stations copying your call/band/exchange/locator incorrectly (Information):
+============================================================
+
+   VK3MB       :   08:20 < 432> PH   VK3OHM        011  056            Your Log:    50
+   VK3OM       :   05:33 <  50> PH   VK3OHM        043  034            Your Log:  1.2G
+   VK4WIS      :   01:50    50  PH   VK3OHM        017  012  <qf22ft>  Activated: qf22oe
+
+
+
+End of Report.  Created:  2021-02-05 09:41 UTC
+
+Processed Log File Nmae:  VK3OHM_C2.LOG
+
+-------------

@@ -1,0 +1,175 @@
+
+Contest     :     Spring VHF-UHF Field Day
+
+Name        :     EMDRC Radio Club
+Call        :     VK3BNW
+
+Section     :     C2b - Home Station,  8 hours, Four-bands
+Rank in Sect:     7th   (Entries: 18)
+
+eMail       :     vk3er@emdrc.com.au
+
+======================================================================
+
+Although Div.1 and Div.2 have been abolished since the 2019 Summer Field Day
+(as the market has spoken in favour of distance based scoring), many have not
+caught up with it yet (with current VKCL offering both probably not helping),
+so there were still logs submitted for both Divisions or just Div.1.
+
+As before, if logs for both divisions were still submitted, log for Div.1 was
+ignored, and if only Div.1 log was submitted, it was converted to Div.2, now
+only referred to as distance based scoring.
+
+
+Rover category still seems to be rather miss-understood category and several
+logs were re-classified again as portable as they did not comply with the rules.
+
+
+Again many logs were not checked after the field day (which is allowed and
+almost expected in this contest) before submitting, and it was sad to see heaps
+of points being lost due to simple typing errors that could have been easily
+corrected.
+
+'Preloading' the worked locator from a previous contact can be a great help
+in logging, but it can also be a trap if the portable station changes location
+and the preloaded locator is not revised, resulting in wrong worked locator
+for the rest of the contest.
+
+
+Field Day statistics:
+
+        102  Logs submitted
+        205  Other participating stations (with more than 40 who made at least 10 contacts)
+
+       6640  Number of contacts logged
+       4245  Number of contacts checked  (64)
+
+Errors:
+         26  Not in log
+         39  Call copied incorrectly
+
+         78  Exchange copied incorrectly
+         37  Exchange possibly sent incorrectly (off by 1)
+
+          3  Band logged incorrectly
+         40  Cross-band unresolved
+
+         11  Time stamp difference above 10 minutes
+          5  Time stamp difference 5 to 10 minutes
+         50  Time stamp differenc unresolved
+
+        104  Corrected worked locators
+
+The current penalty for incorrect worked locators is not working well for long
+distance contacts on 6m, 2m, and 70cm because of the flattening at 700 Km. In 
+future, the points will be calculated with corrected locator and then reduced by 20%.
+
+If there are entries in the last section of the report, please study them carefully
+to see whether you can improve your technique to avoid others copying you incorrectly.
+
+
+73,
+Mike,  VK3AVV,          23rd December 2019
+VHF-UHF Field Day Contest Log Checking
+email:  vk3avv@wia.org.au
+
+
+
+======================================================================
+
+SUMMARY:
+-------
+
+      66   Claimed QSO (for reference)
+      66   Counted QSO before checking
+      64   Final   QSO after checking
+     3.0%  QSO Reduction
+
+    4470   Claimed score (for reference)
+    4470   Calculated score before checking
+    4424   Final score after checking
+     1.0%  Score Reduction
+      79%  Contacts checked
+
+Results by band:
+---------------
+
+     Band         2 m     70 cm 
+
+    Contacts        55        9 
+
+    Claimed       2569     1901 
+    Final         2523     1901 
+
+    Longest        118      118   km
+    Average         45       78   km
+
+
+Not in Log (QSO Removed):
+----------
+
+    06:33   144  SSB  <VK3JL>     052  029      -31 pts
+
+Duplicate Contact (QSO Removed/Reinstated):
+-----------------
+
+    None.
+
+Call Incorrectly Copied (QSO Removed):
+-----------------------
+
+    None.
+
+Exchange Copied Incorrectly (QSO Removed):
+--------------------------
+
+    05:24   144  SSB  VK3HY       039  <016>     Other Log:  061      -15 pts
+
+Exchange Possibly Sent Incorrectly (Information):
+--------------------------
+
+    None.
+
+Logged on incorrect band (QSO Removed):
+------------------------
+
+    None.
+
+Cross Band Contact (Using Lower Score Band in both Logs):
+------------------
+
+    None.
+
+Time Stamp Difference Exceed 5 mins Limit:
+------------------------------------------
+(50% points loss if <=10 mins, all points loss if greater!)
+----------------------------------------------------------
+
+    None.
+
+Unresolved Time Stamp Difference (NO Penalty in Either Log)
+--------------------------------
+    None.
+
+Incorrect Worked Locator (Corrected, with 25% Points Penalty):
+------------------------
+
+    None.
+
+Unique calls (worked once in your log only) (Information - QSO NOT removed):
+===========================================
+
+    None.
+
+Stations copying your call/band/exchange/locator incorrectly (Information):
+============================================================
+
+    None.
+
+
+
+End of Report.  Created:  2019-12-23 10:52 UTC
+
+Processed Log File Nmae:  VK3BNW_C2_div2.LOG
+
+-------------

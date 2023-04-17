@@ -1,0 +1,626 @@
+
+                                                           P R O V I S I O N A L
+                                                          ======================
+
+
+
+                                                  Spring VHF-UHF Field Day Contest  2019-11-23
+
+
+                Sub-Section Winners Summary
+                ===========================
+
+
+
+        Section A1 - Portable, Single Op 24 hrs             Section A2 - Portable, Single Op 8 hrs
+
+                Four Bands    VK1AI         13298                           One Band      ZL1TPH          715
+                All Bands     VK5KK         34077                           Four Bands    VK3MH          4222
+                                                                            All Bands     VK3HY         25004
+
+
+        Section B1 - Portable, Multi Op 24 hrs              Section B2 - Portable, Multi Op 8 hrs
+
+                Four Bands    VK5BWR        53630                           Four Bands    VK4WIE        22676
+                All Bands     VK3ER        179141                           All Bands     VK3KQ         76910
+
+
+        Section C1 - Home Station, 24 hrs                   Section C2 - Home Station, 8 hrs
+
+                One Band      VK3HJV         5924                           One Band      VK3JL          1636
+                Four Bands    VK3VKT        40864                           Four Bands    VK3AV         24174
+                All Bands     VK3MY        108970                           All Bands     VK4ADC        35883
+
+
+        Section D1 - Rover Station, 24 hrs                  Section D2 - Rover Station, 8 hrs
+
+            No logs submitted!                                  No logs submitted!
+
+
+
+
+       Top scoring Foundation Station:  VK3FLMV    Section: C2    Score:  3987
+
+
+
+
+
+
+
+
+
+                All Results Tables
+                ==================
+
+
+
+                Section A1 - Portable, Single Op 24 hours
+    ------------------------------------------------------------------------------------------------------------------------------------------
+    |                            Actvt  Valid Avg Km  |   50   144   432  1296   |   2.4   3.3   5.7   10.   24.   47.   76.  122.  |        | 
+    | Call     Name               Lctr  QSOs   /QSO   |  MHz   MHz   MHz   MHz   |   GHz   GHz   GHz   GHz   GHz   GHz   GHz   GHz  |  TOTAL | 
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    | VK1AI     Gregory Parkhurs qf44mq   63    186   |  6492  5073  1733    -   |    -     -     -     -     -     -     -     -   |  13298 |
+    | VK3ND     Greg Smith       qf21ql   66    105   |    -   4698  5575   599  |    -     -     -     -     -     -     -     -   |  10872 |
+    | VK2KCM    Colin Matten     qf56po   29    140   |    -   1450  1122  3105  |    -     -     -     -     -     -     -     -   |   5677 |
+    | VK2XIC    Rob Heyer        qf55iq  qf55jm                                                                                     |        |
+    |                                      7    203   |  1340   115    65    30  |    -     -     -     -     -     -     -     -   |   1550 |
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    | VK5KK     David Minchin    pf95ih  pf95hb                                                                                     |        |
+    |                                    129     47   |   592   590  1999  1752  |  1922  3918  4528  5236  7080  2900  3460   100  |  34077 |
+    | VK4OE     Doug Friend      qg62mk  qg61nu                                                                                     |        |
+    |                                     91    167   |   853  5246  5288  3582  |  3507  2809  3104  3071   458   700    38    -   |  28656 |
+    | OE4WOG    Wolfgang Hoeth   pf95ht  pf95hb                                                                                     |        |
+    |                                     79     53   |   277   521  1697  1758  |  1200  2666  2840  3284  2240  3390  2290    50  |  22213 |
+    | OE2JOM    Hans Wimmer      pf95aw  pf95hb                                                                                     |        |
+    |                                     50     99   |  1204   547  1224   752  |   893  3207  3193  3692  2790  1655     5     5  |  19167 |
+    | VK4CSD    Stefan Durstchi  qg61pt  qg62ml                                                                                     |        |
+    |                                     11     83   |    -     -     -     -   |  1830    -   2573    -    170   700   170    -   |   5443 |
+    ------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+                Section A2 - Portable, Single Op 8 hours
+    ------------------------------------------------------------------------------------------------------------------------------------------
+    |                            Actvt  Valid Avg Km  |   50   144   432  1296   |   2.4   3.3   5.7   10.   24.   47.   76.  122.  |        | 
+    | Call     Name               Lctr  QSOs   /QSO   |  MHz   MHz   MHz   MHz   |   GHz   GHz   GHz   GHz   GHz   GHz   GHz   GHz  |  TOTAL | 
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    | ZL1TPH    Stephen Hayman   rf65in    1   2177   |    -    715    -     -   |    -     -     -     -     -     -     -     -   |    715 |
+    | VK3ZAP    James Wilson     qf22pl   12     60   |    -    652    -     -   |    -     -     -     -     -     -     -     -   |    652 |
+    | VK7WN     Warren Nicholas  qe37qb   10     13   |    -    132    -     -   |    -     -     -     -     -     -     -     -   |    132 |
+    | VK3ARR #  Andrew Ryan      qe37oc    2     11   |    -     22    -     -   |    -     -     -     -     -     -     -     -   |    #22#|
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    | VK3MH     Brendan Bryant   qf22pl   30     66   |   598   723  1494  1407  |    -     -     -     -     -     -     -     -   |   4222 |
+    | VK3FTOM   Tom De Maniel    qf21ql   34     82   |    -   2268  1467    -   |    -     -     -     -     -     -     -     -   |   3735 |
+    | VK2XLJ    Doug Johnson     qf46mp   14    324   |  1219  1782   210    -   |    -     -     -     -     -     -     -     -   |   3211 |
+    | VK5FBAA   Bob Jeisman      pf95jc  pf95hd                                                                                     |        |
+    |                                     27     49   |    -    749  1455    -   |    -     -     -     -     -     -     -     -   |   2204 |
+    | VK7JAM    James McElwee    qe38kv    9    111   |    -    689   857    -   |    -     -     -     -     -     -     -     -   |   1546 |
+    | VK7TW     Justin Giles-Cla qe37pd   21     12   |    67    98   263   138  |    -     -     -     -     -     -     -     -   |    566 |
+    | VK7EV     Eric van der Neu qe29ub   17     27   |    88   381    86    -   |    -     -     -     -     -     -     -     -   |    555 |
+    | VK6NAD    Daniel Sutton    of87ax  of88ab  of87av                                                                             |        |
+    |                                     13     13   |    24    76   247    -   |    -     -     -     -     -     -     -     -   |    347 |
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    | VK3HY     Gavin Brain      qf22pc   99    172   | 12831  2444  2237  1861  |  1657    -   1843  2131    -     -     -     -   |  25004 |
+    | VK5APN    Wayne Pearson    pf95ht  pf95jg                                                                                     |        |
+    |                                     80     56   |   372   569  1842  1913  |  1200  2963  2840  3284  2240  3890  2240    -   |  23353 |
+    | VK5OQ     Keith Gooley     pf95aw   58    121   |  2559   793  3450   752  |   484  3207  3193  3692  2790  1650    -     -   |  22570 |
+    | VK3APW    Peter Westgarth  qf21uo   62    153   |  7361  1281  2819  2757  |  1782   724  1728  3714    -     -     -     -   |  22166 |
+    | VK5ZT     Tim Dixon        pf95ig  pf95ji  pf95ih                                                                             |        |
+    |                                     46     47   |   100   158  1196   152  |    40  1608  1955  2204  2980  1120  1120    -   |  12633 |
+    | VK7ZBX    Richard Howlett  qe37oc   69     55   |   201  1016  2421  3068  |  3168   292    -   1584    70    -     -     -   |  11820 |
+    | VK7DW     Andrew de Water  qe38pl   23    119   |    -    635  1599  2542  |  2350    -     -   2264    -     -     -     -   |   9390 |
+    | VK7HH     Hayden Honeywood qe37tl   44     68   |   248   712  2034  2409  |  2484   292    -    770    -     -     -     -   |   8949 |
+    | VK3MQ     Rob Whitmore     qf22qe   24     95   |   358   366   772  1638  |  1541  1891    -   2087    -     -     -     -   |   8653 |
+    | VK7ALH    Ross Broomhall   qe38pl   21    118   |    -    635  1599  1554  |  2350    -     -   2264    -     -     -     -   |   8402 |
+    | VK5JR     Gary Smythe      qf02gg   11    191   |    -   1596    -     -   |    -     -     -   3774    -     -     -     -   |   5370 |
+    | VK5NI     John Ross        pf95ji   46     36   |    -    763  1004   723  |    -   1804    -     -     -     -     -     -   |   4294 |
+    | VK2KFJ    steven blanche   qf46pu   16     12   |    45    80   160    19  |    -     54    -     74    -     -     -    100  |    532 |
+    | VK2ZRH #  Roger Harrison   qf46pu  qf46pv                                                                                     |        |
+    |                                     16     12   |    45    80   160    19  |    -     54    -     74    -     -     -    100  |   #532#|
+    ------------------------------------------------------------------------------------------------------------------------------------------
+            #  -  Check Log(s)
+
+
+
+
+
+                Section B1 - Portable, Multi Op 24 hours
+    ------------------------------------------------------------------------------------------------------------------------------------------
+    |                            Actvt  Valid Avg Km  |   50   144   432  1296   |   2.4   3.3   5.7   10.   24.   47.   76.  122.  |        | 
+    | Call     Name               Lctr  QSOs   /QSO   |  MHz   MHz   MHz   MHz   |   GHz   GHz   GHz   GHz   GHz   GHz   GHz   GHz  |  TOTAL | 
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    | VK5BWR    Whyalla Amateur  pf87ng   82    596   | 41815  4886  5463  1466  |    -     -     -     -     -     -     -     -   |  53630 |
+    | VK2SRC    Summerland Amate qg60lk  108    414   | 24956  8971  4786  7476  |    -     -     -     -     -     -     -     -   |  46189 |
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    | VK3ER     Eastern and Moun qf22dm  538    182   | 52036 20690 31767 27410  | 12340  7049  7914 10615  9320    -     -     -   | 179141 |
+    | VK4IF     Scott Watson     qg53tc  167    467   | 32328 15545 16872 15087  |  7910  5974  5549  3737    -     -     -     -   | 103002 |
+    ------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+                Section B2 - Portable, Multi Op 8 hours
+    ------------------------------------------------------------------------------------------------------------------------------------------
+    |                            Actvt  Valid Avg Km  |   50   144   432  1296   |   2.4   3.3   5.7   10.   24.   47.   76.  122.  |        | 
+    | Call     Name               Lctr  QSOs   /QSO   |  MHz   MHz   MHz   MHz   |   GHz   GHz   GHz   GHz   GHz   GHz   GHz   GHz  |  TOTAL | 
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    | VK4WIE    City of Brisbane qg62nl   53    454   | 17732  1459  2830   655  |    -     -     -     -     -     -     -     -   |  22676 |
+    | VK2MB     Manly Warringah  qf56oh   31    434   |  3891  2346  2439   263  |    -     -     -     -     -     -     -     -   |   8939 |
+    | VK6VF     WA VHF GROUP     of77vw   30     16   |   157   218   512    -   |    -     -     -     -     -     -     -     -   |    887 |
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    | VK3KQ     Damian Ayers     qf12vg  201    276   | 33163  8048 12066  7131  |  3940  3177  4290  4575   520    -     -     -   |  76910 |
+    | VK3UHF    Lara UHF/Microwa qf21cu  105    114   |  1953  3168  4780  6324  |  3947  4851  4476  6722    -     -     -     -   |  36221 |
+    | VK3BEZ    Eastern Zone Ama qf31go   26    103   |    -    899   904  1731  |  1927    -    787  3181    -     -     -     -   |   9429 |
+    ------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+                Section C1 - Home Station, 24 hours
+    ------------------------------------------------------------------------------------------------------------------------------------------
+    |                            Actvt  Valid Avg Km  |   50   144   432  1296   |   2.4   3.3   5.7   10.   24.   47.   76.  122.  |        | 
+    | Call     Name               Lctr  QSOs   /QSO   |  MHz   MHz   MHz   MHz   |   GHz   GHz   GHz   GHz   GHz   GHz   GHz   GHz  |  TOTAL | 
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    | VK3HJV    Paul Brown       qf01tp   26    227   |    -   5924    -     -   |    -     -     -     -     -     -     -     -   |   5924 |
+    | VK3FDLL   Matthew Jones    qf22ne   47     50   |    -   2378    -     -   |    -     -     -     -     -     -     -     -   |   2378 |
+    | VK3NCC    Colin Charles Co qf12th    5     48   |    -    241    -     -   |    -     -     -     -     -     -     -     -   |    241 |
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    | VK3VKT    Andrew Kayler-Th qf11ns  149    140   |  4057  9956 12608 14243  |    -     -     -     -     -     -     -     -   |  40864 |
+    | VK3LTL    Andrew Bainbridg qf22bj  227     95   |  4768 11392 10621 12686  |    -     -     -     -     -     -     -     -   |  39467 |
+    | VK3LM     Michael Binz     qf31fs   44    493   | 16913  2275  4851  2243  |    -     -     -     -     -     -     -     -   |  26282 |
+    | VK3AUQ    KEVIN PHILLIPS   qf22qf   45    246   | 11740  1052  2030    -   |    -     -     -     -     -     -     -     -   |  14822 |
+    | VK2VL     Tony Smith       qg60le   53    409   |  3977  7041  1139  1490  |    -     -     -     -     -     -     -     -   |  13647 |
+    | VK3MDH    Mark Hudson      qf22qb   92     88   |  2762  4557  3003  3178  |    -     -     -     -     -     -     -     -   |  13500 |
+    | VK2YW     John Eyles       qf34qu   34    287   |  6018  4568    -     -   |    -     -     -     -     -     -     -     -   |  10586 |
+    | VK2XTC    Brian O`Gallaghe qf56oe   21    600   |  9542   445    82    -   |    -     -     -     -     -     -     -     -   |  10069 |
+    | VK1KW     Robert Quick     qf44mt   56    135   |  5390  2092  2040   478  |    -     -     -     -     -     -     -     -   |  10000 |
+    | VK5KAF    JOHN KEMP        pf95ih   47     93   |  2574   617  2499   707  |    -     -     -     -     -     -     -     -   |   6397 |
+    | VK3YE     Peter Parker     qf21nw   44    142   |  3872  1681   701    -   |    -     -     -     -     -     -     -     -   |   6254 |
+    | VK5KLV    Les Virgo        pf87vl    8    478   |  3824   201    -     -   |    -     -     -     -     -     -     -     -   |   4025 |
+    | VK2DWP    Wayne Pallister  qf34qu    7    520   |  3330     5    -     -   |    -     -     -     -     -     -     -     -   |   3335 |
+    | VK7PD     Peter Dowde      qe38nn   14     29   |    27    39   525   603  |    -     -     -     -     -     -     -     -   |   1194 |
+    | VK3PH     Peter Hartfield  qf22pb    9     70   |    -    298   781    -   |    -     -     -     -     -     -     -     -   |   1079 |
+    | VK5UE     Colwyn LOW       pf95ig    8     42   |    -     17   853    -   |    -     -     -     -     -     -     -     -   |    870 |
+    | VK7KPC    Peter Dodd       qe38ok    5     44   |    -    139   151    -   |    -     -     -     -     -     -     -     -   |    290 |
+    | VK3PWG    Peter Gamble     qf12wk    1     20   |    -     20     0    -   |    -     -     -     -     -     -     -     -   |     20 |
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    | VK3MY     Ross Keogh       qf22pd  315    133   | 18505  9108 12402 16111  |  8723  6887 12611 15543  9080    -     -     -   | 108970 |
+    | VK3FS     Andrew McColm    qf21mr  164    185   | 18697  4453  9415  6891  |  3194    -     -     -     -     -     -     -   |  42650 |
+    | VK4WIS    Sunshine Coast A qg63mi  115    296   | 21349  5936  5605  3191  |  2215    -     32   281    -     -     -     -   |  38609 |
+    | VK5NE     Paul Roehrs      pf95hi  119    221   | 25277  1452  2216  1524  |   608    -     -     -     -     -     -     -   |  31077 |
+    | VK2XAX    Tim Tuck         qf56if   89    174   | 11124  2996  1406   780  |   322    -     -     -     -     -     -     -   |  16628 |
+    | VK2AZ     Hilary Bridel    qf56if   56    217   | 12087   537    84  1058  |   212    -     -     -     -     -     -     -   |  13978 |
+    ------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+                Section C2 - Home Station,  8 hours
+    ------------------------------------------------------------------------------------------------------------------------------------------
+    |                            Actvt  Valid Avg Km  |   50   144   432  1296   |   2.4   3.3   5.7   10.   24.   47.   76.  122.  |        | 
+    | Call     Name               Lctr  QSOs   /QSO   |  MHz   MHz   MHz   MHz   |   GHz   GHz   GHz   GHz   GHz   GHz   GHz   GHz  |  TOTAL | 
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    | VK2FWHD # Wayne Deaner     qf34qu    6    273   |    -   1638    -     -   |    -     -     -     -     -     -     -     -   |  #1638#|
+    | VK3JL     David Rolfe      qf21pv   28     58   |    -   1636    -     -   |    -     -     -     -     -     -     -     -   |   1636 |
+    | VK7SH     Steven Noel Hons qe37pc    6      9   |    -     54    -     -   |    -     -     -     -     -     -     -     -   |     54 |
+    | VK3TNL    Tony Linford     qf31au    1     38   |    -     38    -     -   |    -     -     -     -     -     -     -     -   |     38 |
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    | VK3AV     Bernard Petherbr qf22pl   75    265   | 15809  1785  3452  3128  |    -     -     -     -     -     -     -     -   |  24174 |
+    | VK5KBJ    Barry Bates      pf94gq   65    350   | 16570  2629  2704    -   |    -     -     -     -     -     -     -     -   |  21903 |
+    | VK5DT     Darren Jury      pf95ik   64    257   | 15476   598  1441   873  |    -     -     -     -     -     -     -     -   |  18388 |
+    | VK1JA     Jayson Meli      qf44no   37    332   | 13366   615   356   267  |    -     -     -     -     -     -     -     -   |  14604 |
+    | VK3AVV #  Mike Subocz      qf22mf   53     86   |  2044  1081  2841  1877  |    -     -     -     -     -     -     -     -   |  #7843#|
+    | VK3ART    Russ Turner      qf22od   35    100   |  3942   790  1133    -   |    -     -     -     -     -     -     -     -   |   5865 |
+    | VK7AN     Al Burke         qe48dr    6    851   |  3937   192   518    -   |    -     -     -     -     -     -     -     -   |   4647 |
+    | VK3BNW    EMDRC Radio Club qf22nd   64     50   |    -   2523  1901    -   |    -     -     -     -     -     -     -     -   |   4424 |
+    | VK3FLMV   Michael Barrett  qf22pd   55     48   |    -   1880  2107    -   |    -     -     -     -     -     -     -     -   |   3987 |
+    | VK3KIS    Andrew Kayton    qf22oe   14     67   |    -    306   796  1183  |    -     -     -     -     -     -     -     -   |   2285 |
+    | VK7ZRF    Bob Grant        qe37qd    3    192   |   326   192   518    -   |    -     -     -     -     -     -     -     -   |   1036 |
+    | VK7KAJ    Alan Jeffrey     qe36px   19     22   |    32   142   320   470  |    -     -     -     -     -     -     -     -   |    964 |
+    | VK7BEN    Ben Short        qe37qd   21     14   |    64   158    57   363  |    -     -     -     -     -     -     -     -   |    642 |
+    | VK7FPCL   Paul Pruss       qe37pf   22     20   |    -    314   298    -   |    -     -     -     -     -     -     -     -   |    612 |
+    | VK7VH     Vince Henderson  qe37pd   18     14   |   110   117   198    -   |    -     -     -     -     -     -     -     -   |    425 |
+    | VK2ASY    Kim Stevens      qf46nr   12     19   |    92   118   146    -   |    -     -     -     -     -     -     -     -   |    356 |
+    | VK6RK     Rick Kowalewski  of77xw    6     14   |    27    41    86    -   |    -     -     -     -     -     -     -     -   |    154 |
+    | VK7DW     Andrew de Water  qe38no    9      8   |    18    39    82    -   |    -     -     -     -     -     -     -     -   |    139 |
+    | VK5MVR    Andrew Low       pf95ig    2     12   |    -      0    65    -   |    -     -     -     -     -     -     -     -   |     65 |
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    | VK4ADC    Doug Hunter      qg62lg   61    649   | 32625  2145   708   137  |   268    -     -     -     -     -     -     -   |  35883 |
+    | VK4GU     Gary Urquhart    qg62mt   39    634   | 19893    81   381   274  |   158    -   2843  1066   420    -     -     -   |  25116 |
+    | VK4FB     ROLAND LANG      qg62ni   19   1082   | 10870  2024   918    -   |   273    -     -     -     -     -     -     -   |  14085 |
+    | VK4EA     Peter Schrader   qg62mo   19    369   |  4999   417  1083    59  |     0    -     -     -     -     -     -     -   |   6558 |
+    | VK3ZQB    Russell Lemke    qf11do    6    170   |    -    510    -     -   |    -     -     -   3774    -     -     -     -   |   4284 |
+    | VK2BRM    Brendan Moss     qf56hg   12     20   |    15    72    -    525  |   120    -     -     -     -     -     -     -   |    732 |
+    | VK2JDS    DAVE SCOTT       qf46pv   19      6   |    18    34    28    38  |    -    108    -    148    -     -     -    100  |    474 |
+    ------------------------------------------------------------------------------------------------------------------------------------------
+            #  -  Check Log(s)
+
+
+
+
+
+                Section D1 - Rover Station, 24 hours
+    ------------------------------------------------------------------------------------------------------------------------------------------
+    |                            Actvt  Valid Avg Km  |   50   144   432  1296   |   2.4   3.3   5.7   10.   24.   47.   76.  122.  |        | 
+    | Call     Name               Lctr  QSOs   /QSO   |  MHz   MHz   MHz   MHz   |   GHz   GHz   GHz   GHz   GHz   GHz   GHz   GHz  |  TOTAL | 
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    |                                                 |                          |                                                  |        |
+    |   No logs submitted!                            |                          |                                                  |        |
+    |                                                 |                          |                                                  |        |
+    ------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+                Section D2 - Rover Station,  8 hours
+    ------------------------------------------------------------------------------------------------------------------------------------------
+    |                            Actvt  Valid Avg Km  |   50   144   432  1296   |   2.4   3.3   5.7   10.   24.   47.   76.  122.  |        | 
+    | Call     Name               Lctr  QSOs   /QSO   |  MHz   MHz   MHz   MHz   |   GHz   GHz   GHz   GHz   GHz   GHz   GHz   GHz  |  TOTAL | 
+    |-------------------------------------------------|--------------------------|--------------------------------------------------|--------|
+    |                                                 |                          |                                                  |        |
+    |   No logs submitted!                            |                          |                                                  |        |
+    |                                                 |                          |                                                  |        |
+    ------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                Longest Distance Verified Contacts
+                ==================================
+
+            50      05:19     1649 Km      VK4GU     --  VK5BWR/P
+           144      21:10     2177 Km      VK4IF/P   --  ZL1TPH/P
+           432      06:13      324 Km      VK2SRC/P  --  VK4IF/P
+          1.2G      11:17      324 Km      VK2SRC/P  --  VK4IF/P
+          2.4G      05:12      222 Km      VK3BEZ/P  --  VK3ER/P
+          3.3G      20:23      203 Km      VK4IF/P   --  VK4OE/P
+          5.7G      05:45      218 Km      VK4CSD/P  --  VK4IF/P
+          10.G      20:47      203 Km      VK4IF/P   --  VK4OE/P
+          24.G      00:08      132 Km      VK3MY     --  VK3KQ/P
+          47.G      23:19       70 Km      VK4CSD/P  --  VK4OE/P
+          76.G      03:51       56 Km      VK5/OE4WOG--  VK5KK/P
+                    07:10       56 Km      VK5/OE4WOG--  VK5ZT/P
+                    03:48       56 Km      VK5APN/P  --  VK5KK/P
+                    07:08       56 Km      VK5APN/P  --  VK5ZT/P
+          122G      00:16        5 Km      VK5/OE2JOM--  VK5KK/P
+                    00:14        5 Km      VK5/OE4WOG--  VK5KK/P
+                    10:40        5 Km      VK2JDS    --  VK2ZRH/P
+                    11:00        5 Km      VK2JDS    --  VK2KFJ/P
+                    10:55        5 Km      VK2KFJ/P  --  VK2ZRH/P
+
+          ( Contact may be non-scorring, eg: not in the best   )
+          ( 8-hours selected, but both logs must be submitted. )
+
+
+
+
+
+                Portable Locations
+                ==================
+
+          OE2JOM       Kulpara, SA
+          OE4WOG       Salter Springs, SA
+          VK1AI        
+          VK2KCM       
+          VK2KFJ       qf46pu Gowan NSW
+          VK2MB        Terry Hills Weather Station
+          VK2SRC       The Pinnacles
+          VK2XIC       
+          VK2XLJ       
+          VK2ZRH       
+          VK3APW       
+          VK3ARR       
+          VK3BEZ       Mt Tassie VIC - QF31GO
+          VK3ER        McLaughlin`s Lookout - Wombat State Forest   QF22DM15
+          VK3FTOM      SAM REMO bridge to Phillip Island
+          VK3HY        One Tree Hill Road, Ferny Creek
+          VK3KQ        Ross Creek State Forest, near Enfield
+          VK3MH        Frank Thompson Reserve Kinglake Victoria
+          VK3MQ        Kalorama
+          VK3ND        SAN REMO - rotator broke in 1/2
+          VK3UHF       
+          VK3ZAP       kinglake west
+          VK4CSD       
+          VK4IF        
+          VK4OE        Mt Gravatt QG62MK and Kamarun Lookout QG61NU
+          VK4WIE       
+          VK5APN       
+          VK5BWR       Iron Knob, South Australia
+          VK5FBAA      montacute Heights/gepps cross
+          VK5JR        The Bluff
+          VK5KK        Medlow Rd, Craigmore
+          VK5NI        
+          VK5OQ        700 m east of Kulpara
+          VK5ZT        
+          VK6NAD       
+          VK6VF        Piney Lakes OF77vw
+          VK7ALH       
+          VK7DW        
+          VK7EV        Table Cape Lighthouse Tasmania
+          VK7HH        Mt Hobbs
+          VK7JAM       
+          VK7TW        Queens Domain QE37PD
+          VK7WN        Mount Nelson Signal Station
+          VK7ZBX       Mt Wellington - Close to summit
+          ZL1TPH       Cape Reinga, North Island
+
+
+
+
+
+
+                Active Stations per State
+                =========================
+
+	   State:           VK1    VK2    VK3    VK4    VK5    VK6    VK7    VK8    ZLn    DX 
+	   No of Statns:      5     54     91     48     49      8     44     -       8     - 
+	   Submtng Logs:      3     17     33      9     17      3     19     -       1     - 
+	   Percentage  :     60%    31%    36%    19%    35%    38%    43%    -      13%    -  
+
+
+
+
+
+                State to State Contacts
+                =======================
+                (Contacts in submitted logs only in both divisions,)
+                (so not likely to be the same in each direction.   )
+
+
+	     All  Band From State:
+	                 VK1    VK2    VK3    VK4    VK5    VK6    VK7    VK8    ZLn    DX 
+	          VK1    107     23      2     12      3     -      -      -      -      - 
+	     To:  VK2     36    387     18     51     26     -      -      -      -      - 
+	          VK3      4     17   2713     66     40     -       4     -      -      - 
+	          VK4     16     55     97    414     28     -       2     -       1     - 
+	          VK5      4     35     64     23    848     -       1     -      -      - 
+	          VK6     -      -      -      -      -      49     -      -      -      - 
+	          VK7     -      -       2      1      8     -     336     -      -      - 
+	          VK8     -      -      -      -      -      -      -      -      -      - 
+	          ZLn     -      21     -      19     -      -      -      -      -      - 
+	          DX      -      -      -      -      -      -      -      -      -      - 
+
+	     6 m  Band From State:
+	                 VK1    VK2    VK3    VK4    VK5    VK6    VK7    VK8    ZLn    DX 
+	          VK1     32     -      -      11      3     -      -      -      -      - 
+	     To:  VK2      3     68      8     10     26     -      -      -      -      - 
+	          VK3     -       7    302     64     28     -      -      -      -      - 
+	          VK4     16     17     97     51     27     -       2     -      -      - 
+	          VK5      4     35     41     23     63     -       1     -      -      - 
+	          VK6     -      -      -      -      -       8     -      -      -      - 
+	          VK7     -      -      -       1      7     -      34     -      -      - 
+	          VK8     -      -      -      -      -      -      -      -      -      - 
+	          ZLn     -       4     -       6     -      -      -      -      -      - 
+	          DX      -      -      -      -      -      -      -      -      -      - 
+
+	     2 m  Band From State:
+	                 VK1    VK2    VK3    VK4    VK5    VK6    VK7    VK8    ZLn    DX 
+	          VK1     37     23      2      1     -      -      -      -      -      - 
+	     To:  VK2     30    122      9     32     -      -      -      -      -      - 
+	          VK3      3     10   1177      2      9     -       4     -      -      - 
+	          VK4     -      28     -     131      1     -      -      -       1     - 
+	          VK5     -      -      18     -     221     -      -      -      -      - 
+	          VK6     -      -      -      -      -      22     -      -      -      - 
+	          VK7     -      -       2     -      -      -     137     -      -      - 
+	          VK8     -      -      -      -      -      -      -      -      -      - 
+	          ZLn     -      16     -      11     -      -      -      -      -      - 
+	          DX      -      -      -      -      -      -      -      -      -      - 
+
+	    70 cm Band From State:
+	                 VK1    VK2    VK3    VK4    VK5    VK6    VK7    VK8    ZLn    DX 
+	          VK1     29     -      -      -      -      -      -      -      -      - 
+	     To:  VK2      3     77      1      6     -      -      -      -      -      - 
+	          VK3      1     -     568     -      -      -      -      -      -      - 
+	          VK4     -       4     -      88     -      -      -      -      -      - 
+	          VK5     -      -       2     -     205     -      -      -      -      - 
+	          VK6     -      -      -      -      -      19     -      -      -      - 
+	          VK7     -      -      -      -       1     -      85     -      -      - 
+	          VK8     -      -      -      -      -      -      -      -      -      - 
+	          ZLn     -       1     -       2     -      -      -      -      -      - 
+	          DX      -      -      -      -      -      -      -      -      -      - 
+
+	    23 cm Band From State:
+	                 VK1    VK2    VK3    VK4    VK5    VK6    VK7    VK8    ZLn    DX 
+	          VK1      9     -      -      -      -      -      -      -      -      - 
+	     To:  VK2     -      75     -       3     -      -      -      -      -      - 
+	          VK3     -      -     350     -      -      -      -      -      -      - 
+	          VK4     -       6     -      57     -      -      -      -      -      - 
+	          VK5     -      -      -      -      98     -      -      -      -      - 
+	          VK6     -      -      -      -      -      -      -      -      -      - 
+	          VK7     -      -      -      -      -      -      48     -      -      - 
+	          VK8     -      -      -      -      -      -      -      -      -      - 
+	          ZLn     -      -      -      -      -      -      -      -      -      - 
+	          DX      -      -      -      -      -      -      -      -      -      - 
+
+	    13 cm Band From State:
+	                 VK1    VK2    VK3    VK4    VK5    VK6    VK7    VK8    ZLn    DX 
+	          VK1     -      -      -      -      -      -      -      -      -      - 
+	     To:  VK2     -      23     -      -      -      -      -      -      -      - 
+	          VK3     -      -      97     -      -      -      -      -      -      - 
+	          VK4     -      -      -      37     -      -      -      -      -      - 
+	          VK5     -      -      -      -      31     -      -      -      -      - 
+	          VK6     -      -      -      -      -      -      -      -      -      - 
+	          VK7     -      -      -      -      -      -      20     -      -      - 
+	          VK8     -      -      -      -      -      -      -      -      -      - 
+	          ZLn     -      -      -      -      -      -      -      -      -      - 
+	          DX      -      -      -      -      -      -      -      -      -      - 
+
+
+
+
+
+                Multi-Op Stations Operators
+                ==========================
+
+
+	          From log of:   VK3KQ   Damian Ayers
+	          ===========
+
+	           Damian VK3KQ
+	           Marshall VK3MRG
+	           Steve VK3ZH
+	           Shaun VK3VLY
+	           Ralph VK3LL
+
+
+	          From log of:   VK3ER   Eastern and Mountain District Radio Club
+	          ===========
+
+	           Jack  VK3WWW
+	           Mike  VK3AVV
+	           Peter  VK3ADY
+	           Michael  VK3MHY
+	           Peter  VK3QI
+
+
+	          From log of:   VK2SRC   Summerland Amateur Radio Club
+	          ===========
+
+	           VK2QJ Graeme Battistuzzi
+	           VK2CDG David Clausen
+
+
+	          From log of:   VK4IF   Scott Watson
+	          ===========
+
+	           Scott VK4CZ
+	           Kevin VK4UH
+	           Col VK4MIL
+
+
+	          From log of:   VK3BEZ   Eastern Zone Amateur Radio Club
+	          ===========
+
+	           VK3TNL
+	           VK3WRE
+	           VK3HQZ
+
+
+	          From log of:   VK5BWR   Whyalla Amateur Radio Club
+	          ===========
+
+	           VK5KJG
+	           VK5MSD
+	           VK5BD
+
+
+	          From log of:   VK4WIE   City of Brisbane Radio Society Inc.
+	          ===========
+
+	           VK4AK ....Bruce
+	           VK4NEF ...Eric
+	           VK4GC .....Ken
+	           VK4IAA .....John
+	           VK4MJF ....John
+	           VK4CRO ...Ron
+
+
+	          From log of:   VK6VF   WA VHF GROUP
+	          ===========
+
+	           Randall VK6WR
+	           Robert VK6FRDM
+	           Denis VK6AKR
+
+
+	          From log of:   VK2MB   Manly Warringah Radio Society
+	          ===========
+
+	           Greg - VK2XE
+	           Nick - VK2FS
+	           Rod - VK2ZZM
+	           Geoff - VK2TGO
+	           Phil - VK2XPL
+	           Phil - VK2APL
+	           Sean - VK2THT
+	           Tim - VK2BT
+
+
+
+
+
+                C O M M E N T S
+                ===============
+
+
+	          From log of:   VK7WN   Warren Nicholas
+	          ===========
+
+	           Handheld 5W inside car
+	           Windy with high gusts
+
+
+	          From log of:   VK3FS   Andrew McColm
+	          ===========
+
+	           First contest using 2.4GHz
+	          
+
+
+	          From log of:   VK4WIS   Sunshine Coast Amateur Radio Club
+	          ===========
+
+	           Operators - VK4WS, VK4OR, VK4TS, VK4LHD, VK4FSCC
+
+
+	          From log of:   VK5NE   Paul Roehrs
+	          ===========
+
+	          A most enjoyable contest with some good openings on 6 metres.
+	          I can still enjoy my hobby from a retirement estate.
+
+
+	          From log of:   VK2XTC   Brian O`Gallagher
+	          ===========
+
+	           DIG are FT8 contacts. Default sequence used as 000
+	          
+
+
+	          From log of:   VK3BNW   EMDRC Radio Club
+	          ===========
+
+	           Operators: VK3UKW, VK3FDRS
+	           Power: 100W on 2m, 50W on 70cm
+
+
+	          From log of:   VK3LTL   Andrew Bainbridge
+	          ===========
+
+	          Thanks to all who do the work off air to make the Field Days happen, and thanks to all
+	          operators and stations that participated.
+
+
+	          From log of:   VK7JAM   James McElwee
+	          ===========
+
+	           Very windy day on Mt George in the sun.
+	          
+
+
+	          From log of:   VK5JR   Gary Smythe
+	          ===========
+
+	           Confirming Single Op. and Two Band.
+	           Points alloted to contacts do not appear to be in line with distance based rules.
+
+
+	          From log of:   VK5ZT   Tim Dixon
+	          ===========
+
+	          Note duplicate number sent at 005 and no 009 sent to get back in step
+	          
+
+
+
+          End of Summary - Created:  2019-12-14 07:29 UTC

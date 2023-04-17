@@ -1,0 +1,153 @@
+
+Contest:   Winter VHF-UHF Field Day
+
+Name    :   Marc Hillman
+Call:       VK3OHM
+
+Section:    C2a  Check Log - not eligible for certificate
+
+eMail   :   vk3ohm@wia.org.au
+
+======================================================================
+
+
+Shortly before the Winter field day, revised field day rules were published
+and for those who did not get to read them, a major change was made to 
+remove two division option and just use "distance based scoring" for all logs.
+
+Therefore if logs for both divisions were still submitted, log for Div.1 was 
+ignored, and if only Div.1 log was submitted, it was converted to Div.2.
+
+
+Rover category still seems to be rather miss-understood category and several
+logs were re-classified as portable as they did not comply with the rules.
+
+
+Many logs were not checked after the field day (which is allowed and almost
+expected in this contest) before submitting, so many points were lost due to 
+mal-formed call signs and wrong locators. Check the worked locator on each 
+high value contact as wrongly entered locator on the first contact will 
+propagate throughout the log when using VKCL.
+
+There was some improvement in contact time stamps, and major improvement in
+cross-band contacts (where it was not possible to determine who was at fault) 
+and wrong band contacts (where it was possible).
+
+Logs starting at 01:00UTC and 02:00UTC were all accepted, but a few logs had 
+a fixed time bias as if their computer did not have correct time. A few logs 
+also used local time.  The log output format for next field day will be 
+changed to a Cabrillo format, and contacts outside Sat 01:00 UTC to
+Sun 00:59 UTC for Winter, and Sat 02:00 UTC to Sun 01:59 UTC for Spring and 
+Summer will be ignored.
+
+There will possibly be other changes to the rules for the next field day, so 
+read the rules for Spring field day carefully, and if you use VKCL, update
+to the latest version before the Spring field day.
+
+
+
+73,
+Mike,  VK3AVV,          11th July 2019
+VHF-UHF Field Day Contest Log Checking
+email:  vk3avv@wia.org.au
+
+
+
+======================================================================
+
+SUMMARY:
+-------
+
+       1   Claimed QSO (for reference)
+       1   Counted QSO before checking
+       1   Final   QSO after checking
+     0.0%  QSO Reduction
+
+       9   Claimed score (for reference)
+       9   Calculated score before checking
+       9   Final score after checking
+     0.0%  Score Reduction
+     100%  Contacts checked
+
+Results by band:
+---------------
+
+     Band         2 m  
+
+    Contacts         1 
+
+    Claimed          9 
+    Final            9 
+
+    Longest          9   km
+    Average          9   km
+
+
+Not in Log (QSO Removed):
+----------
+
+    None.
+
+Duplicate Contact (QSO Removed/Reinstated):
+-----------------
+
+    None.
+
+Call Incorrectly Copied (QSO Removed):
+-----------------------
+
+    None.
+
+Exchange Copied Incorrectly (QSO Removed):
+--------------------------
+
+    None.
+
+Exchange probably Sent Incorrectly (Information):
+--------------------------
+
+    None.
+
+Logged on incorrect band (QSO Removed):
+------------------------
+
+    None.
+
+Cross Band Contact (Using Lower Score Band in both Logs):
+------------------
+
+    None.
+
+Time Stamp Difference Exceed 5 mins Limit:
+------------------------------------------
+(50% points loss if <=10 mins, all points loss if greater!)
+----------------------------------------------------------
+
+    None.
+
+Unresolved Time Stamp Difference (NO Penalty in Either Log)
+--------------------------------
+    None.
+
+Incorrect Worked Locator (Corrected, with 25% Points Penalty):
+------------------------
+
+    None.
+
+Unique calls (worked once in your log only) (Information - QSO NOT removed):
+===========================================
+
+    None.
+
+Stations copying your call/band/exchange/locator incorrectly (Information):
+============================================================
+
+    None.
+
+
+
+End of Report.  Created:  2019-07-12 02:29 UTC
+
+Processed Log File Nmae:  VK3OHM_C2_div2.LOG
+
+-------------

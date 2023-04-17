@@ -1,0 +1,149 @@
+
+
+			Spring VHF-UHF Field Day Contest  2019-11-23
+
+				List of Submitted Logs
+
+          1     OE2JOM              A1c       h.wimmer@a1.net
+          2     OE4WOG              A1c       wolfgang.hoeth@aon.at
+          3     VK1AI               A1b       cooperparkhurst@bigpond.com
+          4     VK1JA               C2b       jay77@iinet.net.au
+          5     VK1KW               C1b       vk1kw@netspace.net.au
+          6     VK2ASY              C2b       kim.stevens@member.ses.nsw.gov.au
+          7     VK2AZ               C1c       hblists@gmail.com
+          8     VK2BRM              C2c       mossb789@tpg.com.au
+          9     VK2DWP              C1b       vk2zrh@wia.org.au
+         10     VK2FWHD             C2a       waggaheating@gmail.com
+         11     VK2JDS              C2c       vk2jds@hotmail.com
+         12     VK2KCM              A1b       vk2kcm@gmail.com
+         13     VK2KFJ              A2c       vk2kfj@yahoo.com.au
+         14     VK2MB               B2b       vk2xe@rocketmail.com
+         15     VK2SRC              B1b       vk2jub@gmail.com
+         16     VK2VL               C1b       aj.smith@bigpond.net.au
+         17     VK2XAX              C1c       vk2xax@skybase.net
+         18     VK2XIC              A1b       vk2xic@gmail.com
+         19     VK2XLJ              A2b       vk2xlj@hotmail.com
+         20     VK2XTC              C1b       ogallagher@optusnet.com.au
+         21     VK2YW               C1b       vk2yw@wia.org.au
+         22     VK2ZRH              A2c       vk2zrh@wia.org.au
+         23     VK3APW              A2c       peter.westgarth@bigpond.com.au
+         24     VK3ARR              A2a       
+         25     VK3ART              C2b       vk3art@iprimus.com.au
+         26     VK3AUQ              C1b       kev.phillips@bigpond.com
+         27     VK3AVV              C2b       vk3avv@wia.org.au
+         28     VK3AV               C2b       bernard.vk3av@gmail.com
+         29     VK3BEZ              B2c       vk3tnl@linford.com.au
+         30     VK3BNW              C2b       vk3er@emdrc.com.au
+         31     VK3ER               B1c       vk3er@emdrc.com.au
+         32     VK3FDLL             C1a       matt+wia@geekle.id.au
+         33     VK3FLMV             C2b       vk3flmv@optusnet.com.au
+         34     VK3FS               C1c       andrew@3fs.net.au
+         35     VK3FTOM             A2b       emmamackey02@gmail.com
+         36     VK3HJV              C1a       vk3hjv@gmail.com
+         37     VK3HY               A2c       gavin@renta2way.com.au
+         38     VK3JL               C2a       vk3jl@wia.org.au
+         39     VK3KIS              C2b       aka9950202@aol.com
+         40     VK3KQ               B2c       dayers4@bigpond.com
+         41     VK3LM               C1b       mickygee66@gmail.com
+         42     VK3LTL              C1b       brosca@hotmail.com
+         43     VK3MDH              C1b       hudcomm@optushome.com.au
+         44     VK3MH               A2b       vk3mh@icloud.com
+         45     VK3MQ               A2c       vandwhit@net2000.com.au
+         46     VK3MY               C1c       info@strictlyham.com.au
+         47     VK3NCC              C1a       colin_c_consiglio@yahoo.com.au
+         48     VK3ND               A1b       gunzal@hotmail.com
+         49     VK3PH               C1b       peter.hartfield@outlook.com
+         50     VK3PWG              C1b       petegamble@tpg.com.au
+         51     VK3TNL              C2a       vk3tnl@linford.com.au
+         52     VK3UHF              B2c       cgnaccar@gordontafe.edu.au
+         53     VK3VKT              C1b       vk3vkt@gmail.com
+         54     VK3YE               C1b       vk3ye@qsl.net
+         55     VK3ZAP              A2a       tanglebeans@bigpond.com
+         56     VK3ZQB              C2c       vk3zqb1@bigpond.com
+         57     VK4ADC              C2c       doug@vk4adc.com
+         58     VK4CSD              A1c       comlab@optusnet.com.au
+         59     VK4EA               C2c       vk4ea@wia.org.au
+         60     VK4FB               C2c       vk4fb@wia.org.au
+         61     VK4GU               C2c       garyanddawnurquhart@bigpond.com
+         62     VK4IF               B1c       vk4cz@wia.org.au
+         63     VK4OE               A1c       uwaves@bigpond.com
+         64     VK4WIE              B2b       vk4cro@gmail.com
+         65     VK4WIS              C1c       vk4lhd@flexinet.com.au
+         66     VK5APN              A2c       vk5apn@vk5apn.com
+         67     VK5BWR              B1b       vk5bd@wia.org.au
+         68     VK5DT               C2b       dj11@adam.com.au
+         69     VK5FBAA             A2b       bundi639@bigpond.com
+         70     VK5JR               A2c       vk5jr@wia.org.au
+         71     VK5KAF              C1b       vk5kaf@gmail.com
+         72     VK5KBJ              C2b       vk5kbj@wia.org.au
+         73     VK5KK               A1c       david@vk5kk.com
+         74     VK5KLV              C1b       les.virgo@bigpond.com
+         75     VK5MVR              C2b       alow@internode.on.net
+         76     VK5NE               C1c       paul.roehrs@gmail.com
+         77     VK5NI               A2c       johnvk5ni@gmail.com
+         78     VK5OQ               A2c       vk5oq.sa@gmail.com
+         79     VK5UE               C1b       cmlow@bigpond.com
+         80     VK5ZT               A2c       tim@vk5zt.com
+         81     VK6NAD              A2b       vk6nad@gmail.com
+         82     VK6RK               C2b       rick@vk6xlr.net
+         83     VK6VF               B2b       kanekobrown1@gmail.com
+         84     VK7ALH              A2c       andrew.dewaer@bigpond.com
+         85     VK7AN               C2b       andrew.dewater@bigpond.com
+         86     VK7BEN              C2b       ben@vk7ben.id.au
+         87     VK7DW               A2c       andrew.dewater@bigpond.com
+         88                         C2b       andrew.dewater@bigpond.com
+         89     VK7EV               A2b       ericvdneut1@bigpond.com
+         90     VK7FPCL             C2b       paulepruss@gmail.com
+         91     VK7HH               A2c       haydenph91@gmail.com
+         92     VK7JAM              A2b       jmphotosdesign@gmail.com
+         93     VK7KAJ              C2b       vk7kaj@gmail.com
+         94     VK7KPC              C1b       dodd.pc@bigpond.com
+         95     VK7PD               C1b       vk7pd@wia.org.au
+         96     VK7SH               C2a       steven@honson.id.au
+         97     VK7TW               A2b       vk7tw@wia.org.au
+         98     VK7VH               C2b       vk7vh@hotmail.com
+         99     VK7WN               A2a       vk7wn@wia.org.au
+        100     VK7ZBX              A2c       vk7zbx@gmail.com
+        101     VK7ZRF              C2b       andrew.dewater@bigpond.com
+        102     ZL1TPH              A2a       zl1tph@xtra.co.nz
+
+        Total:  Stations:  101       Logs:  102
+
+        Check Logs:   VK2FWHD, VK2ZRH, VK3ARR, VK3AVV
+
+
+        At least  205  other participating stations submitted no log                            
+        (39 of which had made at least 10 contacts)
+
+
+
+	Contest Statistics:
+	    (Contacts and some errors count from both ends.)
+
+	  6640     Total number of contacts logged
+
+	  4245     Number of logged contacts checked
+	    64     Percentage of logged contacts checked
+
+	    26     Not in log
+
+	    39     Call copied incorrectly
+
+	    78     Exchange copied incorrectly
+
+	    37     Exchange Possibly Sent Incorrectly
+
+	     3     Band logged incorrectly
+
+	    40     C/Band use Lwr Score Band
+
+	    11     T/Stamp Diff Too High
+
+	     5     T/Stamp Diff > Allowed
+
+	    50     T/Stamp Diff Unreslvd
+
+	   104     Corrected Worked Locators
+
+
+     Created:  2019-12-14 11:20 UTC

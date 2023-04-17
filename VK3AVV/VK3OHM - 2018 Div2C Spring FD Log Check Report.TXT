@@ -1,0 +1,143 @@
+
+Contest:   2018 Spring VHF-UHF Field Day
+
+Name    :   Marc Hillman
+Call:       VK3OHM
+
+Section     C2b - Home Station,  8 hours, Four-bands
+Division:   2: Distance Scoring
+
+eMail   :   vk3ohm@wia.org.au
+
+======================================================================
+
+
+The logging accuracy has not changed to any extent over the last couple
+of years, so maybe this is as good as can be achieved. 
+
+Incorrectly copied exchanges which are 'off by one' are still very prevalent,
+accounting for a sigificant portion of the incorrectly copied exchange errors.
+Still no explanation for it, but please take care to fully log a contact
+before starting the next one.
+
+There are still large contact time stamps errors at times. It is hard to
+understand how errors in time of up to an hour can arise when computer 
+logging is used in real time.
+
+The algorithm to resolve which log may be correct when a time stamp error
+occurs can be explained by the following example. Station A logs a contact
+at say 03:00 with Station B who logs the same contact at 04:00, one hour later.
+If Station A then logs a verified contact (that is within 5 minutes in each
+log) with Station C at 03:30, then Station A is much more likely to have 
+logged the first contact correctly and Station B looses that contact. To 
+resolve shorter intervals requires many verified contacts and there are never
+enough.
+
+Thank you to all who submitted log(s). Please encourage others to do the same.
+All logs are useful, irrespective of how many contacts, and there were many
+more logs that could have been submitted. Suggestions on how to make the
+process to submit logs easier would be very welcome.
+
+
+
+73,
+Mike,  VK3AVV,          11th December 2018
+VHF-UHF Field Day Contest Log Checking
+email:  vk3avv@wia.org.au
+
+
+
+======================================================================
+
+SUMMARY:
+-------
+
+      23   Claimed QSO (for reference)
+      23   Counted QSO before checking
+      23   Final   QSO after checking
+     0.0%  QSO Reduction
+
+     903   Claimed score (for reference)
+     903   Calculated score before checking
+     903   Final score after checking
+     0.0%  Score Reduction
+      87%  Contacts checked
+
+Results by band:
+---------------
+
+     Band         6 m      2 m     70 cm 
+
+    Contacts         4       12        7 
+
+    Claimed        200      316      387 
+    Final          200      316      387 
+
+    Longest         77      125       77   km
+    Average         29       26       20   km
+
+
+Not in Log (QSO Removed):
+----------
+
+    None.
+
+Duplicate Contact (QSO Removed/Reinstated):
+-----------------
+
+    None.
+
+Call Incorrectly Copied (QSO Removed):
+-----------------------
+
+    None.
+
+Exchange Copied Incorrectly (QSO Removed):
+--------------------------
+
+    None.
+
+Logged on incorrect band (QSO Removed):
+------------------------
+
+    None.
+
+Cross Band Contact (Using Lower Score Band in both Logs):
+------------------
+
+    None.
+
+Time Stamp Difference Exceed 5 mins Limit:
+------------------------------------------
+(50% points loss if <=10 mins, all points loss if greater!)
+----------------------------------------------------------
+
+    None.
+
+Unresolved Time Stamp Difference (NO Penalty in Either Log)
+--------------------------------
+    None.
+
+Incorrect Worked Locator (Corrected, with 25% Points Penalty):
+------------------------
+
+    None.
+
+Unique calls (worked once in your log only) (Information - QSO NOT removed):
+===========================================
+
+    None.
+
+Stations copying your call/band/exchange/locator incorrectly (Information):
+============================================================
+
+   VK3WWW      :   02:37   432  SSB <VK30HM>       003  015            Should be: VK3OHM
+   VK3WWW      :   02:37   432  SSB  VK30HM        003 <015>           Your Log:  013
+
+
+
+End of Report.  Created:  2018-12-11 02:43 UTC
+
+Processed Log File Nmae:  VK3OHM_C2_div2.LOG
+
+-------------

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "VKCL support", "VKCL support.vbproj", "{E7642C8B-4104-49C4-A7E9-1B53F9703957}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{02F98F9B-01B3-49BA-B847-52BF600448D9}"
+	ProjectSection(SolutionItems) = preProject
+		Checker.db3 = Checker.db3
+		Name.db3 = Name.db3
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7642C8B-4104-49C4-A7E9-1B53F9703957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7642C8B-4104-49C4-A7E9-1B53F9703957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7642C8B-4104-49C4-A7E9-1B53F9703957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7642C8B-4104-49C4-A7E9-1B53F9703957}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91250655-6DAB-483A-A263-085344C1E727}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,186 @@
+
+Contest     :     2020 Summer VHF-UHF Field Day
+
+Name        :     Marc Hillman
+Call        :     VK3OHM
+
+Section     :     C2b - Home Station,  8 hours, Four-bands
+Rank in Sect:     2nd   (Entries: 25)
+
+eMail       :     vk3ohm@wia.org.au
+
+======================================================================
+
+
+As before, all Div.1 logs were converted to Div.2, which is now only referred
+to as distance based scoring.
+
+
+Again Rover category seems to be a very miss-understood category and a couple of
+logs were re-classified as portable since they did not comply with the rules for
+activating sufficient number of 4-char locators or moving between 4-char locators
+sufficiently number of times.
+
+
+Again many logs were not checked after the field day (which is allowed and
+almost expected in this contest) before submitting the log, and it is sad to see 
+heaps of points being lost due to simple typing errors that could have been easily
+corrected. Missing State designation digits and missing or wrong prefixes are 
+easily spotted if the log is displayed in call sign order, and a long distance 
+contact could be saved.
+
+
+In the statistics below, it is pleasing to see an increase in number of stations 
+submitting logs, but not sure what other inference can be drawn from the data,
+
+
+Summer Field Day statistics:
+       2020  (2019   2018    2017   2016)  Year
+
+         92  (  80     53      72     81)  Stations submitting logs
+        171  ( 178    159     158    191)  Other participating stations 
+         42  (  43     37      43     50)  Other participating stations making at
+                                                least 10 contacts
+
+       6720  (6629   5977    6473   9064)  Number of contacts logged
+       4049  (3750   3355    3853   5993)  Number of contacts checked
+        60( 57%     60%)  Percentage of logged contacts checked
+
+Errors:
+         10  (  24      8      21     25)  Not in log
+         25  (  23     15      18     34)  Call copied incorrectly
+
+         45  (  50     27      85    133)  Exchange copied incorrectly
+         20  (  20      ?       ?      ?)  Exchange possibly sent incorrectly
+                                                 (off by 1)
+
+          6  (   9      4       0     11)  Contacts logged on wrong band
+          6  (  16      8      19      9)  Cross-band contacts unresolved
+
+          3  (  27      3       ?      ?)  Time stamp difference above 10 minutes
+          0  (  10      5       ?      ?)  Time stamp difference 5 to 10 minutes
+         22  (  17     10      42      ?)  Time stamp differenc unresolved
+
+        102  ( 172     98     200      ?)  Corrected worked locators
+
+
+The change in penalty for incorrectly worked locators (points calculated with 
+corrected locator and then reduced by 20) resulted in higher loss of points
+in most cases, particularly in long distance contacts. Do check your worked locator
+frequently with the other station to minimise the losses. 
+
+
+
+If there are entries in the last section of the report, please study them carefully
+to see whether you can change and/or improve your operating technique to avoid others
+copying you incorrectly. Particularly consider the use of ACMA recommended phonetics.
+
+
+73,
+Mike,  VK3AVV,       7th February 2020
+VHF-UHF Field Day Contest Log Checking
+email:  vk3avv@wia.org.au
+
+
+
+======================================================================
+
+SUMMARY:
+-------
+
+      24   Claimed QSO (for reference)
+      24   Counted QSO before checking
+      24   Final   QSO after checking
+     0.0%  QSO Change
+
+   12068   Claimed score (for reference)
+   12068   Calculated score before checking
+   11825   Final score after checking
+     2.0%  Score Reduction
+      83%  Contacts checked
+
+Results by band:
+---------------
+
+     Band         6 m      2 m     70 cm 
+
+    Contacts        17        5        2 
+
+    Claimed      11504      310      254 
+    Final        11261      310      254 
+
+    Longest       1441      125       89   km
+    Average        685       62       47   km
+
+
+Not in Log (QSO Removed):
+----------
+
+    None.
+
+Duplicate Contact (QSO Removed/Reinstated):
+-----------------
+
+    None.
+
+Call Incorrectly Copied (QSO Removed):
+-----------------------
+
+    None.
+
+Exchange Copied Incorrectly (QSO Removed):
+--------------------------
+
+    None.
+
+Exchange Possibly Sent Incorrectly (Information):
+==================================
+
+    None.
+
+Logged on incorrect band (QSO Removed):
+------------------------
+
+    None.
+
+Cross Band Contact (Using Lower Score Band in both Logs):
+------------------
+
+    None.
+
+Time Stamp Difference Exceed 5 mins Limit:
+(50% points loss if <=10 mins, all points loss if greater!)
+----------------------------------------------------------
+
+    None.
+
+Unresolved Time Stamp Difference (NO Penalty in Either Log)
+================================
+    None.
+
+Incorrect Worked Locator (Corrected, with 20% Points Penalty):
+(Correct points reduced by 20%  less  claimed points!)
+------------------------------------------------------
+
+    03:22    50  SSB  VK2VL       012  039   <qg62le>     Activated: qg60le       -243 pts
+
+Unique calls (worked once in your log only) (Information - QSO NOT removed):
+===========================================
+
+    None.
+
+Stations copying your call/band/exchange/locator incorrectly (Information):
+============================================================
+
+   VK3KQ       :   01:30   144  SSB  VK3OHM        008  006  <qf22ot>  Activated: qf22oe
+   VK3KQ       :   11:39    50  SSB  VK3OHM        052  026  <qf22ot>  Activated: qf22oe
+   VK4IF       :   03:51    50  SSB <VK3AHM>       024  019            Should be: VK3OHM
+   VK4IF       :   03:51    50  SSB  VK3AHM        024  019  <qf22>    Activated: qf22oe
+
+
+
+End of Report.  Created:  2020-02-05 09:23 UTC
+
+Processed Log File Nmae:  VK3OHM_C2_div2.LOG
+
+-------------

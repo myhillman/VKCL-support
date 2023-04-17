@@ -1,0 +1,423 @@
+
+
+                        Spring VHF-UHF Field Day Contest  2019-11-23
+
+                    Errors Listing  - Displayed from ONE end only
+
+
+                       Not in log
+
+  VK2MB (B2B_2:24)    -  03:58     6 m    VK5NE       024   003
+  VK2SRC (B1B_2:10)   -  01:49    70 cm   VK4IF       003   002
+  VK2SRC (B1B_2:34)   -  04:59     6 m    VK5KBJ      017   039
+  VK2YW (C1B_2:21)    -  10:28     2 m    VK2KCM      021   008
+  VK3BNW (C2B_2:52)   -  06:33     2 m    VK3JL       052   029
+  VK3ER (B1C_2:56)    -  01:51    23 cm   VK3UHF      008   001
+  VK3ER (B1C_2:217)   -  06:39    70 cm   VK3ND       041   010
+  VK3ER (B1C_2:334)   -  11:03    23 cm   VK3KQ       045   029
+  VK3HJV (C1A_2:6)    -  04:10     2 m    VK5JR       006   010
+  VK3KQ (B2C_2:3)     -  01:04    13 cm   VK3ER       001   001
+  VK3LTL (C1B_2:5)    -  01:11     6 m    VK3FS       005   006
+  VK3MY (C1C_2:50)    -  03:53     9 cm   VK3ER       050   005
+  VK3MY (C1C_2:99)    -  05:53     3 cm   VK3FS       099   056
+  VK3ND (A1B_2:39)    -  19:03     2 m    VK3YE       040   053
+  VK3ND (A1B_2:62)    -  23:57    23 cm   VK3ER       063   000
+  VK3VKT (C1B_2:150)  -  00:59     2 m    VK3HJV      150   034
+  VK4ADC (C2C_2:47)   -  04:27     2 m    VK4WIE      047   014
+  VK4IF (B1C_2:86)    -  06:55     3 cm   VK4GU       002   032
+  VK5BWR (B1B_2:8)    -  04:10     6 m    VK2ASY      007   006
+  VK5NI (A2C_2:30)    -  04:04     2 m    OE4WOG      030   031
+  VK5ZT (A2C_2:36)    -  05:49     6 m    VK5KAF      036   023
+  VK6RK (C2B_2:5)     -  05:49     2 m    VK6VF       005   014
+  VK6RK (C2B_2:8)     -  07:53     2 m    VK6VF       008   029
+  VK7BEN (C2B_2:20)   -  03:44     2 m    VK7FPCL     020   012
+  VK7DW (A2C_2:8)     -  02:00     2 m    VK7KAJ      008   059
+  VK7KAJ (C2B_2:12)   -  03:49     2 m    VK7FPCL     012   014
+
+ Number of errors:   26
+
+
+                       Call copied incorrectly
+
+  VK2KCM (A1B_2:24)   -  09:31     2 m    ZLIIU       007   013   Should Be: ZL1IU
+  VK2XLJ (A2B_2:2)    -  01:23     2 m    VK2AXA      002   008   Should Be: VK2XAX
+  VK3ARR (A2A_2:2)    -  05:13     2 m    VK7FCPC     002   015   Should Be: VK7FPCL
+  VK3AV (C2B_2:70)    -  08:37     6 m    VK5BRW      070   028   Should Be: VK5BWR
+  VK3ER (B1C_2:75)    -  02:15    70 cm   VK3FMLV     016   013   Should Be: VK3FLMV
+  VK3ER (B1C_2:181)   -  05:14    70 cm   VK3FMLV     031   036   Should Be: VK3FLMV
+  VK3ER (B1C_2:279)   -  09:00    70 cm   VK3FMLV     054   057   Should Be: VK3FLMV
+  VK3ER (B1C_2:290)   -  09:19     6 m    VK3BKT      072   076   Should Be: VK3VKT
+  VK3FLMV (C2B_2:8)   -  01:51     2 m    VK3NY       008   018   Should Be: VK3MY
+  VK3FLMV (C2B_2:29)  -  04:40     2 m    VK3NDH      029   026   Should Be: VK3MDH
+  VK3FLMV (C2B_2:50)  -  07:29     2 m    VK3LCL      050   080   Should Be: VK3LTL
+  VK3FTOM (A2B_2:21)  -  04:28     2 m    VK3BZE      021   004   Should Be: VK3BEZ
+  VK3HY (A2C_2:54)    -  05:01     6 m    VK5KDJ      055   040   Should Be: VK5KBJ
+  VK3JL (C2A_1:7)     -  01:15     2 m    VK3AB       007   004   Should Be: VK3AV
+  VK3JL (C2A_1:12)    -  01:44     2 m    VK3LS       012   007   Should Be: VK3LM
+  VK3LM (C1B_2:6)     -  01:31     2 m    VK3ACW      006   006   Should Be: VK3APW
+  VK3MDH (C1B_2:7)    -  02:03     2 m    VK3FMLV     007   012   Should Be: VK3FLMV
+  VK3MDH (C1B_2:29)   -  04:53     2 m    VK3FMLV     029   034   Should Be: VK3FLMV
+  VK3MDH (C1B_2:34)   -  05:26     6 m    VKLTL       034   056   Should Be: VK3LTL
+  VK3MDH (C1B_2:37)   -  05:39    70 cm   VK3BPW      037   052   Should Be: VK3APW
+  VK3MDH (C1B_2:56)   -  09:16     2 m    VK3FMLV     056   060   Should Be: VK3FLMV
+  VK3MQ (A2C_2:3)     -  01:23     2 m    VK3FMLV     003   004   Should Be: VK3FLMV
+  VK3ZAP (A2A_2:6)    -  03:10     2 m    VK3MD       006   006   Should Be: VK3ND
+  VK3ZAP (A2A_2:11)   -  05:35     2 m    VK3TOM      011   032   Should Be: VK3FTOM
+  VK4GU (C2C_2:39)    -  08:55     3 cm   VK40E       039   002   Should Be: VK4OE
+  VK4WIE (B2B_2:17)   -  02:02     2 m    VK4EH       008   006   Should Be: VK4EA
+  VK4WIE (B2B_2:19)   -  02:05     2 m    VKIFP       009   011   Should Be: VK4IF
+  VK5BWR (B1B_2:7)    -  04:06     6 m    VQK2XLJ     006   015   Should Be: VK2XLJ
+  VK5BWR (B1B_2:29)   -  08:24     6 m    VK4DU       022   036   Should Be: VK4GU
+  VK5FBAA (A2B_2:6)   -  01:12    70 cm   VK5N1       006   006   Should Be: VK5NI
+  VK5KAF (C1B_2:32)   -  07:29     2 m    VKNE        032   086   Should Be: VK5NE
+  VK5KBJ (C2B_2:25)   -  02:57     6 m    VK2SRT      025   005   Should Be: VK2SRC
+  VK5KLV (C1B_2:1)    -  05:07     6 m    VK2ZAZ      001   034   Should Be: VK2AZ
+  VK5KLV (C1B_2:9)    -  00:50     6 m    VK2SRP      010   027   Should Be: VK2SRC
+  VK5NI (A2C_2:33)    -  04:39     9 cm   OE4JOM      033   016   Should Be: OE2JOM
+  VK6NAD (D2B_2:1)    -  05:39     2 m    VF          001   010   Should Be: VK6VF
+  VK7ALH (A2C_2:4)    -  01:34    23 cm   VK7XBK      004   004   Should Be: VK7ZBX
+  VK7FPCL (C2B_2:12)  -  03:53     2 m    VK7FSH      012   006   Should Be: VK7SH
+  VK7ZBX (A2C_2:71)   -  06:47     2 m    VK7FCPL     071   022   Should Be: VK7FPCL
+
+ Number of errors:   39
+
+
+                       Exchange copied incorrectly
+
+  OE2JOM (A1C_2:11)   -  04:06    70 cm   VK5APN      011   035      Sent: 033  (2)
+  OE4WOG (A1C_2:37)   -  04:44     9 cm   VK5ZT       037   017      Sent: 019  (-2)
+  OE4WOG (A1C_2:56)   -  07:34    70 cm   VK5KK       056   031      Sent: 091  (-60)
+  VK1JA (C2B_2:23)    -  04:53     6 m    VK1AI       023   021      Sent: 012  (9)
+  VK1KW (C1B_2:30)    -  08:29     6 m    VK1AI       030   029      Sent: 025  (4)
+  VK2AZ (C1C_2:22)    -  03:34    70 cm   VK2MB       022   017      Sent: 014  (3)
+  VK2BRM (C2C_2:3)    -  02:57     6 m    VK2XAX      003   059      Sent: 013  (46)
+  VK2BRM (C2C_2:4)    -  03:08    23 cm   VK2KCM      004   059      Sent: 006  (53)
+  VK2BRM (C2C_2:5)    -  03:09    23 cm   VK2AZ       005   765      Sent: 012  (753)
+  VK2BRM (C2C_2:6)    -  03:14    23 cm   VK2XAX      006   006      Sent: 016  (-10)
+  VK2DWP (C1B_2:2)    -  03:03     6 m    VK4GU       002   059      Sent: 017  (42)
+  VK2DWP (C1B_2:3)    -  03:06     6 m    VK4IF       003   059      Sent: 019  (40)
+  VK2KCM (A1B_2:9)    -  04:16    70 cm   VK2XAX      001   003      Sent: 033  (-30)
+  VK2KCM (A1B_2:10)   -  04:25    23 cm   VK2MB       008   028      Sent: 019  (9)
+  VK3AVV (C2B_2:8)    -  10:17    70 cm   VK3MY       008   161      Sent: 169  (-8)
+  VK3BNW (C2B_2:39)   -  05:24     2 m    VK3HY       039   016      Sent: 061  (-45)
+  VK3ER (B1C_2:6)     -  01:04     2 m    VK3HY       004   001      Sent: 006  (-5)
+  VK3ER (B1C_2:60)    -  01:53     6 m    VK4EA       014   005      Sent: 015  (-10)
+  VK3ER (B1C_2:285)   -  09:15     3 cm   VK3MY       010   059      Sent: 158  (-99)
+  VK3ER (B1C_2:432)   -  21:05    23 cm   VK3ND       061   058      Sent: 048  (10)
+  VK3FLMV (C2B_2:38)  -  06:04     2 m    VK3KQ       038   038      Sent: 048  (-10)
+  VK3HJV (C1A_2:2)    -  02:32     2 m    VK3LTL      002   022      Sent: 020  (2)
+  VK3HJV (C1A_2:3)    -  03:06     2 m    VK3KQ       003   020      Sent: 023  (-3)
+  VK3HJV (C1A_2:4)    -  03:08     2 m    VK3VKT      004   007      Sent: 021  (-14)
+  VK3HJV (C1A_2:8)    -  05:09     2 m    VK3ER       008   012      Sent: 043  (-31)
+  VK3HJV (C1A_2:9)    -  05:12     2 m    VK3KQ       009   044      Sent: 042  (2)
+  VK3HJV (C1A_2:10)   -  05:13     2 m    VK3VKT      010   015      Sent: 042  (-27)
+  VK3HY (A2C_2:25)    -  02:00     6 m    VK3AUQ      025   001      Sent: 005  (-4)
+  VK3KQ (B2C_2:94)    -  03:49     2 m    VK3UHF      033   010      Sent: 006  (4)
+  VK3KQ (B2C_2:100)   -  04:06    13 cm   VK3ER       005   088      Sent: 008  (80)
+  VK3KQ (B2C_2:233)   -  10:19    70 cm   VK3MY       052   071      Sent: 171  (-100)
+  VK3KQ (B2C_2:287)   -  20:57     2 m    VK3MY       098   223      Sent: 233  (-10)
+  VK3KQ (B2C_2:305)   -  21:26     2 m    VK3AVV      103   033      Sent: 037  (-4)
+  VK3LTL (C1B_2:61)   -  05:57    23 cm   VK3UHF      061   012      Sent: 007  (5)
+  VK3MDH (C1B_2:93)   -  21:28     6 m    VK3FS       093   112      Sent: 122  (-10)
+  VK3MH (A2B_2:28)    -  00:34     2 m    VK3ND       028   056      Sent: 066  (-10)
+  VK3MQ (A2C_2:12)    -  01:55    23 cm   VK3ER       012   910      Sent: 010  (900)
+  VK3MY (C1C_2:318)   -  00:59     2 m    VK3FS       318   064      Sent: 164  (-100)
+  VK3ND (A1B_2:23)    -  08:58    70 cm   VK3AV       024   047      Sent: 074  (-27)
+  VK3ND (A1B_2:45)    -  20:56     2 m    VK3MDH      046   092      Sent: 090  (2)
+  VK3PWG (C1B_2:2)    -  22:36    70 cm   VK3KQ       002   174      Sent: 074  (100)
+  VK3UHF (B2C_2:38)   -  03:46     9 cm   VK3APW      004   021      Sent: 031  (-10)
+  VK3YE (C1B_2:10)    -  08:22     2 m    VK3KQ       010   051      Sent: 061  (-10)
+  VK4ADC (C2C_2:55)   -  07:42     2 m    VK4IF       055   012      Sent: 057  (-45)
+  VK4EA (C2C_2:5)     -  01:46     6 m    VK3ER       015   005      Sent: 014  (-9)
+  VK4FB (C2C_2:18)    -  11:20     6 m    VK5BWR      018   022      Sent: 032  (-10)
+  VK4GU (C2C_2:32)    -  08:09     2 m    VK4ADC      032   056      Sent: 059  (-3)
+  VK4IF (B1C_2:58)    -  04:07     6 m    VK7AN       024   007      Sent: 005  (2)
+  VK4IF (B1C_2:155)   -  20:30    13 cm   VK4OE       011   014      Sent: 046  (-32)
+  VK4WIE (B2B_2:13)   -  01:45     6 m    VK3KQ       002   002      Sent: 005  (-3)
+  VK4WIS (C1C_2:32)   -  04:12     6 m    VK3LM       033   031      Sent: 016  (15)
+  VK4WIS (C1C_2:40)   -  04:38    23 cm   VK4WIE      041   008      Sent: 005  (3)
+  VK4WIS (C1C_2:70)   -  10:48     6 m    VK3MY       071   077      Sent: 177  (-100)
+  VK4WIS (C1C_2:77)   -  20:10     2 m    VK4IF       078   021      Sent: 049  (-28)
+  VK5APN (A2C_2:78)   -  09:06   6.5 mm   OE2JOM      079   056      Sent: 046  (10)
+  VK5BWR (B1B_2:30)   -  08:26     6 m    VK3LM       023   033      Sent: 030  (3)
+  VK5FBAA (A2B_2:22)  -  03:09     2 m    VK5DT       022   038      Sent: 031  (7)
+  VK5JR (A2C_2:7)     -  03:20     2 m    VK3UHF      007   001      Sent: 007  (-6)
+  VK5JR (A2C_2:8)     -  04:31     2 m    VK3KQ       008   076      Sent: 037  (39)
+  VK5KBJ (C2B_2:48)   -  05:26     6 m    VK2XAX      048   027      Sent: 037  (-10)
+  VK5KK (A1C_2:82)    -  07:05   6.5 mm   OE4WOG      082   056      Sent: 051  (5)
+  VK5KLV (C1B_2:1)    -  05:07     6 m    VK2ZAZ      001   034      Sent: 024  (10)
+  VK5NE (C1C_2:38)    -  03:34    70 cm   VK5FBAA     038   013      Sent: 023  (-10)
+  VK5NE (C1C_2:72)    -  05:47     2 m    VK5FBAA     072   002      Sent: 029  (-27)
+  VK5NE (C1C_2:82)    -  06:56    70 cm   VK5OQ       082   036      Sent: 038  (-2)
+  VK5NI (A2C_2:42)    -  06:23     9 cm   VK5NE       042   070      Sent: 079  (-9)
+  VK5OQ (A2C_2:45)    -  07:49    13 cm   VK5KK       045   090      Sent: 099  (-9)
+  VK6NAD (D2B_2:12)   -  08:06     2 m    VK6VF       012   030      Sent: 033  (-3)
+  VK7ALH (A2C_2:15)   -  04:14    23 cm   VK7HH       015   025      Sent: 028  (-3)
+  VK7FPCL (C2B_2:10)  -  02:05     2 m    VK7KAJ      010   045      Sent: 008  (37)
+  VK7HH (A2C_2:27)    -  04:11    23 cm   VK7DW       027   018      Sent: 016  (2)
+  VK7HH (A2C_2:29)    -  04:15    70 cm   VK7DW       029   019      Sent: 017  (2)
+  VK7HH (A2C_2:31)    -  04:18     2 m    VK7DW       031   020      Sent: 018  (2)
+  VK7KAJ (C2B_2:14)   -  04:13    23 cm   VK7ZBX      014   014      Sent: 044  (-30)
+  VK7TW (A2B_2:15)    -  05:42     6 m    VK7HH       015   015      Sent: 047  (-32)
+  VK7ZBX (A2C_2:41)   -  03:48     3 cm   VK7DW       041   016      Sent: 014  (2)
+  VK7ZBX (A2C_2:47)   -  04:20     2 m    VK7DW       047   021      Sent: 019  (2)
+  VK7ZBX (A2C_2:50)   -  04:23    70 cm   VK7DW       050   022      Sent: 020  (2)
+
+ Number of errors:   78
+
+
+                       Exchange Possibly Sent Incorrectly
+
+  VK1AI (A1B_2:56)    -  23:15     2 m    VK2FWHD     056   003      Sent: 004  (-1)
+  VK1JA (C2B_2:47)    -  23:10     2 m    VK2FWHD     047   002      Sent: 003  (-1)
+  VK1KW (C1B_2:17)    -  04:26     6 m    VK4WIS      017   037      Sent: 036  (1)
+  VK2BRM (C2C_2:14)   -  08:24     2 m    VK2XAX      014   052      Sent: 053  (-1)
+  VK2JDS (C2C_2:3)    -  03:42     9 cm   VK2ZRH      003   003      Sent: 004  (-1)
+  VK2XAX (C1C_2:34)   -  05:09     6 m    VK5KLV      034   002      Sent: 003  (-1)
+  VK2YW (C1B_2:10)    -  03:50     6 m    VK5BWR      010   002      Sent: 001  (1)
+  VK2YW (C1B_2:29)    -  22:54     2 m    VK2FWHD     029   001      Sent: 002  (-1)
+  VK3APW (A2C_2:24)   -  03:09     2 m    VK3FS       024   033      Sent: 034  (-1)
+  VK3AVV (C2B_2:22)   -  11:58     6 m    VK3MY       022   203      Sent: 202  (1)
+  VK3ER (B1C_2:286)   -  09:16   1.25cm   VK3MY       005   158      Sent: 159  (-1)
+  VK3ER (B1C_2:494)   -  23:20     3 cm   VK3KQ       017   017      Sent: 016  (1)
+  VK3FDLL (C1A_2:44)  -  00:28     2 m    VK3YE       044   046      Sent: 045  (1)
+  VK3FS (C1C_2:2)     -  01:03     2 m    VK3ER       002   002      Sent: 001  (1)
+  VK3FS (C1C_2:27)    -  02:22    70 cm   VK3FLMV     027   016      Sent: 017  (-1)
+  VK3FS (C1C_2:54)    -  04:15     6 m    VK5BWR      054   007      Sent: 008  (-1)
+  VK3KQ (B2C_2:159)   -  06:08     3 cm   VK3UHF      006   009      Sent: 008  (1)
+  VK3KQ (B2C_2:254)   -  11:30    23 cm   VK3MY       030   188      Sent: 189  (-1)
+  VK3KQ (B2C_2:338)   -  23:19     3 cm   VK3ER       016   016      Sent: 017  (-1)
+  VK3MDH (C1B_2:44)   -  06:37    23 cm   VK3UHF      044   010      Sent: 009  (1)
+  VK3MY (C1C_2:32)    -  02:30     3 cm   VK3KQ       032   002      Sent: 003  (-1)
+  VK3MY (C1C_2:220)   -  19:56    70 cm   VK3VKT      220   093      Sent: 092  (1)
+  VK3MY (C1C_2:257)   -  22:05     2 m    VK3LTL      257   183      Sent: 184  (-1)
+  VK3MY (C1C_2:315)   -  00:58     2 m    VK3FDLL     315   046      Sent: 047  (-1)
+  VK3UHF (B2C_2:15)   -  01:59     2 m    VK3FLMV     005   009      Sent: 010  (-1)
+  VK3UHF (B2C_2:42)   -  04:06     3 cm   VK3APW      006   034      Sent: 033  (1)
+  VK3VKT (C1B_2:132)  -  23:37     2 m    VK2FWHD     132   004      Sent: 005  (-1)
+  VK4WIE (B2B_2:1)    -  01:08     2 m    VK4WIS      001   001      Sent: 002  (-1)
+  VK4WIE (B2B_2:40)   -  04:05     2 m    VK4IF       013   016      Sent: 017  (-1)
+  VK5KBJ (C2B_2:53)   -  05:50     2 m    VK5ZT       053   036      Sent: 037  (-1)
+  VK5KK (A1C_2:114)   -  08:25   1.25cm   OE4WOG      114   073      Sent: 072  (1)
+  VK5OQ (A2C_2:58)    -  09:08   6.5 mm   OE4WOG      058   075      Sent: 074  (1)
+  VK7AN (C2B_2:4)     -  04:03    70 cm   VK7ZRF      004   004      Sent: 003  (1)
+  VK7FPCL (C2B_2:2)   -  01:16     2 m    VK7SH       002   003      Sent: 002  (1)
+  VK7KAJ (C2B_2:11)   -  03:47     2 m    VK7BEN      011   021      Sent: 022  (-1)
+  VK7ZBX (A2C_2:16)   -  01:51     2 m    VK7ALH      016   005      Sent: 006  (-1)
+  VK7ZBX (A2C_2:64)   -  05:27    23 cm   VK7ALH      064   021      Sent: 022  (-1)
+
+ Number of errors:   37
+
+
+                       Band logged incorrectly
+
+  VK2XTC (C1B_2:13)   -  06:02     2 m    VK2XAX      008   039 --  VK2XAX  Log:   6 m 
+  VK3ND (A1B_2:9)     -  06:36    70 cm   VK3ER       009   057 --  VK3ER   Log:   2 m 
+  VK3YE (C1B_2:21)    -  10:16    70 cm   VK3FS       021   076 --  VK3FS   Log:   6 m 
+
+ Number of errors:   3
+
+
+                       C/Band use Lwr Score Band   (ONE end shown only)
+
+  VK2AZ (C1C_2:20)    -  03:31     2 m    VK2MB       020   015 --  VK2MB   Log:   6 m 
+  VK2AZ (C1C_2:21)    -  03:33     6 m    VK2MB       021   016 --  VK2MB   Log:   2 m 
+  VK3APW (A2C_2:29)   -  03:34    70 cm   VK3UHF      029   005 --  VK3UHF  Log:  23 cm
+  VK3APW (A2C_2:41)   -  04:42    23 cm   VK3HY       041   048 --  VK3HY   Log:  13 cm
+  VK3FTOM (A2B_2:2)   -  01:40     2 m    VK3HY       002   018 --  VK3HY   Log:  70 cm
+  VK3KQ (B2C_2:94)    -  03:49     2 m    VK3UHF      033   010 --  VK3UHF  Log:  23 cm
+  VK3KQ (B2C_2:147)   -  05:59    70 cm   VK3ND       030   008 --  VK3ND   Log:   2 m 
+  VK3MDH (C1B_2:44)   -  06:37    23 cm   VK3UHF      044   010 --  VK3UHF  Log:  13 cm
+  VK3MH (A2B_2:28)    -  00:34     2 m    VK3ND       028   056 --  VK3ND   Log:  70 cm
+  VK4WIE (B2B_2:21)   -  02:11     6 m    VK5KBJ      005   016 --  VK5KBJ  Log:   2 m 
+  VK5DT (C2B_2:56)    -  05:50     2 m    VK5ZT       056   039 --  VK5ZT   Log:   6 m 
+  VK5DT (C2B_2:61)    -  06:22    23 cm   VK5NI       061   041 --  VK5NI   Log:  70 cm
+  VK5DT (C2B_2:62)    -  06:23    70 cm   VK5NI       062   043 --  VK5NI   Log:  23 cm
+  VK5KBJ (C2B_2:53)   -  05:50     2 m    VK5ZT       053   036 --  VK5ZT   Log:   6 m 
+  VK5KK (A1C_2:77)    -  06:45    70 cm   VK5NI       077   045 --  VK5NI   Log:   2 m 
+  VK5NE (C1C_2:79)    -  06:22    23 cm   VK5NI       079   042 --  VK5NI   Log:   9 cm
+  VK5NI (A2C_2:48)    -  06:49     9 cm   VK5ZT       048   041 --  VK5ZT   Log:   6 cm
+  VK7BEN (C2B_2:7)    -  01:24     2 m    VK7KAJ      007   001 --  VK7KAJ  Log:  70 cm
+  VK7FPCL (C2B_2:3)   -  01:23     2 m    VK7HH       003   009 --  VK7HH   Log:  70 cm
+  VK7FPCL (C2B_2:4)   -  01:25    70 cm   VK7HH       004   010 --  VK7HH   Log:   2 m 
+
+ Number of errors:   20
+
+
+                       T/Stamp Diff > Twice Allowed
+
+  VK2KCM (A1B_2:26)   -  10:13     2 m    VK2XAX      010   076 --  VK2XAX  Log: 22:12  (719 mins)
+  VK2KCM (A1B_2:29)   -  10:30     2 m    VK1AI       011   052 --  VK1AI   Log: 22:31  (721 mins)
+  VK2KCM (A1B_2:31)   -  10:57     2 m    VK2XTC      012   011 --  VK2XTC  Log: 22:57  (720 mins)
+  VK2KCM (A1B_2:33)   -  12:39     2 m    VK2XAX      014   087 --  VK2XAX  Log: 00:38  (719 mins)
+  VK2MB (B2B_2:19)    -  03:27     6 m    VK2XAX      019   025 --  VK2XAX  Log: 03:39  (12 mins)
+  VK2YW (C1B_2:33)    -  00:11     2 m    VK3KQ       033   121 --  VK3KQ   Log: 23:45  (26 mins)
+  VK3ER (B1C_2:6)     -  01:04     2 m    VK3HY       004   001 --  VK3HY   Log: 01:17  (13 mins)
+  VK3PWG (C1B_2:2)    -  22:36    70 cm   VK3KQ       002   174 --  VK3KQ   Log: 22:51  (15 mins)
+  VK5KLV (C1B_2:9)    -  00:50     6 m    VK2SRP      010   027 --  VK2SRP  Log: 22:43  (127 mins)
+  VK5MVR (C2B_2:3)    -  03:00     2 m    VK5FBAA     003   015 --  VK5FBAA Log: 02:00  (60 mins)
+  VK5MVR (C2B_2:4)    -  03:02     2 m    VK5KBJ      004   015 --  VK5KBJ  Log: 02:02  (60 mins)
+
+ Number of errors:   11
+
+
+                       T/Stamp Diff > Allowed
+
+  VK2MB (B2B_2:15)    -  03:23     6 m    VK2AZ       015   020 --  VK2AZ   Log: 03:31  (08 mins)
+  VK2MB (B2B_2:16)    -  03:24     2 m    VK2AZ       016   021 --  VK2AZ   Log: 03:33  (09 mins)
+  VK2MB (B2B_2:17)    -  03:25    70 cm   VK2AZ       014   022 --  VK2AZ   Log: 03:34  (09 mins)
+  VK3ZAP (A2A_2:13)   -  05:44     2 m    VK3AV       013   055 --  VK3AV   Log: 05:36  (08 mins)
+  VK3ZAP (A2A_2:14)   -  05:45     2 m    VK3LTL      014   057 --  VK3LTL  Log: 05:39  (06 mins)
+
+ Number of errors:   5
+
+
+                       T/Stamp Diff Unreslvd   (ONE end shown only)
+
+  OE2JOM (A1C_2:17)   -  04:41     9 cm   OE4WOG      017   039 --  OE4WOG  Log: 04:48  (07 mins)
+  OE2JOM (A1C_2:25)   -  05:19     3 cm   OE4WOG      025   046 --  OE4WOG  Log: 05:13  (06 mins)
+  OE4WOG (A1C_2:6)    -  01:32     2 m    VK5NI       006   010 --  VK5NI   Log: 01:38  (06 mins)
+  VK2AZ (C1C_2:6)     -  01:22     2 m    VK2XLJ      006   001 --  VK2XLJ  Log: 01:16  (06 mins)
+  VK2AZ (C1C_2:49)    -  20:58    23 cm   VK2BRM      049   017 --  VK2BRM  Log: 21:05  (07 mins)
+  VK2AZ (C1C_2:50)    -  21:00    13 cm   VK2BRM      050   018 --  VK2BRM  Log: 21:06  (06 mins)
+  VK2BRM (C2C_2:11)   -  08:22    13 cm   VK2XAX      011   050 --  VK2XAX  Log: 08:13  (09 mins)
+  VK2BRM (C2C_2:12)   -  08:23    23 cm   VK2XAX      012   051 --  VK2XAX  Log: 08:14  (09 mins)
+  VK2BRM (C2C_2:13)   -  08:23     6 m    VK2XAX      013   052 --  VK2XAX  Log: 08:16  (07 mins)
+  VK2BRM (C2C_2:14)   -  08:24     2 m    VK2XAX      014   052 --  VK2XAX  Log: 08:17  (07 mins)
+  VK2DWP (C1B_2:7)    -  10:28     6 m    VK2YW       007   019 --  VK2YW   Log: 10:21  (07 mins)
+  VK2KCM (A1B_2:10)   -  04:25    23 cm   VK2MB       008   028 --  VK2MB   Log: 04:35  (10 mins)
+  VK2SRC (B1B_2:83)   -  21:36     2 m    VK4OE       030   059 --  VK4OE   Log: 21:45  (09 mins)
+  VK3ER (B1C_2:8)     -  01:04     9 cm   VK3KQ       001   001 --  VK3KQ   Log: 01:10  (06 mins)
+  VK3ER (B1C_2:60)    -  01:53     6 m    VK4EA       014   005 --  VK4EA   Log: 01:46  (07 mins)
+  VK3FLMV (C2B_2:37)  -  05:35     2 m    VK3ZAP      037   012 --  VK3ZAP  Log: 05:41  (06 mins)
+  VK3HJV (C1A_2:3)    -  03:06     2 m    VK3KQ       003   020 --  VK3KQ   Log: 02:58  (08 mins)
+  VK3HJV (C1A_2:4)    -  03:08     2 m    VK3VKT      004   007 --  VK3VKT  Log: 03:02  (06 mins)
+  VK3KQ (B2C_2:94)    -  03:49     2 m    VK3UHF      033   010 --  VK3UHF  Log: 03:55  (06 mins)
+  VK5APN (A2C_2:35)   -  04:31     9 cm   VK5OQ       035   023 --  VK5OQ   Log: 04:37  (06 mins)
+  VK5BWR (B1B_2:20)   -  05:45     2 m    VK5KLV      003   005 --  VK5KLV  Log: 05:14  (31 mins)
+  VK5DT (C2B_2:15)    -  01:49    70 cm   VK5MVR      015   002 --  VK5MVR  Log: 02:48  (59 mins)
+  VK5KK (A1C_2:18)    -  01:48    70 cm   VK5MVR      018   001 --  VK5MVR  Log: 02:48  (60 mins)
+  VK5KK (A1C_2:80)    -  06:58    70 cm   VK5OQ       080   040 --  VK5OQ   Log: 07:08  (10 mins)
+  VK7ALH (A2C_2:22)   -  05:20    23 cm   VK7ZBX      022   064 --  VK7ZBX  Log: 05:27  (07 mins)
+
+ Number of errors:   25
+
+
+                       No Worked Log
+
+
+ Number of errors:   0
+
+
+                       Corrected Worked Locators
+
+  OE2JOM (A1C_2:47)   -  00:16   2.5 mm   VK5KK       047   122   Logd: PF95IH    Actv: pf95hb
+  OE2JOM (A1C_2:48)   -  00:18   6.5 mm   VK5KK       048   123   Logd: PF95IH    Actv: pf95hb
+  OE2JOM (A1C_2:49)   -  00:25     4 mm   VK5KK       049   126   Logd: PF95IH    Actv: pf95hb
+  OE2JOM (A1C_2:50)   -  00:27    70 cm   VK5KK       050   127   Logd: PF95IH    Actv: pf95hb
+  OE2JOM (A1C_2:51)   -  00:29     2 m    VK5KK       051   130   Logd: PF95IH    Actv: pf95hb
+  VK1KW (C1B_2:17)    -  04:26     6 m    VK4WIS      017   037   Logd: QG53MI    Actv: qg63mi
+  VK1KW (C1B_2:38)    -  20:40     2 m    VK3ER       038   115   Logd: QF22DP    Actv: qf22dm
+  VK2ASY (C2B_2:1)    -  03:06     2 m    VK2JDS      001   001   Logd: QF46PU    Actv: qf46pv
+  VK2BRM (C2C_2:3)    -  02:57     6 m    VK2XAX      003   059   Logd: 013    Actv: qf56if
+  VK2DWP (C1B_2:3)    -  03:06     6 m    VK4IF       003   059   Logd: QJ53TC    Actv: qg53tc
+  VK2DWP (C1B_2:6)    -  04:22     6 m    VK4ADC      006   045   Logd: QG62Q    Actv: qg62lg
+  VK2JDS (C2C_2:18)   -  10:40   2.5 mm   VK2ZRH      018   015   Logd: QF46PU    Actv: qf46pv
+  VK2KCM (A1B_2:28)   -  10:27     2 m    VK1AI       008   027   Logd: QF44MR    Actv: qf44mq
+  VK2KCM (A1B_2:29)   -  10:30     2 m    VK1AI       011   052   Logd: QF44MR    Actv: qf44mq
+  VK2VL (C1B_2:21)    -  05:43     2 m    VK4WIS      021   049   Logd: QG53MI    Actv: qg63mi
+  VK2VL (C1B_2:44)    -  23:23     2 m    VK4WIS      044   100   Logd: QG53MI    Actv: qg63mi
+  VK2XAX (C1C_2:37)   -  05:26     6 m    VK5KBJ      037   048   Logd: PF94GK    Actv: pf94gq
+  VK2XTC (C1B_2:2)    -  01:32     6 m    VK4GRZ      000   000   Logd: QF56GO    Actv: qg56fk
+  VK2ZRH (A2C_2:15)   -  10:40   2.5 mm   VK2JDS      015   018   Logd: QF46PU    Actv: qf46pv
+  VK3AUQ (C1_2:30)    -  18:45     2 m    VK3LTL      030   150   Logd: qf22bg    Actv: qf22bj
+  VK3BEZ (B2C_2:3)    -  04:25     2 m    VK3LTL      003   043   Logd: QF22BS    Actv: qf22bj
+  VK3ER (B1C_2:122)   -  03:41     6 m    VK4JAO      032   001   Logd: QG22XJ    Actv: qg52xj
+  VK3ER (B1C_2:189)   -  05:31     2 m    VK3ZAP      047   009   Logd: QF22QL    Actv: qf22pl
+  VK3ER (B1C_2:213)   -  06:35     2 m    VK3GDL      055   005   Logd: QF22n q    Actv: qf22nc
+  VK3ER (B1C_2:333)   -  11:01     6 m    VK4FB       083   017   Logd: QF62NI    Actv: qg62ni
+  VK3ER (B1C_2:473)   -  22:30    70 cm   VK5GF       095   002   Logd: PF94HC    Actv: pf94hk
+  VK3FS (C1C_2:26)    -  02:21     2 m    VK3FLMV     026   016   Logd: QF22PB    Actv: qf22pd
+  VK3FS (C1C_2:27)    -  02:22    70 cm   VK3FLMV     027   016   Logd: QF22PB    Actv: qf22pd
+  VK3FS (C1C_2:52)    -  04:13     6 m    VK3QA       052   002   Logd: QF22DM    Actv: qf21ms
+  VK3FS (C1C_2:59)    -  09:20     2 m    VK3FLMV     059   062   Logd: QF22PB    Actv: qf22pd
+  VK3FS (C1C_2:64)    -  09:38    70 cm   VK3FLMV     064   064   Logd: QF22PB    Actv: qf22pd
+  VK3FS (C1C_2:141)   -  23:27     2 m    VK3QA       141   009   Logd: QF22DM    Actv: qf21ms
+  VK3FTOM (A2B_2:21)  -  04:28     2 m    VK3BZE      021   004   Logd: QF33GO    Actv: qf31go
+  VK3HY (A2C_2:18)    -  01:41    70 cm   VK3FTOM     018   002   Logd: QF22QL    Actv: qf21ql
+  VK3HY (A2C_2:26)    -  02:14     6 m    VK4IF       026   009   Logd: QG56TC    Actv: qg53tc
+  VK3HY (A2C_2:58)    -  05:21     2 m    VK3FTOM     059   029   Logd: QF22QL    Actv: qf21ql
+  VK3KIS (C2B_2:3)    -  03:53    70 cm   VK3KQ       003   020   Logd: QF12FG    Actv: qf12vg
+  VK3KQ (B2C_2:244)   -  10:56     6 m    VK4GRZ      045   028   Logd: QG56FK    Actv: qg56fk
+  VK3KQ (B2C_2:359)   -  00:15     2 m    VK3PH       123   002   Logd: QF22PN    Actv: qf22pb
+  VK3KQ (B2C_2:361)   -  00:18    70 cm   VK3PH       084   004   Logd: QF22PD    Actv: qf22pb
+  VK3MY (C1C_2:83)    -  05:07     2 m    VK3ND       083   007   Logd: QF21GL    Actv: qf21ql
+  VK3MY (C1C_2:160)   -  09:19     2 m    VK3FS       160   058   Logd: QF21UO    Actv: qf21mr
+  VK3MY (C1C_2:192)   -  11:34     2 m    VK3FS       192   088   Logd: QF21UO    Actv: qf21mr
+  VK3MY (C1C_2:195)   -  11:35    70 cm   VK3FS       195   089   Logd: QF21UO    Actv: qf21mr
+  VK3MY (C1C_2:197)   -  11:37    23 cm   VK3FS       197   090   Logd: QF21UO    Actv: qf21mr
+  VK3PH (C1B_2:2)     -  00:15     2 m    VK3KQ       002   123   Logd: QF22VG    Actv: qf12vg
+  VK3PH (C1B_2:4)     -  00:18    70 cm   VK3KQ       004   084   Logd: QF22VG    Actv: qf12vg
+  VK3UHF (B2C_2:14)   -  01:58     2 m    VK3FTOM     004   005   Logd: QF22QL    Actv: qf21ql
+  VK3UHF (B2C_2:56)   -  05:30     2 m    VK3FTOM     015   031   Logd: QF22QL    Actv: qf21ql
+  VK3VKT (C1B_2:21)   -  03:02     2 m    VK3HJV      021   004   Logd: QF01TB    Actv: qf01tp
+  VK3VKT (C1B_2:42)   -  05:11     2 m    VK3HJV      042   010   Logd: QF01TB    Actv: qf01tp
+  VK3VKT (C1B_2:102)  -  20:32     2 m    VK3HJV      102   026   Logd: QF01TB    Actv: qf01tp
+  VK3YE (C1B_2:23)    -  10:30     6 m    VK4GRZ      023   022   Logd: QF21NW    Actv: qg56fk
+  VK3YE (C1B_2:31)    -  19:30     2 m    VK3ND       031   041   Logd: QF21NW    Actv: qf21ql
+  VK3ZAP (A2A_2:6)    -  03:10     2 m    VK3MD       006   006   Logd: QF22PL    Actv: qf21ql
+  VK3ZAP (A2A_2:9)    -  05:30     2 m    VK3ER       009   047   Logd: QF22PD    Actv: qf22dm
+  VK4ADC (C2C_2:11)   -  01:40     6 m    VK3ER       011   009   Logd: QF22BM    Actv: qf22dm
+  VK4ADC (C2C_2:29)   -  03:42     6 m    VK3ER       029   033   Logd: QF22BM    Actv: qf22dm
+  VK4IF (B1C_2:30)    -  02:15     6 m    VK3HY       009   026   Logd: QG22PC    Actv: qf22pc
+  VK4IF (B1C_2:83)    -  06:38     2 m    VK4WIS      025   052   Logd: QG53MI    Actv: qg63mi
+  VK4IF (B1C_2:84)    -  06:42    70 cm   VK4WIS      011   053   Logd: QG53MI    Actv: qg63mi
+  VK4IF (B1C_2:104)   -  08:50     6 m    VK4WIS      032   059   Logd: QG53MI    Actv: qg63mi
+  VK4IF (B1C_2:148)   -  20:12    70 cm   VK4WIS      025   079   Logd: QG53MI    Actv: qg63mi
+  VK4IF (B1C_2:149)   -  20:13    23 cm   VK4WIS      021   080   Logd: QG53MI    Actv: qg63mi
+  VK4IF (B1C_2:150)   -  20:14     2 m    VK4WIS      049   078   Logd: QG53MI    Actv: qg63mi
+  VK4OE (A1C_2:75)    -  23:54     4 mm   VK4CSD      075   011   Logd: QG62ML    Actv: qg61pt
+  VK4OE (A1C_2:76)    -  00:04   1.25cm   VK4CSD      076   012   Logd: QG62ML    Actv: qg61pt
+  VK4WIE (B2B_2:17)   -  02:02     2 m    VK4EH       008   006   Logd: QG62LO    Actv: qg62mo
+  VK4WIE (B2B_2:19)   -  02:05     2 m    VKIFP       009   011   Logd: QG62TC    Actv: qg53tc
+  VK4WIE (B2B_2:28)   -  03:02     2 m    VK4IBR      011   002   Logd: QG62NW    Actv: qg63nw
+  VK4WIS (C1C_2:26)   -  03:08     2 m    VK4IBR      027   003   Logd: QG62NW    Actv: qg63nw
+  VK4WIS (C1C_2:32)   -  04:12     6 m    VK3LM       033   031   Logd: QF31FF    Actv: qf31fs
+  VK4WIS (C1C_2:68)   -  09:48     2 m    VK4DCM      069   029   Logd: QG62TL    Actv: qg62pl
+  VK4WIS (C1C_2:100)  -  23:26     6 m    VK3KTT      101   018   Logd: QS22GG    Actv: qf22gg
+  VK5APN (A2C_2:38)   -  04:35     9 cm   VK5ZT       038   018   Logd: PF95JI    Actv: pf95ih
+  VK5BWR (B1B_2:6)    -  04:04     6 m    VK2XAX      005   032   Logd: QF76IF    Actv: qf56if
+  VK5BWR (B1B_2:78)   -  22:36     6 m    VK2VL       040   039   Logd: QG60LG    Actv: qg60le
+  VK5DT (C2B_2:56)    -  05:50     2 m    VK5ZT       056   039   Logd: PF95JI    Actv: pf95ih
+  VK5FBAA (A2B_2:4)   -  01:05     2 m    VK5DT       004   002   Logd: PF95IC    Actv: pf95ik
+  VK5FBAA (A2B_2:8)   -  01:16    70 cm   VK5DT       008   005   Logd: PF95IC    Actv: pf95ik
+  VK5FBAA (A2B_2:9)   -  01:21     2 m    VK5YEZ      009   001   Logd: PF95ND    Actv: pf95hd
+  VK5FBAA (A2B_2:22)  -  03:09     2 m    VK5DT       022   038   Logd: PF95IC    Actv: pf95ik
+  VK5FBAA (A2B_2:24)  -  03:34    70 cm   VK5DT       024   037   Logd: PF95IC    Actv: pf95ik
+  VK5FBAA (A2B_2:26)  -  03:50     2 m    VK5FXYZ     026   003   Logd: PF95JU    Actv: pf94ju
+  VK5FBAA (A2B_2:28)  -  05:44     2 m    VK5DT       028   055   Logd: PF95IC    Actv: pf95ik
+  VK5KAF (C1B_2:32)   -  07:29     2 m    VKNE        032   086   Logd: PF95IH    Actv: pf95hi
+  VK5KAF (C1B_2:47)   -  00:46     6 m    VK4WIS      047   119   Logd: QG36UM    Actv: qg63mi
+  VK5KBJ (C2B_2:33)   -  04:02     2 m    VK5NNT      033   001   Logd: PF75FG    Actv: pf75vg
+  VK5KBJ (C2B_2:59)   -  06:51     2 m    VK5NNT      059   004   Logd: PF75FG    Actv: pf75vg
+  VK5KK (A1C_2:5)     -  01:10    70 cm   VK5KBJ      005   001   Logd: PF94GH    Actv: pf94gq
+  VK5KK (A1C_2:75)    -  05:49     2 m    VK5KBJ      075   052   Logd: PF94GH    Actv: pf94gq
+  VK5KLV (C1B_2:3)    -  05:12     6 m    VK1JA       004   026   Logd: QF41NO    Actv: qf44no
+  VK5NE (C1C_2:72)    -  05:47     2 m    VK5FBAA     072   002   Logd: PF95JC    Actv: pf95hd
+  VK5UE (C1B_2:1)     -  01:22    70 cm   VK5KK       001   010   Logd: PF95IK    Actv: pf95ih
+  VK5ZT (A2C_2:1)     -  02:49     2 m    VK5FBAA     001   019   Logd: PF95JT    Actv: pf95jc
+  VK7AN (C2B_2:6)     -  04:22     6 m    VK5AYD      006   001   Logd: PG97JA    Actv: pf97ja
+  VK7BEN (C2B_2:13)   -  01:50     2 m    VK7WN       013   004   Logd: QE37PB    Actv: qe37qb
+  VK7FPCL (C2B_2:6)   -  01:44     2 m    VK7ZGK      006   003   Logd: QE37PB    Actv: qe37pd
+  VK7FPCL (C2B_2:10)  -  02:05     2 m    VK7KAJ      010   045   Logd: QE37PX    Actv: qe36px
+  VK7FPCL (C2B_2:15)  -  05:13     2 m    VK3ARR      015   002   Logd: QE37QC    Actv: qe37oc
+  VK7KPC (C1B_2:1)    -  06:53     2 m    VK7ZBX      001   073   Logd: QE38OC    Actv: qe37oc
+  VK7ZBX (A2C_2:12)   -  01:47     2 m    VK7WN       012   003   Logd: QE37PB    Actv: qe37qb
+  VK7ZBX (A2C_2:43)   -  04:11    23 cm   VK7TU       043   002   Logd: QE37OC    Actv: qe37qb
+  VK7ZBX (A2C_2:71)   -  06:47     2 m    VK7FCPL     071   022   Logd: QE37PD    Actv: qe37pf
+
+ Number of errors:   104
+
+
+
+     Created:  2019-12-12 10:47 UTC

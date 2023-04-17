@@ -1,0 +1,188 @@
+
+Contest:   2019 Summer VHF-UHF Field Day
+
+Name    :   Eastern and Mountain District Radio Club
+Call:       VK3ER
+
+Section     B1c - Port. Multi Op., 24 hours, All-bands
+Division:   2: Distance Scoring
+
+eMail   :   vk3er@emdrc.com.au
+
+======================================================================
+
+
+
+Incorrectly copied exchanges which are 'off by one' are still very prevalent,
+mostly received one higher than sent. There is more indication that the problem
+is at the sending end, so these errors have been noted but ignored. If you have
+already logged the contact before giving out all the information to the other
+station, make sure you use the sent serial number you logged and not the next
+one showing.
+
+
+There seemed to be some improvement in contact time stamps errors, but many 
+are still caused by confusion of UTC and local time, am and pm, and not 
+advancing the time when using Post-Contest Entry Mode to synchronise the time
+in VKCL with your paper log.
+
+
+The rules require that all contacts made during the field must be in your log 
+for cross-checking, irrespective whether 24- or 8-hour log. There were a few
+such incomplete 8-hours logs this time, and as previously promised, they were
+classified as 'Check Logs'.
+
+
+
+73,
+Mike,  VK3AVV,          1st February 2019
+VHF-UHF Field Day Contest Log Checking
+email:  vk3avv@wia.org.au
+
+
+
+======================================================================
+
+SUMMARY:
+-------
+
+     562   Claimed QSO (for reference)
+     562   Counted QSO before checking
+     555   Final   QSO after checking
+     1.2%  QSO Reduction
+
+  194816   Claimed score (for reference)
+  191222   Calculated score before checking
+  188450   Final score after checking
+     1.4%  Score Reduction
+      69%  Contacts checked
+
+Results by band:
+---------------
+
+     Band         6 m      2 m     70 cm    23 cm    13 cm     9 cm     6 cm     3 cm   1.25cm 
+
+    Contacts       125      160      120       70       29       18        9       11       13 
+
+    Claimed      53109    25570    40867    29421    10648     8275     4218     8304    10810 
+    Final        53145    24459    40767    27874    10598     8275     4218     8304    10810 
+
+    Longest       2625      710      710      639      213      161      161      161       97   km
+    Average        374      153      125      107       83       85       73      102       83   km
+
+
+Not in Log (QSO Removed):
+----------
+
+    01:46   144  SSB  <VK3BJA/P>  014  005     -135 pts
+    09:06   144  SSB  <VK3BJA/P>  076  045     -135 pts
+    21:15  1.2G  SSB  <VK5DK>     056  061    -1147 pts
+
+Duplicate Contact (QSO Removed/Reinstated):
+-----------------
+
+    22:06   432  SSB  VK5AKK      099  020       +0 pts
+
+Call Incorrectly Copied (QSO Removed):
+-----------------------
+
+    None.
+
+Exchange Copied Incorrectly (QSO Removed):
+--------------------------
+
+    01:12   144  SSB  VK3FS       001  <021>     Other Log:  002     -110 pts
+    20:01  1.2G  SSB  VK3MY       048  <048>     Other Log:  221     -359 pts
+    23:27   144  FM   VK7PD/P     143  <020>     Other Log:  030     -505 pts
+
+Exchange probably Sent Incorrectly (Information):
+--------------------------
+
+    None.
+
+Logged on incorrect band (QSO Removed):
+------------------------
+
+    None.
+
+Cross Band Contact (Using Lower Score Band in both Logs):
+------------------
+
+    07:18  <2.4G>  SSB  VK3AXH      015  023     Other Log: 3.3G       +0 pts
+
+Time Stamp Difference Exceed 5 mins Limit:
+------------------------------------------
+(50% points loss if <=10 mins, all points loss if greater!)
+----------------------------------------------------------
+
+    <07:31>   432  SSB  VK3AXH      051  021     Other Log: 07:15  (16 mins)    { -111 pts}
+
+Unresolved Time Stamp Difference (NO Penalty in Either Log)
+--------------------------------
+    None.
+
+Incorrect Worked Locator (Corrected, with 25% Points Penalty):
+------------------------
+
+    04:21   144  SSB  VK3WRE/P    038  022   <qf31go>     Activated: qf31gt        -11 pts
+    04:23   432  SSB  VK3WRE/P    030  023   <qf31go>     Activated: qf31gt        -30 pts
+    04:42   144  SSB  VK7JAM      041  013   <qf38kv>     Activated: qe38kv       -301 pts
+    05:22  1.2G  SSB  VK3WRE/P    021  036   <qf31go>     Activated: qf31gt        -41 pts
+    05:25  2.4G  SSB  VK3WRE/P    011  037   <qf31go>     Activated: qf31gt        -50 pts
+    09:16   144  SSB  VK3TNL      079  001   <qf21au>     Activated: qf31au        +71 pts
+    23:10    50  SSB  VK3CWF/P    105  048   <qf22hp>     Activated: qf22fb        +26 pts
+    23:18   144  SSB  VK3CWF/P    142  051   <qf22hp>     Activated: qf22fb        +15 pts
+    23:27   144  FM   VK7PD/P     143  020   <qe38qp>     Activated: qe38ro    (Removed QSO)
+    23:33    50  SSB  VK7PD/P     108  032   <qe38qp>     Activated: qe38ro        +10 pts
+    23:34   432  FM   VK3CWF/P    109  058   <qf22hp>     Activated: qf22fb        +41 pts
+
+Unique calls (worked once in your log only) (Information - QSO NOT removed):
+===========================================
+
+    00:37    50  SSB  VK3YP       122  001
+    11:33   144  SSB  VK3ZAP      093  001
+    20:28    50  SSB  VK3ZSG      089  001
+    08:51    50  SSB  VK4YH       067  001
+
+Stations copying your call/band/exchange/locator incorrectly (Information):
+============================================================
+
+   VK3ALB      :   06:02  2.4G  SSB  VK3ER/P       013 <013>           Your Log:  014
+   VK3AXH      :   01:58   432  SSB <VKER/P>       009  014            Should be: VK3ER
+   VK3AXH      :   02:19  1.2G  SSB  VK3ER/P       014  005  <qf12dm>  Activated: qf22dm
+   VK3AXH      :   02:32  2.4G  SSB  VK3ER/P       015  003  <qf12dm>  Activated: qf22dm
+   VK3AXH      :   07:17  1.2G  SSB <VK32ER/P>     022  029            Should be: VK3ER
+   VK3AXH      :   07:18 <3.3G> SSB  VK3ER/P       023  015            Your Log:  2.4G
+   VK3AXH      :   23:37   144  SSB <VK59110>      036  110            Should be: VK3ER
+   VK3AXH      :   23:37 < 144> SSB  VK59110       036  110            Your Log:   432
+   VK3AXH      :   23:40  2.4G  SSB  VK3ER/P       038 <038>           Your Log:  028
+  <VK3BJA>     :   01:12   144  SSB  VK3ER         003  001            Not in your log
+   VK3BJA      :   02:37   432  SSB  VK3ER         005  018  <qf21dm>  Activated: qf22dm
+   VK3BJA      :   04:36   144  SSB  VK3ER         018  039  <qf21dm>  Activated: qf22dm
+   VK3BJA      :   04:49   432  SSB  VK3ER         007 <003>           Your Log:  035
+   VK3BJA      :   04:49   432  SSB  VK3ER         007  003  <qf21dm>  Activated: qf22dm
+   VK3BJA      :   06:56   144  SSB  VK3ER         034  058  <qf21dm>  Activated: qf22dm
+   VK3BJA      :   08:24   432  SSB  VK3ER         010  059  <qf21dm>  Activated: qf22dm
+   VK3KQ       :   04:14  3.3G  SSB  VK3ER         007 <007>           Your Log:  005
+   VK3MY       :   05:45  10.G  SSB  VK3ER/P       105 <024>           Your Log:  005
+   VK3TPR      :   01:55   144  SSB  VK3ER         006 <006>           Your Log:  016
+   VK5AKK      :   22:05 < 144> SSB  VK3ER         020  099            Your Log:   432
+   VK5DK       :   07:52   144  SSB  VK3ER/P       027  063  <qf22md>  Activated: qf22dm
+   VK5DK       :   07:56   432  SSB  VK3ER/P       029  053  <qf22md>  Activated: qf22dm
+   VK5DK       :   10:07    50  SSB  VK3ER/P       038  076  <qf22md>  Activated: qf22dm
+   VK5DK       :   10:33   432  SSB  VK3ER/P       040  072  <qf22md>  Activated: qf22dm
+   VK5DK       :   <10:33>  144 SSB  VK3ER/P       041  089            Your Log:  10:44 (11 mins)
+   VK5DK       :   10:33   144  SSB  VK3ER/P       041  089  <qf22md>  Activated: qf22dm
+   VK5DK       :   21:00   432  SSB  VK3ER/P       060  092  <qf22md>  Activated: qf22dm
+   VK5DK       :   21:08   144  SSB  VK3ER/P       059  119  <qf22md>  Activated: qf22dm
+   VK5DK       :   21:38    50  SSB  VK3ER/P       067  095  <qf22md>  Activated: qf22dm
+   VK5DK       :   00:05   144  SSB  VK3ER/P       073  152  <qf22md>  Activated: qf22dm
+   VK7PD       :   23:30 < 432> FM   VK3ER/P       030  143            Your Log:   144
+
+
+
+End of Report.  Created:  2019-01-29 08:50 UTC
+
+Processed Log File Nmae:  VK3ER_B1_div2.LOG
+
+-------------

@@ -1,0 +1,223 @@
+
+Contest     :     2021 Summer Field Day
+
+Name        :     Eastern and Mountain District Radio Club
+Call        :     VK3ER
+
+Section     :     B1c - Port. Multi Op., 24 hours, All-bands
+Rank in Sect:     1st   (Entries: 3)
+
+eMail       :     vk3er@emdrc.com.au
+
+======================================================================
+
+Repeating again from previous field days, many logs are still not checked after the 
+field day (which is allowed and almost expected in this contest) before uploading, 
+and it is sad to see heaps of points being lost due to simple typing errors that 
+could have been easily corrected.
+ 
+A great improvement this time has been in time keeping, with only a few time errors
+and none over 10 minutes.
+
+However, there is an inordinate increase in the number of cross-band contacts where 
+the station at fault could not be reliably determined, hence the lower score band was
+used in both logs. Surprisingly, most of the time, the bands involved were 6m, 2m, 
+and 70cm, bands on which the rig frequency should be easily read by OmniRig.
+
+It is pleasing to note an increase in activity in VK7, although they seem to have
+problems working the mainland, and return of some activity in VK6 compared to 
+nothing being heard from there in the Spring field day last year, although they
+also still seem to have problems getting across their border.
+
+
+For interest, the 6-year statistics for Summer field day are as follows.
+
+
+Summer Field Day statistics:
+       2021  (2020   2019   2018    2017   2016)  Year
+
+        103  (  92     80     53      72     81)  Number of submitted logs
+        175  ( 171    178    159     158    191)  Other participating stations 
+         43  (  42     43     37      43     50)  Other participating stations making at
+                                                     least 10 contacts
+
+       8261  (6720   6629   5977    6473   9064)  Number of contacts logged
+       5392  (4049   3750   3355    3853   5993)  Number of contacts checked
+        65%  ( 60%    57%    56%     60%    66%)  Percentage of logged contacts checked
+
+Errors:
+         17  (  10     24      8      21     25)  Not in log
+         32  (  25     23     15      18     34)  Call copied incorrectly
+
+         64  (  45     50     27      85    133)  Exchange copied incorrectly
+         45  (  20     20      ?       ?      ?)  Exchange possibly sent incorrectly
+                                                      (off by 1)
+
+         10  (   6      9      4       0     11)  Contacts logged on wrong band
+         48  (   6     16      8      19      9)  Cross-band contacts unresolved
+
+          0  (   3     27      3       ?      ?)  Time stamp difference above 10 minutes
+          5  (   0     10      5       ?      ?)  Time stamp difference 5 to 10 minutes
+          3  (  22     17     10      42      ?)  Time stamp difference unresolved
+
+        153  ( 102    172     98     200      ?)  Corrected worked locators
+
+
+Worth mentioning is the logging of VK7KPC who worked portable in VK5 call area.
+Unfortunately, no one logged contacts with him correctly. In VKCL, single characters
+after a '/' following the call sign are ignored unless 'P' or 'M' signifying portable
+in home call area, and 'Q' for QRP. Contacts logged as VK7KPC/P would therefore be assigned
+to his home call area of VK7.  Multiple characters after the '/' designate the call 
+area where the station is operating, so VK7KPC/P5 would put him in North Korea, introducing
+spurious DX contacts in the statistics.
+
+The correct way to log stations operating outside their home call area, and this applies to
+all contests, is to append the call area where the station is working after the home call,
+for example, VK7KPC/VK5.  (Some contests prefer it the other way around, that is VK5/VK7KPC,
+and VKCL accepts both.)
+
+
+
+If there are entries in the last section of the report, please study them carefully
+to see whether you can change and/or improve your operating technique to avoid others
+copying you incorrectly. Particularly consider the use of ACMA recommended phonetics.
+
+
+73,
+Mike,  VK3AVV,       7th February 2021
+VHF-UHF Field Day Contest Log Checking
+email:  vk3avv@wia.org.au
+
+
+======================================================================
+
+SUMMARY:
+-------
+
+     683   Claimed QSO (for reference)
+     683   Counted QSO before checking
+     679   Final   QSO after checking
+     0.6%  QSO Reduction
+
+  187956   Claimed score (for reference)
+  187956   Calculated score before checking
+  185837   Final score after checking
+     1.1%  Score Reduction
+      76%  Contacts checked
+
+Results by band:
+---------------
+
+     Band        6 m     2 m    70 cm   23 cm   13 cm    9 cm    6 cm    3 cm  1.25cm 
+
+    Contacts      150     166     159     110      37      25      14      11       7 
+
+    Claimed     41823   18755   42938   37593   13323   10535    7612    7617    7760 
+    Final       41823   18657   42938   37593   13323   10535    7279    6899    6790 
+
+    Longest      2469     573     464     213     110      97      97      97      97  km
+    Average       238     112      99      92      81      78      81      84      97  km
+
+
+Not in Log (QSO Removed):
+----------
+
+    01:47  5.7G  PH   <VK3KQ/P>   002  002     -333 pts
+
+Duplicate Contact (QSO Removed/Reinstated):
+-----------------
+
+    None.
+
+Call Incorrectly Copied (QSO Removed):
+-----------------------
+
+    None.
+
+Exchange Copied Incorrectly (QSO Removed):
+--------------------------
+
+    04:15   144  PH   VK3OM       045  <045>     Other Log:  029      -98 pts
+    07:24  10.G  PH   VK3MY       005  <024>     Other Log:  158     -718 pts
+    22:46  24.G  PH   VK3MY       007  <328>     Other Log:  325     -970 pts
+
+Exchange Possibly Sent Incorrectly (Information):
+==================================
+
+    02:01    50  PH   VK3QA       022  <010>     Other Log:  009
+    05:55  3.3G  PH   VK3KQ/P     008  <006>     Other Log:  007
+    12:27   144  PH   VK3MH       119  <150>     Other Log:  151
+    20:55   144  PH   VK3ZPF/P    132  <003>     Other Log:  004
+    21:45   432  PH   VK3KQ/P     131  <047>     Other Log:  046
+    23:28  2.4G  PH   VK3AXH      023  <028>     Other Log:  029
+    23:57  10.G  PH   VK3KQ/P     011  <013>     Other Log:  012
+    00:03   144  PH   VK3ZPF/P    154  <011>     Other Log:  010
+
+Logged on incorrect band (QSO Removed):
+------------------------
+
+    None.
+
+Cross Band Contact (Using Lower Score Band in both Logs):
+------------------
+
+    None.
+
+Time Stamp Difference Exceed 5 mins Limit:
+(50% points loss if <=10 mins, all points loss if greater!)
+----------------------------------------------------------
+
+    None.
+
+Unresolved Time Stamp Difference (NO Penalty in Either Log)
+================================
+    None.
+
+Incorrect Worked Locator (Corrected, with 20% Points Penalty):
+(Correct points reduced by 20%  less  claimed points!)
+------------------------------------------------------
+
+    None.
+
+Unique calls (worked once in your log only) (Information - QSO NOT removed):
+===========================================
+
+    12:48  1.2G  PH   VK3SIX      079  007
+    23:39   432  PH   VK3TAS      145  001
+    03:10   144  PH   VK3UVU      032  004
+    21:20   144  PH   VK5PJ       134  001
+
+Stations copying your call/band/exchange/locator incorrectly (Information):
+============================================================
+
+   VK2SRC      :   01:54    50  PH   VK3ER/P       010  019  <qf22md>  Activated: qf22dm
+   VK2SRC      :   00:19    50  PH   VK3ER/P       055  143  <qf22md>  Activated: qf22dm
+   VK3AXH      :   05:24   144  PH  <VKER/P>       013  057            Should be: VK3ER
+   VK3AXH      :   23:29  1.2G  PH  <VKER/P>       028  102            Should be: VK3ER
+   VK3BDL      :   01:06  1.2G  PH   VK3ER/P       003 <001>           Your Log:  002
+   VK3FS       :   10:00  2.4G  PH   VK3ER         155 <062>           Your Log:  020
+   VK3FS       :   21:06  2.4G  PH   VK3ER         216 <038>           Your Log:  028
+   VK3FS       :   23:11  2.4G  PH   VK3ER         245 <032>           Your Log:  022
+   VK3GK       :   00:47   432  PH   VK3ER         002 <165>           Your Log:  155
+   VK3KQ       :   05:55  3.3G  PH   VK3ER         007 <016>           Your Log:  008
+   VK3KQ       :   12:25 <  50> PH   VK3ER         056  115            Your Log:   432
+   VK3KTT      :   02:14    50  PH   VK3ER         005  024  <>        Activated: qf22dm
+   VK3KTT      :   03:04   144  PH   VK3ER         014  031  <>        Activated: qf22dm
+   VK3MB       :   08:22   432  PH   VK3ER/P       013 <086>           Your Log:  081
+   VK3MB       :   11:38   432  PH   VK3ER/P       028 <100>           Your Log:  110
+   VK3MDH      :   01:25   144  PH   VK3ER/P       006 <011>           Your Log:  012
+   VK3MY       :   01:00   432  PH   VK3ER/P       001 <011>           Your Log:  001
+   VK3OM       :   06:27   432  PH   VK3ER         053  062  <qf22nd>  Activated: qf22dm
+   VK3OM       :   09:32    50  PH   VK3ER/P       067  092  <qf22nd>  Activated: qf22dm
+   VK3OM       :   11:07   432  PH   VK3ER         085  105  <qf22nd>  Activated: qf22dm
+   VK3OM       :   11:55    50  PH   VK3ER/P       093  109  <qf22nd>  Activated: qf22dm
+   VK3TOT      :   08:49  1.2G  PH   VK3ER         051 <051>           Your Log:  052
+   VK5BWR      :   03:31    50  PH   VK3ER         010  036  <qf22nb>  Activated: qf22dm
+
+
+
+End of Report.  Created:  2021-02-05 09:41 UTC
+
+Processed Log File Nmae:  VK3ER_B1.LOG
+
+-------------

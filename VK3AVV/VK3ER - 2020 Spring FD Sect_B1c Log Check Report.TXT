@@ -1,0 +1,207 @@
+
+Contest     :     Spring VHF-UHF Field Day
+
+Name        :     Eastern and Mountain District Radio Club
+Call        :     VK3ER
+
+Section     :     B1c - Port. Multi Op., 24 hours, All-bands
+Rank in Sect:     2nd   (Entries: 2)
+
+eMail       :     vk3er@emdrc.com.au
+
+======================================================================
+
+The CLAIMED-SCORE: entry present in the Cabrillo log is a useful check to ensure 
+that the log is correctly imported into the contest management software, but for 
+various reasons, it does not always agree exactly with the calculated score 
+during import.  For the Spring Field Day, the two scores agreed exactly most of 
+the time mainly for the latest version of VKCL, Ver 4.13.  Most of the time 
+because there was another "small" bug in VKCL which caused assignment of maximum 
+points for a logged contact with none or a 4-char locator only, instead of 
+assigning minimum points for anything but a correctly formed 6-char or 8-char 
+locators. Therefore, the score for logs with missing locators was overestimated.
+
+There was also a small tweak to the value for the radius of earth in the distance 
+calculation routine, so previous versions of VKCL can produce slightly different 
+results due to small rounding differences.  All discrepancies were investigated, 
+and all these problems should be resolved in the latest version, Ver 4.13.1, now 
+available, and all are advised to upgrade before the next field day, particularly 
+those stations still uploading Div 1 and Div 2 logs.  The upgrade is FREE! 
+
+Repeating from previous field days, many logs are still not checked after the 
+field day (which is allowed and almost expected in this contest) before uploading, 
+and it is sad to see heaps of points being lost due to simple typing errors that 
+could have been easily corrected. When using VKCL in Post-Contest Entry mode, make 
+sure to keep the time in VKCL synchronised with your paper log, and ideally have 
+the transcription checked by your XYL/OM (as the case may be) or by a grandchild 
+(children are usually too busy to help).  Very obvious transcription errors (such 
+as clock being off by 12 hours, or wrong date) are corrected, but it is your 
+responsibility to ensure that the log is accurate.
+
+As the song asks, "Where have all the Rovers gone?".  No logs from any this time,
+and nothing heard from VK6 either, maybe the border closure is still in effect in
+the ether.
+
+
+
+Spring Field Day statistics:
+       2020  (2019   2018   2017   2016)  Year
+
+         86  ( 102     65     51     48)  Logs submitted
+        175  ( 205    122    122    186)  Other participating stations
+         47  (  42     31     26     26)  Other participating stations making at
+                                               least 10 contacts
+
+       7808  (6640   5260   4692   4168)  Number of contacts logged
+       4552  (4245   3258   2942   2217)  Number of contacts checked
+         58  (  64     62     63     53)  Percentage of logged contacts checked
+
+Errors:
+         13  (  26      7     11     11)  Not in log
+         41  (  39      9      9     16)  Call copied incorrectly
+
+         40  (  78     53     44     44)  Exchange copied incorrectly
+         10  (  37      ?      ?      ?)  Exchange possibly sent incorrectly (off by 1)
+
+          3  (   3      8      6      1)  Band logged incorrectly
+         11  (  40     14     34      6)  Cross-band, use lwr score band
+
+          1  (  11      6      ?      ?)  Time stamp difference above 10 minutes
+          1  (   5      3     54      ?)  Time stamp difference 5 to 10 minutes
+         14  (  50     24     21     36)  Time stamp difference unresolved
+
+        138  ( 104    119    151      ?)  Corrected worked locators
+
+The five years of statistics above do not really show much change from year to year, 
+perhaps a bit better this year. The higher number of corrected worked locators was 
+caused by a log that was uploaded with no worked locator specified for any contact. 
+Contacts that could be corrected from logs from stations worked were corrected, with 
+a 20 percent penalty, but contacts that could not be so corrected stayed uncorrected, 
+with minimum points for the contact.
+
+
+
+If there are entries in the last section of your Log Check Report, please study them carefully
+to see whether you can improve your technique to avoid others copying you incorrectly.
+
+
+73,
+Mike,  VK3AVV,          20th December 2020
+VHF-UHF Field Day Contest Log Checking
+email:  vk3avv@wia.org.au
+
+
+
+======================================================================
+
+SUMMARY:
+-------
+
+     595   Claimed QSO (for reference)
+     595   Counted QSO before checking
+     592   Final   QSO after checking
+     0.5%  QSO Reduction
+
+  166033   Claimed score (for reference)
+  166029   Calculated score before checking
+  164251   Final score after checking
+     1.1%  Score Reduction
+      64%  Contacts checked
+
+Results by band:
+---------------
+
+     Band         6 m      2 m     70 cm    23 cm    13 cm     9 cm     6 cm     3 cm   1.25cm 
+
+    Contacts       110      146      150       98       31       25       10       13        9 
+
+    Claimed      16835    17527    44820    35151    14215    13552     6456     9193     8280 
+    Final        16808    17365    43658    35151    13788    13552     6456     9193     8280 
+
+    Longest        208      421      421      421      222      222      161      222       97   km
+    Average         90      118      108       96      101      100      100       95       92   km
+
+
+Not in Log (QSO Removed):
+----------
+
+    01:11   144  PH   <VK3KQ/P>   005  007      -52 pts
+    06:25  2.4G  PH   <VK3MY>     014  105     -427 pts
+
+Duplicate Contact (QSO Removed/Reinstated):
+-----------------
+
+    03:56   144  PH   VK3FTOM/P   043  013       +0 pts
+    22:01  1.2G  PH   VK3FS/P     083  143       +0 pts
+
+Call Incorrectly Copied (QSO Removed):
+-----------------------
+
+    None.
+
+Exchange Copied Incorrectly (QSO Removed):
+--------------------------
+
+    08:25   144  PH   VK3APG      080  <030>     Other Log:  050     -110 pts
+
+Exchange Possibly Sent Incorrectly (Information):
+==================================
+
+    04:37  1.2G  PH   VK3FS/P     010  <049>     Other Log:  048
+
+Logged on incorrect band (QSO Removed):
+------------------------
+
+    None.
+
+Cross Band Contact (Using Lower Score Band in both Logs):
+------------------
+
+    None.
+
+Time Stamp Difference Exceed 5 mins Limit:
+(50% points loss if <=10 mins, all points loss if greater!)
+----------------------------------------------------------
+
+    None.
+
+Unresolved Time Stamp Difference (NO Penalty in Either Log)
+================================
+    <01:55>   432  PH   VK3ND/P     015  004     Other Log: 01:48  (07 mins)
+
+Incorrect Worked Locator (Corrected, with 20% Points Penalty):
+(Correct points reduced by 20%  less  claimed points!)
+------------------------------------------------------
+
+    01:26   432  PH   VK3ZAZ      008  003   <qf02ag>     Activated: qf12ag       -581 pts
+    20:34    50  PH   VK3DOU      085  006   <qf22rw>     Activated: qf21rw        -27 pts
+    21:00   432  PH   VK3ZAZ      121  044   <qf02ag>     Activated: qf12ag       -581 pts
+
+Unique calls (worked once in your log only) (Information - QSO NOT removed):
+===========================================
+
+    09:32   432  PH   VK3APP      088  001
+    23:45    50  PH   VK3BMJ      102  009
+    05:14   432  PH   VK3CAT      052  001
+    04:02   432  PH   VK3CKH      037  001
+    21:57   144  PH   VK3FJTE     131  001
+    20:37   144  PH   VK3TAS      125  001
+    00:18   432  PH   VK3TPC      143  002
+
+Stations copying your call/band/exchange/locator incorrectly (Information):
+============================================================
+
+   VK3BDL      :   00:55  2.4G  PH   VK3ER/P       281  032  <qf22md>  Activated: qf22dm
+   VK3BDL      :   00:56  3.3G  PH   VK3ER/P       282  026  <qf22md>  Activated: qf22dm
+   VK3BDL      :   00:59   144  PH   VK3ER/P       284  149  <qf22md>  Activated: qf22dm
+   VK3FS       :   04:36  1.2G  PH   VK3ER         048 <026>           Your Log:  010
+  <VK3FS>      :   04:40  2.4G  PH   VK3ER         049  012            Not in your log
+   VK3KQ       :   01:21  1.2G  PH   VK3ER         001 <001>           Your Log:  004
+
+
+
+End of Report.  Created:  2020-12-24 08:13 UTC
+
+Processed Log File Nmae:  VK3ER_B1.LOG
+
+-------------
