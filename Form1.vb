@@ -843,7 +843,7 @@ Public Class Form1
     Public Enum flagsEnum As Integer
         LoggedIncorrectCall = 1         ' receiver got callsign wrong
         LoggedIncorrectExchange = 2     ' receiver got exchange wrong
-        LoggedIncorrectBand = 4         ' receiver got band wrong
+        LoggedIncorrectBand = 4         ' band differs between sender and receiver
         LoggedIncorrectLocator = 8      ' receiver got locator wrong
         OutsideContestHours = 16    ' outside of contest hours
         BadGrid = 32           ' bad gridsquare
@@ -1326,7 +1326,7 @@ Public Class Form1
                 Application.DoEvents()    ' let textbox update
 
                 ' test for duplicates
-                ' and duplicate is 2 QSO which match on calls, band, grid and are within the rework window
+                ' and duplicate is 2 QSO which match on calls & band and are within the rework window
                 StopWatch.Restart()
                 count = 0
                 sqlQSO.CommandText = $"Select A.id AS Aid
@@ -1338,11 +1338,9 @@ Public Class Form1
                                                              And basecall(A.sent_call) = basecall(B.sent_call)
                                                              And basecall(A.rcvd_call) = basecall(B.rcvd_call)
                                                              And A.band = B.band
-                                                             And A.sent_grid = B.sent_grid
-                                                             And A.rcvd_grid = B.rcvd_grid
-                                                             And B.date BETWEEN
-                                                                 DateTime(A.date, '-{ReworkWindow} hours', '+5 minutes') AND
-                                                                 DateTime(A.date, '+{ReworkWindow} hours', '-5 minutes')
+                                                             And A.date BETWEEN
+                                                                 DateTime(B.date) AND
+                                                                 DateTime(B.date, '+{ReworkWindow} hours', '-{TimeTolerance} minutes')
                                                              And A.id <> B.id)"
                 sqlQSOdr = sqlQSO.ExecuteReader()
                 If sqlQSOdr.HasRows Then
@@ -1626,6 +1624,7 @@ Public Class Form1
         Dim sqlContest As SqliteCommand, sqldrContest As SqliteDataReader
         Dim sqlEntrant As SqliteCommand, sqldrEntrant As SqliteDataReader
         Dim sqlQSO As SqliteCommand, sqlQSOdr As SqliteDataReader
+        Dim myQSO As SqliteCommand, myQSOdr As SqliteDataReader
         Dim QSOcounts As New List(Of QSOcount)
 
         If dlgContest.ShowDialog = DialogResult.OK Then
@@ -1641,6 +1640,7 @@ Public Class Form1
                     sqlContest = connect.CreateCommand
                     sqlEntrant = connect.CreateCommand
                     sqlQSO = connect.CreateCommand
+                    myQSO = connect.CreateCommand
                     sqlContest.CommandText = $"Select * FROM Contests WHERE contestID={contestID}"
                     sqldrContest = sqlContest.ExecuteReader()
                     sqldrContest.Read()
@@ -1716,7 +1716,7 @@ Public Class Form1
     text-align: center
 }
 td.correct{background-color: lightgreen;}
-td.incorrect{background-color: red;}
+td.incorrect{background-color: tomato;}
 </style>")
 
                         report.WriteLine($"Contest : {sqldrContest("name")}<br><br>")
@@ -1840,8 +1840,7 @@ td.incorrect{background-color: red;}
                                                 ON       A.id=B.match
                                                 WHERE    A.contestID={contestID}
                                                 AND      basecall(A.sent_call)='{station}'
-                                                AND      (
-                                                                    A.flags & {CInt(flagsEnum.LoggedIncorrectCall)}) <> 0
+                                                AND      (A.flags & {CInt(flagsEnum.LoggedIncorrectCall)}) <> 0
                                                 ORDER BY `date`"
                         sqlQSOdr = sqlQSO.ExecuteReader
                         If sqlQSOdr.HasRows Then
@@ -1867,8 +1866,7 @@ td.incorrect{background-color: red;}
                                                 ON       A.id=B.match
                                                 WHERE    A.contestID={contestID}
                                                 AND      basecall(A.sent_call)='{station}'
-                                                AND      (
-                                                                  A.flags & {CInt(flagsEnum.LoggedIncorrectExchange)}) <> 0
+                                                AND      (A.flags & {CInt(flagsEnum.LoggedIncorrectExchange)}) <> 0
                                                 ORDER BY `date`"
                         sqlQSOdr = sqlQSO.ExecuteReader
                         If sqlQSOdr.HasRows Then
@@ -1884,21 +1882,36 @@ td.incorrect{background-color: red;}
 
                         report.WriteLine("<h2>Exchange Possibly Sent Incorrectly (Information)</h2>")
 
-                        report.WriteLine("<h2>Logged on incorrect band (QSO removed)</h2>")
-                        sqlQSO.CommandText = $"SELECT * FROM `QSO` WHERE `contestID`={contestID} AND `sent_call`='{station}' AND (`flags` & {CInt(flagsEnum.LoggedIncorrectBand)}) <> 0 ORDER BY `date`"
+                        report.WriteLine("<h2>Cross Band Contact (Using Lower Score Band in both logs)</h2>")
+                        sqlQSO.CommandText = $"SELECT * FROM `QSO` WHERE `contestID`={contestID} AND basecall(`sent_call`)='{station}' AND (`flags` & {CInt(flagsEnum.LoggedIncorrectBand)}) <> 0 ORDER BY `date`"
                         sqlQSOdr = sqlQSO.ExecuteReader
                         If sqlQSOdr.HasRows Then
-                            report.WriteLine($"<table class='info'><tr><th>Date</th><th>Band</th><th>Sent</th><th>Rcvd</th><th>Call</th><th>Impact</th></tr>")
+                            report.WriteLine($"<table class='info'><tr><th>Date</th><th>Band</th><th>Mode</th><th>Call</th><th>Sent</th><th>Rcvd</th><th>Other log</th><th>Impact</th></tr>")
                             While sqlQSOdr.Read
-                                report.WriteLine($"<tr><td>{sqlQSOdr("date")}</td><td class='right'>{sqlQSOdr("band")}</td><td>{sqlQSOdr("sent_exch")}</td><td>{sqlQSOdr("rcvd_exch")}</td><td>{sqlQSOdr("rcvd_call")}</td><td class='right'>-{sqlQSOdr("score")} pts</td></tr>")
+                                If Not IsDBNull(sqlQSOdr("match")) Then
+                                    ' get my matching QSO
+                                    myQSO.CommandText = $"SELECT * FROM `QSO` WHERE `id`={sqlQSOdr("match")}"
+                                    myQSOdr = myQSO.ExecuteReader
+                                    myQSOdr.Read()
+                                End If
+                                report.WriteLine(
+$"<tr>
+    <td>{sqlQSOdr("date")}</td>
+    <td class='incorrect right'>{sqlQSOdr("band")}</td>
+    <td class='center'>{sqlQSOdr("mode")}</td>
+    <td>{sqlQSOdr("rcvd_call")}</td>
+    <td>{sqlQSOdr("sent_exch")}</td>
+    <td>{sqlQSOdr("rcvd_exch")}</td>
+    <td class='center'>{myQSOdr("band")}</td>
+    <td class='right'>-{sqlQSOdr("score")} pts</td>
+ </tr>")
+                                If Not myQSOdr.IsClosed Then myQSOdr.Close()
                             End While
                             report.WriteLine("</table>")
                         Else
                             report.WriteLine("None<br>")
                         End If
                         sqlQSOdr.Close()
-
-                        report.WriteLine("<h2>Cross Band Contact (Using Lower Score Band in both logs)</h2>")
 
                         report.WriteLine("<h2>Locator Copied Incorrectly (QSO removed)</h2>")
                         sqlQSO.CommandText = $"SELECT *,A.rcvd_call AS Arcvd_call,B.sent_call AS Bsent_call,A.rcvd_exch AS Arcvd_exch, A.sent_exch as Asent_exch, A.rcvd_grid AS Arcvd_grid, B.sent_grid AS Bsent_grid FROM `QSO` AS A JOIN `QSO` AS B ON A.id=B.match WHERE A.contestID={contestID} AND A.sent_call='{station}' AND (A.flags & {CInt(flagsEnum.LoggedIncorrectLocator)}) <> 0 ORDER BY `date`"
@@ -1929,13 +1942,43 @@ td.incorrect{background-color: red;}
                         sqlQSOdr.Close()
 
                         report.WriteLine("<h2>Stations copying your call/band/exchange/locator incorrectly (information)</h2>")
-                        Dim BadCopy As Integer = flagsEnum.LoggedIncorrectBand And flagsEnum.LoggedIncorrectBand And flagsEnum.LoggedIncorrectExchange And flagsEnum.LoggedIncorrectLocator
-                        sqlQSO.CommandText = $"SELECT * FROM `QSO` WHERE `contestID`={contestID} AND `rcvd_call`='{station}' AND (`flags` & {BadCopy})<>0 ORDER BY `rcvd_call`"
+                        Dim BadCopy As Integer = flagsEnum.LoggedIncorrectCall Or flagsEnum.LoggedIncorrectBand Or flagsEnum.LoggedIncorrectExchange Or flagsEnum.LoggedIncorrectLocator Or flagsEnum.NotInLog
+
+                        sqlQSO.CommandText = $"SELECT * FROM `QSO` WHERE `contestID`={contestID} AND basecall(`rcvd_call`)='{station}' AND (`flags` & {BadCopy})<>0 ORDER BY `sent_call`,`date`"
                         sqlQSOdr = sqlQSO.ExecuteReader
                         If sqlQSOdr.HasRows Then
-                            report.WriteLine($"<table class='info'><tr><th>Call</th><th>Date</th><th>Band</th><th>Mode</th><th>My Call</th><th>Sent</th><th>Rcvd</th><th>Grid</th></tr>")
+                            report.WriteLine($"<table class='info'><tr><th>Call</th><th>Date</th><th>Band</th><th>Mode</th><th>My Call</th><th>Sent</th><th>Rcvd</th><th>Grid</th><th>Your log</th></tr>")
                             While sqlQSOdr.Read
-                                report.WriteLine($"<tr><td>{sqlQSOdr("sent_call")}</td><td>{sqlQSOdr("date")}</td><td>{sqlQSOdr("band")}</td><td>{sqlQSOdr("mode")}</td><td>{sqlQSOdr("rcvd_call")}</td><td>{sqlQSOdr("sent_exch")}</td><td>{sqlQSOdr("rcvd_exch")}</td><td>{sqlQSOdr("rcvd_grid")}</td></tr>")
+                                Dim flags As Integer = sqlQSOdr("flags")
+                                If Not IsDBNull(sqlQSOdr("match")) Then
+                                    ' get my matching QSO
+                                    myQSO.CommandText = $"SELECT * FROM `QSO` WHERE `id`={sqlQSOdr("match")}"
+                                    myQSOdr = myQSO.ExecuteReader
+                                    myQSOdr.Read()
+                                End If
+                                Dim comment As String
+                                Dim CallClass As String = ""
+                                If (flags And CInt(flagsEnum.NotInLog)) <> 0 Then
+                                    CallClass = " class='incorrect'"
+                                    comment = "Not in your log"
+                                End If
+                                Dim BandClass As String = ""
+                                If (flags And CInt(flagsEnum.LoggedIncorrectBand)) <> 0 Then
+                                    BandClass = " class='incorrect'"
+                                    comment = myQSOdr("band")
+                                End If
+                                Dim RcvdExchClass As String = ""
+                                If (flags And CInt(flagsEnum.LoggedIncorrectExchange)) <> 0 Then
+                                    RcvdExchClass = " class='incorrect'"
+                                    comment = myQSOdr("sent_exch")
+                                End If
+                                Dim RcvdGridClass As String = ""
+                                If (flags And CInt(flagsEnum.LoggedIncorrectLocator)) <> 0 Then
+                                    RcvdGridClass = " class='incorrect'"
+                                    comment = myQSOdr("sent_grid")
+                                End If
+                                report.WriteLine($"<tr><td{CallClass}>{sqlQSOdr("sent_call")}</td><td>{sqlQSOdr("date")}</td><td{BandClass}>{sqlQSOdr("band")}</td><td>{sqlQSOdr("mode")}</td><td>{sqlQSOdr("rcvd_call")}</td><td>{sqlQSOdr("sent_exch")}</td><td{RcvdExchClass}>{sqlQSOdr("rcvd_exch")}</td><td{RcvdGridClass}>{sqlQSOdr("rcvd_grid")}</td><td class='correct'>{comment}</td></tr>")
+                                If Not myQSOdr.IsClosed Then myQSOdr.Close()
                             End While
                             report.WriteLine("</table>")
                         Else
@@ -1943,7 +1986,7 @@ td.incorrect{background-color: red;}
                         End If
                         sqlQSOdr.Close()
 
-                        report.WriteLine($"End of Report. Created: {Now.ToUniversalTime} UTC by FD Log Checker - Marc Hillman (VK3OHM)<br>")
+                        report.WriteLine($"<br>End of Report. Created: {Now.ToUniversalTime} UTC by FD Log Checker - Marc Hillman (VK3OHM)<br>")
                         report.WriteLine($"Process Log File name: {sqldrEntrant("filename")}")
                         report.WriteLine("</html>")
                         TextBox2.Text = $"Report produced in file {CType(report.BaseStream, FileStream).Name}{vbCrLf}"
