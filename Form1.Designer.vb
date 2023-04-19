@@ -25,6 +25,7 @@ Partial Class Form1
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ExtractNamesFromLogsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExtractNamesFromLogsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RemoveDuplicateLogsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IngestLogsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CheckScoreLogsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IndividualResultsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -33,7 +34,7 @@ Partial Class Form1
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.RemoveDuplicateLogsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeltaTimeAnalysisToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -48,7 +49,7 @@ Partial Class Form1
         '
         'ExtractNamesFromLogsToolStripMenuItem
         '
-        Me.ExtractNamesFromLogsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExtractNamesFromLogsToolStripMenuItem1, Me.RemoveDuplicateLogsToolStripMenuItem, Me.IngestLogsToolStripMenuItem, Me.CheckScoreLogsToolStripMenuItem, Me.IndividualResultsToolStripMenuItem, Me.ProvisionalResultsToolStripMenuItem, Me.SubmittedLogsToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.ExtractNamesFromLogsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExtractNamesFromLogsToolStripMenuItem1, Me.RemoveDuplicateLogsToolStripMenuItem, Me.IngestLogsToolStripMenuItem, Me.CheckScoreLogsToolStripMenuItem, Me.IndividualResultsToolStripMenuItem, Me.ProvisionalResultsToolStripMenuItem, Me.SubmittedLogsToolStripMenuItem, Me.DeltaTimeAnalysisToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.ExtractNamesFromLogsToolStripMenuItem.Name = "ExtractNamesFromLogsToolStripMenuItem"
         Me.ExtractNamesFromLogsToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.ExtractNamesFromLogsToolStripMenuItem.Text = "File"
@@ -58,6 +59,12 @@ Partial Class Form1
         Me.ExtractNamesFromLogsToolStripMenuItem1.Name = "ExtractNamesFromLogsToolStripMenuItem1"
         Me.ExtractNamesFromLogsToolStripMenuItem1.Size = New System.Drawing.Size(202, 22)
         Me.ExtractNamesFromLogsToolStripMenuItem1.Text = "Extract names from logs"
+        '
+        'RemoveDuplicateLogsToolStripMenuItem
+        '
+        Me.RemoveDuplicateLogsToolStripMenuItem.Name = "RemoveDuplicateLogsToolStripMenuItem"
+        Me.RemoveDuplicateLogsToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
+        Me.RemoveDuplicateLogsToolStripMenuItem.Text = "Remove duplicate logs"
         '
         'IngestLogsToolStripMenuItem
         '
@@ -112,11 +119,11 @@ Partial Class Form1
         Me.TextBox1.Size = New System.Drawing.Size(779, 23)
         Me.TextBox1.TabIndex = 2
         '
-        'RemoveDuplicateLogsToolStripMenuItem
+        'DeltaTimeAnalysisToolStripMenuItem
         '
-        Me.RemoveDuplicateLogsToolStripMenuItem.Name = "RemoveDuplicateLogsToolStripMenuItem"
-        Me.RemoveDuplicateLogsToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
-        Me.RemoveDuplicateLogsToolStripMenuItem.Text = "Remove duplicate logs"
+        Me.DeltaTimeAnalysisToolStripMenuItem.Name = "DeltaTimeAnalysisToolStripMenuItem"
+        Me.DeltaTimeAnalysisToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
+        Me.DeltaTimeAnalysisToolStripMenuItem.Text = "Delta time analysis"
         '
         'Form1
         '
@@ -148,4 +155,5 @@ Partial Class Form1
     Friend WithEvents IndividualResultsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SubmittedLogsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RemoveDuplicateLogsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DeltaTimeAnalysisToolStripMenuItem As ToolStripMenuItem
 End Class

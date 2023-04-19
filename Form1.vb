@@ -1,9 +1,14 @@
 ﻿Imports System.Collections.Immutable
+Imports System.Diagnostics.Eventing
 Imports System.IO
 Imports System.Text.RegularExpressions
+Imports ABI
+Imports System.Xml
 Imports ICSharpCode.SharpZipLib.GZip
 Imports ICSharpCode.SharpZipLib.Tar
 Imports Microsoft.Data.Sqlite
+Imports Microsoft.EntityFrameworkCore.Sqlite.Update.Internal
+Imports Microsoft.EntityFrameworkCore.ValueGeneration.Internal
 
 Public Class Form1
     ' Support functions for VKCL
@@ -293,7 +298,7 @@ Public Class Form1
             {"134G", (10, 0, 0, 1, 1)},
             {"241G", (10, 0, 0, 1, 1)}
             }
-    Dim Sections As New Dictionary(Of String, String) From {
+    ReadOnly Sections As New Dictionary(Of String, String) From {
                     {"A1", "Portable, Single Op 24 Hours"},
                     {"A2", "Portable, Single Op 8 Hours"},
                     {"B1", "Portable, Multi Op 24 Hours"},
@@ -303,7 +308,7 @@ Public Class Form1
                     {"D1", "Rover, 24 Hours"},
                     {"D2", "Rover, 8 Hours"}
                 }
-    Dim SubSections As New Dictionary(Of String, String) From {
+    ReadOnly SubSections As New Dictionary(Of String, String) From {
                     {"a", "Single band"},
                     {"b", "Four bands"},
                     {"c", "All bands"}
@@ -318,7 +323,7 @@ Public Class Form1
         ' load logs into database and perform checks
         Dim contestID As Integer, fileCount As Integer = 0, errors As Integer = 0
 
-        Dim sql As SqliteCommand, sql1 As SqliteCommand, sqldr As SqliteDataReader, Contestsdr As SqliteDataReader, count As Integer = 0
+        Dim sql As SqliteCommand, sql1 As SqliteCommand, sqldr As SqliteDataReader, count As Integer = 0
         Dim QSOsql As SqliteCommand, Stationssql As SqliteCommand
         ' list of commonly used mis-spellings of cabrillo template names
         Dim templateMapping As New Dictionary(Of String, String) From {
@@ -2209,6 +2214,70 @@ td.leftthick {border-width: thin thin thin medium;}
         End If
     End Function
 
+    Private Sub DeltaTimeAnalysisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeltaTimeAnalysisToolStripMenuItem.Click
+        Dim contestID As Integer, station As String, section As String
+        Dim sqlStations As SqliteCommand, sqlStationsdr As SqliteDataReader
+        Dim sqlQSO As SqliteCommand
+        Dim sqlupd As SqliteCommand
+        Dim Iteration As Integer = 0
+
+        If dlgContest.ShowDialog = DialogResult.OK Then
+            contestID = dlgContest.DataGridView1.SelectedRows(0).Cells("id").Value
+            dlgEntrant.Tag = contestID      ' pass contestID to dialog
+            If dlgEntrant.ShowDialog() = DialogResult.OK Then
+                station = dlgEntrant.DataGridView1.SelectedRows(0).Cells("station").Value
+                section = dlgEntrant.DataGridView1.SelectedRows(0).Cells("section").Value
+                Using connect As New SqliteConnection(CheckerDB)
+                    connect.Open()
+                    Dim tr As SqliteTransaction = connect.BeginTransaction
+                    Using tr
+                        connect.CreateFunction("BASECALL", Function(input As String) basecall(input))       ' define a function to remove suffix from call
+                        connect.CreateFunction("DELTAT", Function(a As String, b As String) DeltaT(a, b))
+                        sqlQSO = connect.CreateCommand
+                        sqlupd = connect.CreateCommand
+                        sqlStations = connect.CreateCommand
+                        sqlQSO.CommandText = $"UPDATE `Stations` SET DT=NULL WHERE contestID={contestID}"     ' initialise all DT
+                        sqlQSO.ExecuteNonQuery()
+                        sqlQSO.CommandText = $"UPDATE `Stations` SET DT=0 WHERE contestID={contestID} AND station='{station}'"     ' initialise all DT for station 0 to 0
+                        sqlQSO.ExecuteNonQuery()
+                        Do
+                            sqlStations.CommandText = "SELECT *,
+A.date AS Adate, B.date AS Bdate, S.station AS Sstation, T.DT AS DT, DELTAT(A.date,B.date) AS DELTA 
+FROM     Stations AS S
+JOIN     QSO      AS A
+JOIN     QSO      AS B
+JOIN     Stations AS T
+ON       S.contestID=A.contestID AND S.contestID=T.contestID AND S.station=basecall(A.sent_call) AND A.match=B.id AND basecall(B.sent_call)=T.station
+WHERE    S.DT IS NULL
+AND		 T.DT IS NOT NULL
+GROUP BY basecall(A.sent_call),
+         basecall(A.rcvd_call)"
+                            sqlStationsdr = sqlStations.ExecuteReader
+                            updated = 0
+                            Dim count = 0
+                            While sqlStationsdr.Read
+                                count += 1
+                                sqlupd.CommandText = $"UPDATE `Stations` SET DT={sqlStationsdr("DT")}+{sqlStationsdr("DELTA")} WHERE contestID={contestID} AND station='{sqlStationsdr("Sstation")}'"
+                                updated += sqlupd.ExecuteNonQuery
+                            End While
+                            Iteration += 1
+                            TextBox2.AppendText($"{count} stations to be updated, {updated} DT updates on iteration {Iteration}{vbCrLf}")
+                            sqlStationsdr.Close()
+                            Application.DoEvents()
+                        Loop Until updated = 0 Or Iteration >= 8
+                        tr.Commit()
+                    End Using
+                End Using
+            End If
+        End If
+
+    End Sub
+    Function DeltaT(a As String, b As String) As Integer
+        ' Calculate difference between 2 timestamps, in minutes
+        Dim Atime As Date = Convert.ToDateTime(a)
+        Dim Btime As Date = Convert.ToDateTime(b)
+        Return Btime.Subtract(Atime).TotalMinutes
+    End Function
     Private Sub SubmittedLogsToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles SubmittedLogsToolStripMenuItem.Click
         ' produce a submitted logs report
         Dim contestID As Integer
