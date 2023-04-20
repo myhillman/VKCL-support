@@ -13,145 +13,47 @@ Imports Microsoft.EntityFrameworkCore.ValueGeneration.Internal
 Public Class Form1
     ' Support functions for VKCL
     Private Const CheckerDB = "data Source=Checker.db3"   ' name of the checker file
+    Private Const NameFile = "data Source=Name.db3"   ' name of the names file
     Dim updated As Integer       ' number of  records updated
     Dim added As Integer       ' number of new records added
     ReadOnly StopWatch As New Stopwatch  ' timing device
     ReadOnly count As Integer
     Private Sub ExtractNamesFromLogsToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ExtractNamesFromLogsToolStripMenuItem1.Click
-        ' Extract names data for the VKCL names file from a tar.gz file containing a set of logs
-        Const NameFile = "data Source=Name.db3"   ' name of the names file
-        Dim count As Integer = 0  ' number of files analysed
-        Dim used As Integer = 0   ' number of files with useful data
+        ' Extract names data for the VKCL names file from existing contest logs
+
         Dim records As Integer
 
         Dim sql As SqliteCommand, sqldr As SqliteDataReader
-        Dim UploadsFolder As String = $"{Application.StartupPath}/uploads"  ' place to decompress log files to
+        Dim sqlNames As SqliteCommand, sqlNamesdr As SqliteDataReader
 
-        Using OpenFileDialog1 As New OpenFileDialog
-            With OpenFileDialog1
-                .Title = "Please select a gz file of logs"
-                .Filter = "gz files|*.gz|zip files|*.zip|All files|*.*"
-            End With
-            If OpenFileDialog1.ShowDialog = DialogResult.OK Then
-                ' get name file details
-                Using connect As New SqliteConnection(NameFile)
-                    updated = 0
-                    added = 0
-                    ' Get the number of records in the name file
-                    connect.Open()
-                    sql = connect.CreateCommand
-                    sql.CommandText = "Select COUNT(*) as Count from nameTbl"
-                    sqldr = sql.ExecuteReader()
-                    sqldr.Read()
-                    records = sqldr("Count")
-                    sqldr.Close()
-                    TextBox2.AppendText($"The names file contains {records} records{vbCrLf}")
-                    ' clear the uploads folder
-                    For Each deleteFile In Directory.GetFiles(UploadsFolder, "*.*", SearchOption.TopDirectoryOnly)
-                        File.Delete(deleteFile)
-                    Next
-                    ' Open and save the file of logs
-                    Select Case Path.GetExtension(OpenFileDialog1.FileName)
-                        Case ".gz"
-                            Dim tarFileInfo = New FileInfo($"{OpenFileDialog1.FileName}")     ' info on tar.gz file
-                            Dim targetDirectory As New DirectoryInfo(Application.StartupPath)
-                            Using sourcestream As Stream = New GZipInputStream(tarFileInfo.OpenRead()), tarArchive As TarArchive = TarArchive.CreateInputTarArchive(sourcestream, TarBuffer.DefaultBlockFactor)
-                                ' This will extract the contents of the tar.gz file into a local folder (called uploads)
-                                tarArchive.ExtractContents(targetDirectory.FullName)
-                            End Using
-                        Case ".zip"
-                            System.IO.Compression.ZipFile.ExtractToDirectory(OpenFileDialog1.FileName, UploadsFolder)
-                        Case Else
-                            MsgBox("This file type is not supported", vbCritical + vbAbort, "Unsupported file type")
-                            Return
-                    End Select
-
-                    ' process the uploads folder
-                    Dim di As New DirectoryInfo(UploadsFolder)
-                    Dim fiArr As FileInfo() = di.GetFiles
-                    Array.Sort(fiArr, Function(fi1, fi2) String.Compare(fi1.Name, fi2.Name))    ' sort array by filename
-                    For Each fri In fiArr
-                        ' initialise the 4 values we are looking for
-                        Dim Callsign As String = ""
-                        Dim Name As String = ""
-                        Dim Location As String = ""
-                        Dim GridLocator As String = ""
-                        Dim ValidFile As Boolean = False
-                        Dim result As String = ""
-
-                        Select Case LCase(fri.Extension)
-                            Case ".log", ".txt"
-                                ' Cabrillo file
-                                Dim fileReader As System.IO.StreamReader = My.Computer.FileSystem.OpenTextFileReader(fri.FullName)
-                                While Not fileReader.EndOfStream
-                                    Dim line As String = fileReader.ReadLine
-                                    line = Trim(Regex.Replace(line, "\s+", " "))      ' remove multiple spaces
-                                    Dim words = Split(line, " ")     ' split line into words
-                                    Select Case words(0)
-                                        Case "START-OF-LOG:"
-                                            ValidFile = True
-                                        Case "CALLSIGN:"
-                                            If ValidFile Then Callsign = words(1)
-                                        Case "NAME:"
-                                            If ValidFile Then Name = Join(words.Skip(1).ToArray, " ")      ' join all words
-                                        Case "LOCATION:"
-                                            If ValidFile Then Location = Join(words.Skip(1).ToArray, " ")      ' join all words
-                                        Case "GRID-LOCATOR:"
-                                            If ValidFile Then GridLocator = words(1)
-                                        Case "QSO:"
-                                            If ValidFile And GridLocator = "" Then GridLocator = words(8)
-                                            ' by this time we should have all we need
-                                            If Callsign = "" Or Name = "" Or GridLocator = "" Then
-                                                result = "Failed to extract any useful data"
-                                            Else
-                                                result = $"Call {Callsign} Name {Name} Grid {GridLocator} Location {Location}"
-                                                used += 1
-                                                AddToNames(connect, Name, Callsign, Location, GridLocator)
-                                                Exit While   ' no more data to get
-                                            End If
-                                    End Select
-                                End While
-                                If Not ValidFile Then result = "Not a valid Cabrillo file"
-                                fileReader.Close()
-                            Case ".db3"
-                                ' An Sqlite database
-                                Dim sqldb3 As SqliteCommand, sqldrdb3 As SqliteDataReader
-                                Try
-                                    Using connectdb3 As New SqliteConnection($"data Source={fri.FullName}")
-                                        connectdb3.Open()
-                                        sqldb3 = connectdb3.CreateCommand
-                                        sqldb3.CommandText = "SELECT * FROM `Contest`"
-                                        sqldrdb3 = sqldb3.ExecuteReader
-                                        If sqldrdb3.Read() Then
-                                            Callsign = sqldrdb3("cont_CallSign")
-                                            GridLocator = LCase(sqldrdb3("cont_ActvLctr"))
-                                            Name = sqldrdb3("cont_OpName")
-                                            Location = sqldrdb3("cont_Location")
-                                        Else
-                                            Throw New System.Exception("Failed to find any record in the Contest table")
-                                        End If
-                                    End Using
-                                    result = $"Call {Callsign} Name {Name} Grid {GridLocator} Location {Location}"
-                                    used += 1
-                                    AddToNames(connect, Name, Callsign, Location, GridLocator)
-                                Catch ex As SqliteException
-                                    MsgBox($"{ex.Message}{vbCrLf}SQL={sql.CommandText}", vbCritical + vbOK, "SQLite error")
-                                End Try
-                            Case Else
-                                result = "Unsupported file type"
-                        End Select
-                        TextBox2.AppendText($"{fri.Name} - {result}{vbCrLf}")
-                        count += 1
-                    Next
-                    sql.CommandText = "Select COUNT(*) as Count from nameTbl"
-                    sqldr = sql.ExecuteReader()
-                    sqldr.Read()
-                    records = sqldr("Count")
-                    sqldr.Close()
-                End Using
-                TextBox2.AppendText($"{count} files processed with useful data in {used}{vbCrLf}")
-                TextBox2.AppendText($"name file now has {records} records; {added} entries added, {updated} entries updated{vbCrLf}")
-            End If
+        Using names As New SqliteConnection(NameFile), connect As New SqliteConnection(CheckerDB)
+            updated = 0
+            added = 0
+            ' Get the number of records in the name file
+            names.Open()
+            connect.Open()
+            sql = connect.CreateCommand
+            sqlNames = names.CreateCommand
+            sqlNames.CommandText = "Select COUNT(*) as Count from nameTbl"
+            sqlNamesdr = sqlNames.ExecuteReader()
+            sqlNamesdr.Read()
+            records = sqlNamesdr("Count")
+            sqlNamesdr.Close()
+            TextBox2.AppendText($"The names file contains {records} records{vbCrLf}")
+            sql.CommandText = "SELECT * FROM Contests JOIN Stations AS S USING (contestID) WHERE S.station IS NOT NULL ORDER BY start"
+            sqldr = sql.ExecuteReader()
+            While sqldr.Read
+                Dim location = If(IsDBNull(sqldr("location")), "", sqldr("location"))
+                Dim gridsquare = If(IsDBNull(sqldr("gridsquare")), "", sqldr("gridsquare"))
+                If sqldr("name") <> "" And sqldr("station") <> "" Then AddToNames(names, sqldr("name"), sqldr("station"), location, gridsquare)
+            End While
+            sqldr.Close()
+            sqlNames.CommandText = "Select COUNT(*) as Count from nameTbl"
+            sqlNamesdr = sqlNames.ExecuteReader()
+            sqlNamesdr.Read()
+            records = sqlNamesdr("Count")
+            sqlNamesdr.Close()
+            TextBox2.AppendText($"name file now has {records} records; {added} entries added, {updated} entries updated{vbCrLf}")
         End Using
     End Sub
     Sub AddToNames(ByRef connect As SqliteConnection, Name As String, Callsign As String, Location As String, GridLocator As String)
@@ -167,6 +69,8 @@ Public Class Form1
         Dim regex As New Regex("^[a-r][a-r][0-9][0-9]([a-x][a-x]([0-9][0-9])?)?$")     ' 4 or 6 or 8 character locator
         Dim match As Match = regex.Match(GridLocator)
         If Not match.Success Then GridLocator = ""      ' remove invalid locator
+        Name = Replace(Name, "'", "''")     ' escape single quotes
+        If IsDBNull(Location) Then Location = ""
         Location = Replace(Location, "'", "''")     ' escape single quotes
         ' if name contains 2 words, assume it is a normal personal name (e.g. Marc Hillman) and record only the first.
         ' If not, record full name
@@ -201,7 +105,6 @@ Public Class Form1
             MsgBox($"{ex.Message}{vbCrLf}SQL={sql.CommandText}", vbCritical + vbOK, "SQLite error")
         End Try
     End Sub
-
 
     Private Sub RemoveDuplicateLogsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RemoveDuplicateLogsToolStripMenuItem.Click
         ' It is common that submitted log folders contain multple versions of the same file. Versions are indicated by (n) in the filename.
@@ -369,8 +272,8 @@ Public Class Form1
                     QSOsql.Transaction = tr
                     QSOsql.Prepare()
                     Stationssql.CommandText = $"REPLACE INTO `Stations` 
-                        (contestID, filename, station, CategoryStation, CategoryOperator, CategoryBand, CategoryTime, section, subsection, gridsquare, name, email, soapbox, ClaimedQSO, ActualQSO, ClaimedScore, CreatedBy, result) VALUES 
-                        (@contestID, @filename, @station, @CategoryStation, @CategoryOperator, @CategoryBand, @CategoryTime, @section, @subsection, @gridsquare, @name, @email, @soapbox, @ClaimedQSO, @ActualQSO, @ClaimedScore, @CreatedBy,@result)"
+                        (contestID, filename, station, CategoryStation, CategoryOperator, CategoryBand, CategoryTime, operators, section, subsection, gridsquare, name, location, email, soapbox, ClaimedQSO, ActualQSO, ClaimedScore, CreatedBy, result) VALUES 
+                        (@contestID, @filename, @station, @CategoryStation, @CategoryOperator, @CategoryBand, @CategoryTime, @operators, @section, @subsection, @gridsquare, @name, @location, @email, @soapbox, @ClaimedQSO, @ActualQSO, @ClaimedScore, @CreatedBy,@result)"
                     Stationssql.Transaction = tr
                     Stationssql.Prepare()
 
@@ -472,7 +375,10 @@ Public Class Form1
                                         Case "DIVISION:"
                                             ' Non standard Cabrillo. Convert to standard
                                         Case "OPERATORS:"
-                                            If ValidFile And words.Length >= 2 Then Operators = Join(words.Skip(1).ToArray, ",").ToUpper
+                                            If ValidFile And words.Length >= 2 Then
+                                                If Operators <> "" Then Operators &= ", "
+                                                Operators &= Join(words.Skip(1).ToArray, " ")
+                                            End If
                                         Case "CALLSIGN:"
                                             If ValidFile And words.Length >= 2 Then Callsign = basecall(words(1))   ' Callsign may be compound. Split out the base callsign
                                         Case "CLAIMED-CONTACTS:"
@@ -596,6 +502,7 @@ Public Class Form1
                                     .AddWithValue("contestID", contestID)
                                     .AddWithValue("filename", fri.FullName)
                                     .AddWithValue("station", Callsign)
+                                    .AddWithValue("operators", Operators)
                                     .AddWithValue("CategoryStation", CategoryStation)
                                     .AddWithValue("CategoryOperator", CategoryOperator)
                                     .AddWithValue("CategoryBand", CategoryBand)
@@ -604,6 +511,7 @@ Public Class Form1
                                     .AddWithValue("subsection", subsection)
                                     .AddWithValue("gridsquare", GridLocator)
                                     .AddWithValue("name", Name)
+                                    .AddWithValue("location", Location)
                                     .AddWithValue("email", Email)
                                     .AddWithValue("soapbox", soapbox)
                                     .AddWithValue("ClaimedQSO", ClaimedQSO)
@@ -692,8 +600,10 @@ Public Class Form1
                                                 .AddWithValue("contestID", contestID)
                                                 .AddWithValue("filename", fri.FullName)
                                                 .AddWithValue("station", Callsign)
+                                                .AddWithValue("operators", "")   ' TODO
                                                 .AddWithValue("gridsquare", IIf(IsDBNull(sqldrdb3("cont_ActvLctr")), "", sqldrdb3("cont_ActvLctr")))
                                                 .AddWithValue("name", IIf(IsDBNull(sqldrdb3("cont_OpName")), "", sqldrdb3("cont_OpName")))
+                                                .AddWithValue("location", IIf(IsDBNull(sqldrdb3("cont_Location")), "", sqldrdb3("cont_Location")))
                                                 .AddWithValue("email", IIf(IsDBNull(sqldrdb3("cont_eMail")), "", sqldrdb3("cont_eMail")))
                                                 .AddWithValue("soapbox", IIf(IsDBNull(sqldrdb3("cont_SoapBox")), "", sqldrdb3("cont_SoapBox")))
                                                 .AddWithValue("CategoryStation", "")    ' TODO
@@ -860,7 +770,7 @@ Public Class Form1
     End Enum
     Const DisqualifyQSO = flagsEnum.OutsideContestHours Or flagsEnum.NonPermittedBand Or flagsEnum.NonPermittedMode Or flagsEnum.DuplicateQSO Or flagsEnum.LoggedIncorrectBand Or flagsEnum.LoggedIncorrectExchange Or flagsEnum.LoggedIncorrectLocator Or flagsEnum.Outside8 ' any of these flags disqualify a QSO
     Const ReworkWindow = 2       ' hours for duplicate window
-    Const TimeTolerance = 5   ' times must be +/- minutes to match
+    Const TimeTolerance = 10   ' times must be +/- minutes to match
     Private Sub CheckScoreLogsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CheckScoreLogsToolStripMenuItem.Click
         ' check logs and produce scores
 
@@ -1472,18 +1382,45 @@ Public Class Form1
                 sqldr.Close()
 
                 ' Update ActualScore value
-                ' TODO - I don't understand any of this
-                'updsql.CommandText = $"UPDATE `Stations` AS S SET `ActualScore`=Q.score FROM (SELECT contestID,sent_call,flags,SUM(score) as score FROM QSO GROUP BY basecall(sent_call)) AS Q WHERE Q.flags=0 AND S.station=basecall(Q.sent_call) AND S.contestID=Q.contestID AND S.`contestID`={contestID}"
-                updated = 0
-                sql.CommandText = $"SELECT * FROM `QSO` WHERE contestID={contestID} AND `flags`=0 GROUP BY basecall(sent_call)"
-                sqldr = sql.ExecuteReader
-                While sqldr.Read
-                    updsql.CommandText = $"UPDATE `Stations` SET `ActualScore`={sqldr("score")} WHERE `contestID`={contestID} AND `station`=basecall('{sqldr("sent_call")}')"
-                    updated += updsql.ExecuteNonQuery()
-                End While
-                sqldr.Close()
+                updsql.CommandText = $"UPDATE `Stations` SET `ActualScore`=NULL,`Place`=NULL WHERE contestID={contestID}"    ' remove existing scores
+                updated = updsql.ExecuteNonQuery
+                updsql.CommandText = $"
+UPDATE `Stations` AS S
+SET    `ActualScore`=Q.score
+FROM   (
+                SELECT   sent_call,
+                         SUM(score) AS score
+                FROM     QSO
+                WHERE    (flags & {DisqualifyQSO})=0 AND contestID={contestID}
+                GROUP BY basecall(sent_call)) AS Q
+WHERE  S.station=basecall(Q.sent_call)
+AND    S.`contestID`={contestID}"
+                updated = updsql.ExecuteNonQuery
                 TextBox2.AppendText($"{updated} Total scores calculated{vbCrLf}")
 
+                ' Calculate placings
+                ' Query the actual scores, and have SQLite calculate RANK, partitioned by Category
+                sql.CommandText = $"
+SELECT station,
+       section,
+       subsection,
+       `ActualScore`,
+       RANK()
+         OVER (
+           PARTITION BY section, subsection
+           ORDER BY `ActualScore` DESC) AS r
+FROM   Stations
+WHERE  `contestID` = {contestID}
+       AND ActualScore IS NOT NULL
+ORDER  BY section,
+          subsection"
+                sqldr = sql.ExecuteReader
+                While sqldr.Read
+                    ' Update all placings
+                    updsql.CommandText = $"UPDATE `Stations` SET place={sqldr("r")} WHERE contestID={contestID} AND station='{sqldr("station")}' AND section='{sqldr("section")}' AND subsection='{sqldr("subsection")}'"
+                    updsql.ExecuteNonQuery()
+                End While
+sqldr.close
                 tr.Commit()
                 connect.Close()
             End Using
@@ -1626,6 +1563,7 @@ Public Class Form1
     Private Sub IndividualResultsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IndividualResultsToolStripMenuItem.Click
         ' produce a check report for an individual callsign
         Dim contestID As Integer, station As String, section As String
+        Dim sql As SqliteCommand, sqldr As SqliteDataReader
         Dim sqlContest As SqliteCommand, sqldrContest As SqliteDataReader
         Dim sqlEntrant As SqliteCommand, sqldrEntrant As SqliteDataReader
         Dim sqlQSO As SqliteCommand, sqlQSOdr As SqliteDataReader
@@ -1642,6 +1580,7 @@ Public Class Form1
                     connect.Open()
                     connect.CreateFunction("FREQUENCY", Function(band As String) frequency(band))
                     connect.CreateFunction("BASECALL", Function(input As String) basecall(input))     ' define a function to remove prefix/suffix from call
+                    sql = connect.CreateCommand
                     sqlContest = connect.CreateCommand
                     sqlEntrant = connect.CreateCommand
                     sqlQSO = connect.CreateCommand
@@ -1729,7 +1668,15 @@ td.incorrect{background-color: tomato;}
                         report.WriteLine("<table")
                         report.WriteLine($"<tr><td>Name</td><td>{sqldrEntrant("name")}</td></tr>")
                         report.WriteLine($"<tr><td>Call</td><td>{station}</td></tr>")
+                        If sqldrEntrant("operators") <> "" Then report.WriteLine($"<tr><td>Operators</td><td>{sqldrEntrant("operators")}</td></tr>")
                         report.WriteLine($"<tr><td>Section</td><td>{sqldrEntrant("section")}{sqldrEntrant("subsection")} - {Sections(sqldrEntrant("section"))}, {SubSections(sqldrEntrant("subsection"))}</td></tr>")
+                        ' Calculate section entrants
+                        sql.CommandText = $"SELECT COUNT(*) as Count FROM Stations WHERE contestID={contestID} AND section='{sqldrEntrant("section")}' AND subsection='{sqldrEntrant("subsection")}' AND place IS NOT NULL"
+                        sqldr = sql.ExecuteReader
+                        sqldr.Read()
+                        Dim count = sqldr("Count")
+                        sqldr.Close()
+                        report.WriteLine($"<tr><td>Rank in Section</td><td>{nthNumber(sqldrEntrant("place"))} (Entries: {count})</td></tr>")
                         report.WriteLine($"<tr><td>email</td><td>{sqldrEntrant("email")}</td></tr>")
                         report.WriteLine("</table>")
 
@@ -2000,6 +1947,25 @@ $"<tr>
             End If
         End If
     End Sub
+    Function nthNumber(number As Integer) As String
+        ' calculate ordinal suffix for number
+        Dim suffix As String = ""
+        If number >= 4 And number <= 20 Then
+            suffix = "th"
+        Else
+            Select Case number Mod 10
+                Case 1
+                    suffix = "st"
+                Case 2
+                    suffix = "nd"
+                Case 3
+                    suffix = "rd"
+                Case Else
+                    suffix = "th"
+            End Select
+        End If
+        Return $"{number}{suffix}"
+    End Function
     Private Class QSOcount
         ' class to represent a set of results for the "Results by Band" report
         Property Band As String
@@ -2270,7 +2236,6 @@ GROUP BY basecall(A.sent_call),
                 End Using
             End If
         End If
-
     End Sub
     Function DeltaT(a As String, b As String) As Integer
         ' Calculate difference between 2 timestamps, in minutes
