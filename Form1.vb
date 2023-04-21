@@ -12,7 +12,7 @@ Imports Microsoft.EntityFrameworkCore.ValueGeneration.Internal
 
 Public Class Form1
     ' Support functions for VKCL
-    Private Const CheckerDB = "data Source=Checker.db3"   ' name of the checker file
+    Private Const CheckerDB = "data Source=Checker.sqlite"   ' name of the checker file
     Private Const NameFile = "data Source=Name.db3"   ' name of the names file
     Dim updated As Integer       ' number of  records updated
     Dim added As Integer       ' number of new records added
@@ -768,7 +768,8 @@ Public Class Form1
         NotInLog = 512            ' QSO not in log
         Outside8 = 1024           ' outside 8 hour window
     End Enum
-    Const DisqualifyQSO = flagsEnum.OutsideContestHours Or flagsEnum.NonPermittedBand Or flagsEnum.NonPermittedMode Or flagsEnum.DuplicateQSO Or flagsEnum.LoggedIncorrectBand Or flagsEnum.LoggedIncorrectExchange Or flagsEnum.LoggedIncorrectLocator Or flagsEnum.Outside8 ' any of these flags disqualify a QSO
+    Const DisqualifyQSO = flagsEnum.OutsideContestHours Or flagsEnum.NonPermittedBand Or flagsEnum.NonPermittedMode Or flagsEnum.DuplicateQSO Or flagsEnum.LoggedIncorrectBand Or flagsEnum.LoggedIncorrectExchange Or flagsEnum.LoggedIncorrectLocator  ' any of these flags disqualify a QSO
+    Const NoScoreQSO = flagsEnum.Outside8        ' QSO does not score
     Const ReworkWindow = 2       ' hours for duplicate window
     Const TimeTolerance = 10   ' times must be +/- minutes to match
     Private Sub CheckScoreLogsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CheckScoreLogsToolStripMenuItem.Click
@@ -1388,39 +1389,42 @@ Public Class Form1
 UPDATE `Stations` AS S
 SET    `ActualScore`=Q.score
 FROM   (
-                SELECT   sent_call,
+                SELECT   contestID,
+                         section,
+                         sent_call,
                          SUM(score) AS score
                 FROM     QSO
-                WHERE    (flags & {DisqualifyQSO})=0 AND contestID={contestID}
-                GROUP BY basecall(sent_call)) AS Q
+                WHERE    (flags & {DisqualifyQSO + NoScoreQSO})=0 AND contestID={contestID}
+                GROUP BY basecall(sent_call),section) AS Q
 WHERE  S.station=basecall(Q.sent_call)
-AND    S.`contestID`={contestID}"
+AND    S.`contestID`=Q.contestID
+AND    S.section=Q.section"
                 updated = updsql.ExecuteNonQuery
                 TextBox2.AppendText($"{updated} Total scores calculated{vbCrLf}")
 
                 ' Calculate placings
                 ' Query the actual scores, and have SQLite calculate RANK, partitioned by Category
-                sql.CommandText = $"
-SELECT station,
-       section,
-       subsection,
-       `ActualScore`,
-       RANK()
-         OVER (
-           PARTITION BY section, subsection
-           ORDER BY `ActualScore` DESC) AS r
-FROM   Stations
-WHERE  `contestID` = {contestID}
-       AND ActualScore IS NOT NULL
-ORDER  BY section,
-          subsection"
-                sqldr = sql.ExecuteReader
-                While sqldr.Read
-                    ' Update all placings
-                    updsql.CommandText = $"UPDATE `Stations` SET place={sqldr("r")} WHERE contestID={contestID} AND station='{sqldr("station")}' AND section='{sqldr("section")}' AND subsection='{sqldr("subsection")}'"
-                    updsql.ExecuteNonQuery()
-                End While
-sqldr.close
+                updsql.CommandText = $"
+UPDATE `Stations` AS S
+SET    place=T.r
+FROM   (
+                SELECT   contestID,
+                         station,
+                         section,
+                         subsection,
+                         ActualScore,
+                         RANK() OVER ( PARTITION BY section, subsection ORDER BY `ActualScore` DESC) AS r
+                FROM     Stations
+                WHERE    `contestID` = {contestID}
+                AND      ActualScore IS NOT NULL
+                ORDER BY section,
+                         subsection) AS T
+WHERE  S.contestID=T.contestID
+AND    S.station=T.station
+AND    S.section=T.section
+AND    S.subsection=T.subsection"
+                updated = updsql.ExecuteNonQuery
+                TextBox2.AppendText($"{updated} Total places calculated{vbCrLf}")
                 tr.Commit()
                 connect.Close()
             End Using
@@ -1706,7 +1710,7 @@ td.incorrect{background-color: tomato;}
 
                         report.WriteLine("<h2>Results by Band</h2>")
                         ' Collect the data
-                        sqlQSO.CommandText = $"SELECT band,COUNT(*) as Contacts,SUM(score) AS Claimed,SUM(case when (`flags` & {DisqualifyQSO})=0 then score else 0 end) AS Final,max(distance) as Longest,avg(distance) as Average FROM QSO WHERE contestID={contestID} AND sent_call='{station}' group by band "
+                        sqlQSO.CommandText = $"SELECT band,COUNT(*) as Contacts,SUM(score) AS Claimed,SUM(case when (`flags` & {DisqualifyQSO + NoScoreQSO})=0 then score else 0 end) AS Final,max(distance) as Longest,avg(distance) as Average FROM QSO WHERE contestID={contestID} AND sent_call='{station}' group by band "
                         sqlQSOdr = sqlQSO.ExecuteReader
                         QSOcounts.Clear()
 
@@ -1947,7 +1951,8 @@ $"<tr>
             End If
         End If
     End Sub
-    Function nthNumber(number As Integer) As String
+
+    Shared Function nthNumber(number As Integer) As String
         ' calculate ordinal suffix for number
         Dim suffix As String = ""
         If number >= 4 And number <= 20 Then
@@ -1960,8 +1965,6 @@ $"<tr>
                     suffix = "nd"
                 Case 3
                     suffix = "rd"
-                Case Else
-                    suffix = "th"
             End Select
         End If
         Return $"{number}{suffix}"
@@ -2237,7 +2240,8 @@ GROUP BY basecall(A.sent_call),
             End If
         End If
     End Sub
-    Function DeltaT(a As String, b As String) As Integer
+
+    Shared Function DeltaT(a As String, b As String) As Integer
         ' Calculate difference between 2 timestamps, in minutes
         Dim Atime As Date = Convert.ToDateTime(a)
         Dim Btime As Date = Convert.ToDateTime(b)

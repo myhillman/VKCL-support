@@ -14,7 +14,7 @@ Public Class dlgContest
     End Sub
 
     Private Sub dlgContest_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Const CheckerDB = "data Source=Checker.db3"   ' name of the names file
+        Const CheckerDB = "data Source=Checker.sqlite"   ' name of the names file
         Dim sql As SqliteCommand, sqldr As SqliteDataReader, contests As New ArrayList
 
         Using connect As New SqliteConnection(CheckerDB)
