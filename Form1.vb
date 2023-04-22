@@ -9,6 +9,10 @@ Imports ICSharpCode.SharpZipLib.Tar
 Imports Microsoft.Data.Sqlite
 Imports Microsoft.EntityFrameworkCore.Sqlite.Update.Internal
 Imports Microsoft.EntityFrameworkCore.ValueGeneration.Internal
+Imports System.Reflection.Metadata.Ecma335
+Imports Windows.Web.Http.Diagnostics
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar
+Imports System.Runtime.InteropServices
 
 Public Class Form1
     ' Support functions for VKCL
@@ -18,6 +22,81 @@ Public Class Form1
     Dim added As Integer       ' number of new records added
     ReadOnly StopWatch As New Stopwatch  ' timing device
     ReadOnly count As Integer
+    'begin fragment for all html files
+    ReadOnly StartHTML As String = "
+<!DOCTYPE html>
+<html>
+<style>
+ .info table, .info th, .info td {
+    border: 1px solid black;
+}
+ .info {
+    border-collapse:collapse
+}
+ .info td {
+    padding: 3px;
+}
+ .section table, .section th, .section td {
+    border: 1px solid black;
+}
+ .section {
+    border-collapse:collapse
+}
+ .section td {
+    padding: 3px;
+}
+ .section {font-family: Arial, Helvetica, sans-serif; font-size: small;}
+ .section td:nth-child(1) {width: 120px;}
+ .section td:nth-child(2) {width: 250px;}
+ .section td:nth-child(4),.section td:nth-child(5), .section td:nth-child(6), .section td:nth-child(7), .section td:nth-child(8), .section td:nth-child(9), .section td:nth-child(10), .section td:nth-child(11), .section td:nth-child(12),td:nth-child(13),td:nth-child(14),td:nth-child(15),td:nth-child(16) {
+    text-align:right; width: 40px;
+}
+ .aligncenter {
+     display:block;
+     margin-left:auto;
+     margin-right:auto 
+}
+ .zebra table, .zebra th, .zebra td {
+    border: 1px solid lightblue;
+}
+ .zebra {
+    border-collapse:collapse
+}
+ .zebra tr:nth-child(even) {
+    background-color:#efefef;
+}
+ .zebra tr:nth-child(odd) {
+    background-color:#e1e1e1;
+}
+ .zebra tr.deleted td{
+    color:red;
+}
+ th {
+    background-color:#e1e1e1
+}
+ .center {
+    text-align: center;
+}
+ .right{
+    text-align: Right;
+}
+ .left{
+    text-align: Left;
+}
+ .boxed {
+     border: 1px solid green ;
+}
+ h1 {
+    text-align: center
+}
+td.correct{background-color: lightgreen;}
+td.incorrect{background-color: tomato;}
+td.rightthick {border-width: thin medium thin thin;}
+td.rightnone {border-right-style: none;}
+td.leftnone {border-left-style: none;}
+td.leftthick {border-width: thin thin thin medium;}
+td.rotate {transform: rotate(-90deg);}
+</style>"
     Private Sub ExtractNamesFromLogsToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ExtractNamesFromLogsToolStripMenuItem1.Click
         ' Extract names data for the VKCL names file from existing contest logs
 
@@ -380,7 +459,7 @@ Public Class Form1
                                                 Operators &= Join(words.Skip(1).ToArray, " ")
                                             End If
                                         Case "CALLSIGN:"
-                                            If ValidFile And words.Length >= 2 Then Callsign = basecall(words(1))   ' Callsign may be compound. Split out the base callsign
+                                            If ValidFile And words.Length >= 2 Then Callsign = words(1)   ' Callsign may be compound
                                         Case "CLAIMED-CONTACTS:"
                                             If ValidFile And words.Length >= 2 Then ClaimedQSO = CInt(words(1))
                                         Case "CLAIMED-SCORE:"
@@ -391,7 +470,7 @@ Public Class Form1
                                             If ValidFile And words.Length >= 2 Then Name = Join(words.Skip(1).ToArray, " ")      ' join all words
                                         Case "EMAIL:"
                                             If ValidFile And words.Length >= 2 Then Email = Join(words.Skip(1).ToArray, " ")      ' join all words
-                                        Case "LOCATION:"
+                                        Case "LOCATION:", "PORTABLE-LOCATION:"
                                             If ValidFile And words.Length >= 2 Then Location = Join(words.Skip(1).ToArray, " ")      ' join all words
                                         Case "GRID-LOCATOR:"
                                             If ValidFile And words.Length >= 2 Then GridLocator = words(1)
@@ -768,7 +847,7 @@ Public Class Form1
         NotInLog = 512            ' QSO not in log
         Outside8 = 1024           ' outside 8 hour window
     End Enum
-    Const DisqualifyQSO = flagsEnum.OutsideContestHours Or flagsEnum.NonPermittedBand Or flagsEnum.NonPermittedMode Or flagsEnum.DuplicateQSO Or flagsEnum.LoggedIncorrectBand Or flagsEnum.LoggedIncorrectExchange Or flagsEnum.LoggedIncorrectLocator  ' any of these flags disqualify a QSO
+    Const DisqualifyQSO = flagsEnum.OutsideContestHours Or flagsEnum.NonPermittedBand Or flagsEnum.NonPermittedMode Or flagsEnum.DuplicateQSO Or flagsEnum.LoggedIncorrectCall Or flagsEnum.LoggedIncorrectBand Or flagsEnum.LoggedIncorrectExchange Or flagsEnum.LoggedIncorrectLocator Or flagsEnum.BadGrid  ' any of these flags disqualify a QSO
     Const NoScoreQSO = flagsEnum.Outside8        ' QSO does not score
     Const ReworkWindow = 2       ' hours for duplicate window
     Const TimeTolerance = 10   ' times must be +/- minutes to match
@@ -793,6 +872,7 @@ Public Class Form1
                 connect.CreateFunction("DISTANCE", Function(A As String, B As String) GridDistance(A, B))
                 connect.CreateFunction("SCORE", Function(band As String, distance As Integer) Score(band, distance))
                 connect.CreateFunction("FREQUENCY", Function(band As String) frequency(band))
+                connect.CreateFunction("VALIDCALL", Function(callsign As String) ValidCall(callsign))
                 Dim tr As SqliteTransaction = connect.BeginTransaction
                 ' retrieve contest details
                 Contestssql = connect.CreateCommand
@@ -861,6 +941,28 @@ Public Class Form1
                 StopWatch.Stop()
                 TextBox2.AppendText($"QSO perfect match analysis found {count} and took {StopWatch.Elapsed.Seconds}s{vbCrLf}")
                 Application.DoEvents()    ' let textbox update
+
+                ' Check for valid received calls
+                StopWatch.Restart()
+                sql.CommandText = $"
+UPDATE `QSO` AS A
+SET    flags=A.flags | {CInt(flagsEnum.LoggedIncorrectCall)}
+FROM   (
+              SELECT *
+              FROM   `QSO`
+              WHERE  NOT ValidCall(rcvd_call)
+              AND    contestID={contestID}) AS B
+WHERE  A.id=B.id"
+                count = sql.ExecuteNonQuery
+                StopWatch.Stop()
+                TextBox2.AppendText($"QSO illegal callsign analysis found {count} and took {StopWatch.Elapsed.Seconds}s{vbCrLf}")
+                Application.DoEvents()    ' let textbox update
+                sql.CommandText = $"SELECT * FROM QSO WHERE contestID={contestID} and (flags & {CInt(flagsEnum.LoggedIncorrectCall)})<>0 ORDER BY rcvd_call"
+                sqldr = sql.ExecuteReader
+                While sqldr.Read
+                    TextBox2.AppendText($"{sqldr("date")} {sqldr("band"),4} {sqldr("mode")} {sqldr("sent_call"),-10} {sqldr("sent_rst")}{sqldr("sent_exch")} {sqldr("sent_grid"),-8} {sqldr("rcvd_call"),-10} {sqldr("rcvd_rst")}{sqldr("rcvd_exch")} {sqldr("rcvd_grid")}{vbCrLf}")
+                End While
+                sqldr.Close()
 
                 ' Now look for not matched QSO that match on 3 out of 4 values - band, call, exch, grid
                 ' Look for a matching pair of QSO, which match on 3 of the 4 criteria - call them A and B.
@@ -1223,50 +1325,48 @@ Public Class Form1
                 ' test for not in log
                 ' NotInLog = there is no QSO match, but there does exist a log for the rcvd_call
                 StopWatch.Restart()
-                count = 0
-                sql.CommandText = $"SELECT *
-                                    FROM   QSO AS A
-                                    WHERE  A.match IS NULL
-                                           AND A.contestID = {contestID}
-                                           AND EXISTS(SELECT *
-                                                      FROM   QSO AS B
-                                                      WHERE  B.contestID = {contestID}
-                                                             AND basecall(B.sent_call) = basecall(A.rcvd_call))"
-                sqldr = sql.ExecuteReader
-                While sqldr.Read
-                    updsql.CommandText = $"UPDATE `QSO` SET `flags`=`flags` | {CInt(flagsEnum.NotInLog)} WHERE id={sqldr("id")}"
-                    count += updsql.ExecuteNonQuery()
-                End While
-                sqldr.Close()
+                sql.CommandText = $"
+UPDATE `QSO` AS Q
+SET    `flags`=Q.flags | {CInt(flagsEnum.NotInLog)}
+FROM   (
+              SELECT *
+              FROM   QSO AS A
+              WHERE  A.match IS NULL
+              AND    A.contestID = {contestID}
+              AND    EXISTS
+                     (
+                            SELECT *
+                            FROM   QSO AS B
+                            WHERE  B.contestID = {contestID}
+                            AND    basecall(B.sent_call) = basecall(A.rcvd_call))) AS C
+WHERE  Q.id=C.id"
+                count = sql.ExecuteNonQuery
+                StopWatch.Stop()
                 TextBox2.AppendText($"Not in log analysis found {count} and took {StopWatch.Elapsed.Seconds}s{vbCrLf}")
                 Application.DoEvents()    ' let textbox update
 
                 ' test for duplicates
                 ' and duplicate is 2 QSO which match on calls & band and are within the rework window
                 StopWatch.Restart()
-                count = 0
-                sqlQSO.CommandText = $"Select A.id AS Aid
-                                    From QSO As A
-                                    Where A.contestID = {contestID}
-                                           And EXISTS(SELECT *
-                                                      From QSO As B
-                                                      Where A.contestID = B.contestID
-                                                             And basecall(A.sent_call) = basecall(B.sent_call)
-                                                             And basecall(A.rcvd_call) = basecall(B.rcvd_call)
-                                                             And A.band = B.band
-                                                             And A.date BETWEEN
-                                                                 DateTime(B.date) AND
-                                                                 DateTime(B.date, '+{ReworkWindow} hours', '-{TimeTolerance} minutes')
-                                                             And A.id <> B.id)"
-                sqlQSOdr = sqlQSO.ExecuteReader()
-                If sqlQSOdr.HasRows Then
-                    ' We have duplicate(s)
-                    While sqlQSOdr.Read
-                        updsql.CommandText = $"UPDATE `QSO` SET `flags`=`flags` | {CInt(flagsEnum.DuplicateQSO)} WHERE id={sqlQSOdr("Aid")}"
-                        count += updsql.ExecuteNonQuery()
-                    End While
-                End If
-                sqlQSOdr.Close()
+                sqlQSO.CommandText = $"
+UPDATE `QSO` AS Q
+SET    `flags`=Q.flags | {CInt(flagsEnum.DuplicateQSO)}
+FROM   (
+              SELECT *
+              FROM   QSO  AS A
+              WHERE  A.contestID = {contestID}
+              AND    EXISTS
+                     (
+                            SELECT *
+                            FROM   QSO AS B
+                            WHERE  A.contestID = B.contestID
+                            AND    basecall(A.sent_call) = basecall(B.sent_call)
+                            AND    basecall(A.rcvd_call) = basecall(B.rcvd_call)
+                            AND    A.band = B.band
+                            AND    A.date BETWEEN DATETIME(B.date) AND    DATETIME(B.date, '+{ReworkWindow} hours', '-{TimeTolerance} minutes')
+                            AND    A.id <> B.id)) AS C
+              WHERE  Q.id=C.id"
+                count = sqlQSO.ExecuteNonQuery()
                 StopWatch.Stop()
                 TextBox2.AppendText($"Duplicate QSO analysis found {count} and took {StopWatch.Elapsed.Seconds}s{vbCrLf}")
                 Application.DoEvents()    ' let textbox update
@@ -1310,7 +1410,7 @@ Public Class Form1
                 While sqldr.Read
                     count += 1
                     QSOlist.Clear()
-                    sqlQSO.CommandText = $"SELECT * FROM `QSO` WHERE `contestID`={contestID} AND basecall(`sent_call`)='{sqldr("station")}' AND `section`='{sqldr("section")}' AND `score` IS NOT NULL ORDER BY `date`"     ' all QSO in this log
+                    sqlQSO.CommandText = $"SELECT * FROM `QSO` WHERE `contestID`={contestID} AND `sent_call`='{sqldr("station")}' AND `section`='{sqldr("section")}' AND `score` IS NOT NULL ORDER BY `date`"     ' all QSO in this log
                     sqlQSOdr = sqlQSO.ExecuteReader
                     If sqlQSOdr.HasRows Then
                         While sqlQSOdr.Read
@@ -1598,74 +1698,7 @@ AND    S.subsection=T.subsection"
 
                     Using report As New StreamWriter($"{station} - {sqldrContest("name")} check report.html")
 
-                        report.WriteLine("<!DOCTYPE html>
-<html>
-<style>
- .info table, .info th, .info td {
-    border: 1px solid black;
-}
- .info {
-    border-collapse:collapse
-}
- .info td {
-    padding: 3px;
-}
- .section table, .section th, .section td {
-    border: 1px solid black;
-}
- .section {
-    border-collapse:collapse
-}
- .section td {
-    padding: 3px;
-}
- .section {font-family: Arial, Helvetica, sans-serif; font-size: small;}
- .section td:nth-child(1) {width: 120px;}
- .section td:nth-child(2) {width: 250px;}
- .section td:nth-child(4),.section td:nth-child(5), .section td:nth-child(6), .section td:nth-child(7), .section td:nth-child(8), .section td:nth-child(9), .section td:nth-child(10), .section td:nth-child(11), .section td:nth-child(12),td:nth-child(13),td:nth-child(14),td:nth-child(15),td:nth-child(16) {
-    text-align:right; width: 40px;
-}
- .aligncenter {
-     display:block;
-     margin-left:auto;
-     margin-right:auto 
-}
- .zebra table, .zebra th, .zebra td {
-    border: 1px solid lightblue;
-}
- .zebra {
-    border-collapse:collapse
-}
- .zebra tr:nth-child(even) {
-    background-color:#efefef;
-}
- .zebra tr:nth-child(odd) {
-    background-color:#e1e1e1;
-}
- .zebra tr.deleted td{
-    color:red;
-}
- th {
-    background-color:#e1e1e1
-}
- .center {
-    text-align: center;
-}
- .right{
-    text-align: Right;
-}
- .left{
-    text-align: Left;
-}
- .boxed {
-     border: 1px solid green ;
-}
- h1 {
-    text-align: center
-}
-td.correct{background-color: lightgreen;}
-td.incorrect{background-color: tomato;}
-</style>")
+                        report.WriteLine(StartHTML)
 
                         report.WriteLine($"Contest : {sqldrContest("name")}<br><br>")
                         report.WriteLine("<h2>Entrant</h2>")
@@ -1987,6 +2020,7 @@ $"<tr>
         End Sub
     End Class
 
+    Dim CallAreas() As String = {"VK1", "VK2", "VK3", "VK4", "VK5", "VK6", "VK7", "VK8", "ZL", "DX"}
     Private Sub ProvisionalResultsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProvisionalResultsToolStripMenuItem.Click
         ' produce a provisional results report
         Dim contestID As Integer
@@ -1997,6 +2031,8 @@ $"<tr>
         Dim bandList As New List(Of String)     ' list of all bands used in this contest
         Dim sqlBand As New List(Of String)
 
+        Dim row As Integer, col As Integer
+
         If dlgContest.ShowDialog = DialogResult.OK Then
             contestID = dlgContest.DataGridView1.SelectedRows(0).Cells("id").Value
             dlgEntrant.Tag = contestID      ' pass contestID to dialog
@@ -2004,6 +2040,7 @@ $"<tr>
                 connect.Open()
                 connect.CreateFunction("BASECALL", Function(input As String) basecall(input))       ' define a function to remove suffix from call
                 connect.CreateFunction("FREQUENCY", Function(band As String) frequency(band))
+                connect.CreateFunction("CALLAREA", Function(callsign As String) CallArea(callsign))
                 sqlContest = connect.CreateCommand
                 sqlEntrant = connect.CreateCommand
                 sqlQSO = connect.CreateCommand
@@ -2011,74 +2048,7 @@ $"<tr>
                 sqldrContest = sqlContest.ExecuteReader()
                 sqldrContest.Read()
                 Using report As New StreamWriter($"{sqldrContest("name")} Provisional Results.html")    ' open report file
-                    report.WriteLine("<!DOCTYPE html>
-<html>
-<style>
- .info table, .info th, .info td {
-    border: 1px solid black;
-}
- .info {
-    border-collapse:collapse
-}
- .info td {
-    padding: 3px;
-}
- .section table, .section th, .section td {
-    border: 1px solid black;
-}
- .section {
-    border-collapse:collapse
-}
- .section td {
-    padding: 3px;
-}
- .section {font-family: Arial, Helvetica, sans-serif; font-size: small;}
- .section td:nth-child(1) {width: 120px;}
- .section td:nth-child(2) {width: 250px;}
- .section td:nth-child(4),.section td:nth-child(5), .section td:nth-child(6), .section td:nth-child(7), .section td:nth-child(8), .section td:nth-child(9), .section td:nth-child(10), .section td:nth-child(11), .section td:nth-child(12),td:nth-child(13),td:nth-child(14),td:nth-child(15),td:nth-child(16) {
-    text-align:right; width: 40px;
-}
- .aligncenter {
-     display:block;
-     margin-left:auto;
-     margin-right:auto 
-}
- .zebra table, .zebra th, .zebra td {
-    border: 1px solid lightblue;
-}
- .zebra {
-    border-collapse:collapse
-}
- .zebra tr:nth-child(even) {
-    background-color:#efefef;rightdouble
-}
- .zebra tr:nth-child(odd) {
-    background-color:#e1e1e1;
-}
- .zebra tr.deleted td{
-    color:red;
-}
- th {
-    background-color:#e1e1e1
-}
- .center {
-    text-align: center;
-}
- .right{
-    text-align: Right;
-}
- .left{
-    text-align: Left;
-}
- .boxed {
-     border: 1px solid green ;
-}
- h1 {
-    text-align: center
-}
-td.rightthick {border-width: thin medium thin thin;}
-td.leftthick {border-width: thin thin thin medium;}
-</style>")
+                    report.WriteLine(StartHTML)
 
                     report.WriteLine($"<div class='center'>{sqldrContest("name")} {sqldrContest("Start")}</div>")
                     report.WriteLine("<h1>PROVISIONAL RESULTS</h1>")
@@ -2109,14 +2079,14 @@ td.leftthick {border-width: thin thin thin medium;}
                         report.WriteLine("<th>Total</th></tr>")
                         ' Now do a sub section
                         For Each subsection In SubSections
-                            sqlEntrant.CommandText = $"SELECT station,name,count(*) as Valid,gridsquare,{bandssql} FROM Stations AS S JOIN QSO AS Q ON S.station=Q.sent_call WHERE S.contestID={contestID} AND Q.contestID={contestID} AND S.Section='{section.Key}' AND S.subsection='{subsection.Key}' AND (`flags` & {DisqualifyQSO})=0 GROUP BY station ORDER By Total DESC"
+                            sqlEntrant.CommandText = $"SELECT basecall(station) as station,name,count(*) as Valid,gridsquare,{bandssql} FROM Stations AS S JOIN QSO AS Q ON S.station=Q.sent_call WHERE S.contestID={contestID} AND Q.contestID={contestID} AND S.Section='{section.Key}' AND S.subsection='{subsection.Key}' AND (`flags` & {DisqualifyQSO})=0 GROUP BY station ORDER By Total DESC"
                             sqldrEntrant = sqlEntrant.ExecuteReader
                             If sqldrEntrant.HasRows Then
                                 ' create score table
                                 report.WriteLine($"<tr><td class='center' colspan={bandList.Count + 5}><b>{subsection.Key} - {subsection.Value}</b></td></tr>")
                                 While sqldrEntrant.Read
                                     report.WriteLine($"<tr><td>{sqldrEntrant("station")}</td><td>{sqldrEntrant("name")}</td><td>{sqldrEntrant("gridsquare")}</td><td class='rightthick'>{sqldrEntrant("Valid")}</td>")
-                                    Dim col As Integer = 1
+                                    col = 1
                                     For Each band In bandList
                                         Dim fieldname As String = $"B{bandList.IndexOf(band)}"
                                         Dim cls = If(col = 4, " class='rightthick'", "")
@@ -2150,20 +2120,92 @@ td.leftthick {border-width: thin thin thin medium;}
                     sqldrEntrant.Close()
 
                     report.WriteLine("<h2>Portable Locations</h2>")
+                    report.WriteLine("<table class='info'><tr><th>Callsign</th><th>Location</th></tr>")
+                    sqlEntrant.CommandText = $"SELECT `station`,`location` FROM `Stations` WHERE `contestID`={contestID} AND `CategoryStation`='PORTABLE' ORDER BY `station`"
+                    sqldrEntrant = sqlEntrant.ExecuteReader
+                    While sqldrEntrant.Read
+                        report.WriteLine($"<tr><td>{sqldrEntrant("station")}</td><td>{System.Web.HttpUtility.HtmlEncode(sqldrEntrant("location"))}</td></tr>")
+                    End While
+                    sqldrEntrant.Close()
+                    report.WriteLine("</table>")
 
                     report.WriteLine("<h2>Active Stations per Call Area</h2>")
+                    Dim stations(CallAreas.Length - 1) As Integer, logs(CallAreas.Length - 1) As Integer
+                    sqlQSO.CommandText = $"
+SELECT CallArea(rcvd_call) AS area,
+       Count(*)            AS count
+FROM   (SELECT DISTINCT basecall(rcvd_call) AS rcvd_call
+        FROM   QSO
+        WHERE  contestID = {contestID}
+               AND (`flags` & {CInt(flagsEnum.LoggedIncorrectCall)}) = 0) AS B
+GROUP  BY CallArea(rcvd_call)"
+                    sqlQSOdr = sqlQSO.ExecuteReader
+                    While sqlQSOdr.Read()
+                        stations(Array.IndexOf(CallAreas, sqlQSOdr("area"))) = sqlQSOdr("count")
+                    End While
+                    sqlQSOdr.Close()
+                    sqlQSO.CommandText = $"SELECT CallArea(station) as area, COUNT(*) as count FROM Stations WHERE contestID={contestID} AND station<>'' GROUP BY CallArea(station)"
+                    sqlQSOdr = sqlQSO.ExecuteReader
+                    While sqlQSOdr.Read()
+                        logs(Array.IndexOf(CallAreas, sqlQSOdr("area"))) = sqlQSOdr("count")
+                    End While
+                    sqlQSOdr.Close()
+                    ' now print report
+                    ' heading
+                    report.Write("<table class='center info'><tr><td>Area</td>")
+                    For Each s In CallAreas
+                        report.Write($"<th>{s}</th>")
+                    Next
+                    report.WriteLine("</tr>")
+                    ' second line
+                    report.Write("<tr><td>No of Stations</td>")
+                    For Each a In stations
+                        report.Write($"<td>{SuppressZero(a)}</td>")
+                    Next
 
-                    report.WriteLine("<h2>Call Area to Call Area Contacts</h2>")
+                    report.WriteLine("</tr>")
+                    ' third line
+                    report.Write("<tr><td>Submitting logs</td>")
+                    For Each a In logs
+                        report.Write($"<td>{SuppressZero(a)}</td>")
+                    Next
+                    report.WriteLine("</tr>")
+                    ' fourth line
+                    report.Write("<tr><td>Percentage</td>")
+                    For i = 0 To stations.Length - 1
+                        Dim cell As String
+                        If stations(i) = 0 Then
+                            cell = ""
+                        Else
+                            cell = $"{logs(i) / stations(i) * 100:f0}%"
+                        End If
+                        report.Write($"<td>{cell}</td>")
+                    Next
+                    report.WriteLine("</tr></table>")
+
+
+                    report.WriteLine("<h2>Call Area To Call Area Contacts</h2>")
+
+                    For Each band In CallAreaBands
+                        CallAreaContacts(connect, report, contestID, band.Key)
+                    Next
 
                     report.WriteLine("<h2>Multi-Op Portable Stations Operators</h2>")
+                    sqlEntrant.CommandText = $"SELECT * FROM Stations WHERE contestID={contestID} AND CategoryOperator='MULTI-OP' AND operators<>'' ORDER BY station"
+                    sqldrEntrant = sqlEntrant.ExecuteReader
+                    While sqldrEntrant.Read
+                        report.WriteLine($"<h3>From log of: {sqldrEntrant("station"),10} {sqldrEntrant("name")}</h3>")
+                        report.WriteLine($"{sqldrEntrant("operators")}<br><br>")
+                    End While
+                    sqldrEntrant.Close()
 
                     report.WriteLine("<h2>Comments</h2>")
-                    sqlEntrant.CommandText = $"SELECT * FROM Stations WHERE contestID={contestID} ORDER BY station"
+                    sqlEntrant.CommandText = $"Select * FROM Stations WHERE contestID={contestID} ORDER BY station"
                     sqldrEntrant = sqlEntrant.ExecuteReader
                     While sqldrEntrant.Read
                         If Not IsDBNull(sqldrEntrant("soapbox")) AndAlso sqldrEntrant("soapbox").length > 0 Then
-                            report.WriteLine($"<h3>From the log of: {sqldrEntrant("station"),10} {sqldrEntrant("name")}</h3>")
-                            report.WriteLine($"{sqldrEntrant("soapbox")}<br>")
+                            report.WriteLine($"<h3>From log of: {sqldrEntrant("station"),10} {sqldrEntrant("name")}</h3>")
+                            report.WriteLine($"{System.Web.HttpUtility.HtmlEncode(sqldrEntrant("soapbox"))}<br>")
                         End If
                     End While
                     sqldrEntrant.Close()
@@ -2174,6 +2216,103 @@ td.leftthick {border-width: thin thin thin medium;}
             End Using
         End If
     End Sub
+
+    ' bands to use in Call Area to Call Area report
+    ReadOnly CallAreaBands As New Dictionary(Of String, String) From {
+            {"All", "'50','144','432','1.2G','2.4G'"},
+            {"6 m", "'50'"},
+            {"2 m", "'144'"},
+            {"70 cm", "'432'"},
+            {"23 cm", "'1.2G'"},
+            {"13 cm", "'2.4G'"}
+        }
+    Sub CallAreaContacts(connect As SqliteConnection, report As StreamWriter, contestID As Integer, band As String)
+        ' Produce a Call Area to Call Area matrix for a band
+        Dim matrix(CallAreas.Length - 1, CallAreas.Length - 1) As Integer
+        Dim sqlQSO As SqliteCommand, sqlQSOdr As SqliteDataReader
+
+        sqlQSO = connect.CreateCommand
+        sqlQSO.CommandText = $"
+SELECT CALLAREA(sent_call) AS sent,
+       CALLAREA(rcvd_call) AS rcvd,
+       Count(*)         AS count
+FROM   QSO
+WHERE  contestID = {contestID}
+       AND ( flags & {DisqualifyQSO} ) = 0
+       AND BAND IN ( {CallAreaBands(band)} )
+GROUP  BY sent,
+          rcvd "
+        sqlQSOdr = sqlQSO.ExecuteReader
+        While sqlQSOdr.Read
+            matrix(Array.IndexOf(CallAreas, sqlQSOdr("sent")), Array.IndexOf(CallAreas, sqlQSOdr("rcvd"))) = sqlQSOdr("count")
+        End While
+        sqlQSOdr.Close()
+        report.WriteLine("<table class='center info'>")
+        report.WriteLine($"<tr><td class='rightnone'></td><td class='leftnone'></td><td colspan={CallAreas.Length}><b>From</b></td></tr>")
+        report.Write($"<tr><td class='rightnone'>{band}</td><td class='leftnone'>Band</td>")
+        For Each s In CallAreas
+            report.Write($"<th>{s}</th>")
+        Next
+        report.WriteLine("</tr>")
+        Dim firstcell As String = $"<td class='rotate' rowspan={CallAreas.Length}><b>To</b></td>"
+        For row = 0 To CallAreas.Length - 1
+            report.Write($"<tr>{firstcell}<th>{CallAreas(row)}</th>")
+            firstcell = ""
+            For col = 0 To CallAreas.Length - 1
+                report.Write($"<td>{SuppressZero(matrix(col, row))}</td>")
+            Next
+            report.WriteLine("</tr>")
+        Next
+        report.WriteLine("</table><br>")
+    End Sub
+    Private Function CallArea(callsign As String) As String
+        ' Convert a callsign into a call area
+        Dim result As String
+        Dim matches = Regex.Matches(callsign, "^(VK|VJ|VL)(\d)[A-Z]{1,4}(/P|/M)?$")         ' bog standard VK call
+        If matches.Any Then
+            result = $"VK{matches(0).Groups(2).Value}"
+        Else
+            matches = Regex.Matches(callsign, "^(VK|VJ|VL)\d[A-Z]{1,4}/P(\d)$")          ' /Pn
+            If matches.Any Then
+                result = $"VK{matches(0).Groups(2).Value}"
+            Else
+                matches = Regex.Matches(callsign, "^[A-Z0-9]{4,15}/VK(\d)(/P)?$")       ' /VKn(/P) suffix
+                If matches.Any Then
+                    result = $"VK{matches(0).Groups(1).Value}"
+                Else
+                    matches = Regex.Matches(callsign, "^VK(\d)/[A-Z0-9]{4,15}(/P)?$")       ' VKn/ prefix
+                    If matches.Any Then
+                        result = $"VK{matches(0).Groups(1).Value}"
+                    Else
+                        If callsign.Substring(0, 2) = "ZL" Then
+                            result = "ZL"
+                        Else
+                            ' Now test for compound VK
+                            matches = Regex.Matches(callsign, "^(VK|VJ|VL)\d[A-Z]{1,4}(/P|/M)?/(\d)$")
+                            If matches.Any Then
+                                result = $"VK{matches(0).Groups(3).Value}"
+                            Else
+                                result = "DX"
+                            End If
+                        End If
+                    End If
+                End If
+            End If
+        End If
+        Trace.Assert(CallAreas.Contains(result), $"CallAreas does not contain '{result}'")
+        Return result
+    End Function
+
+    Private Function ValidCall(callsign As String) As Boolean
+        ' Valiate a callsign
+        If Regex.Matches(callsign, "^(VK|VJ|VL)\d[A-Z]{1,4}(/P|/M|/(VK)?\d)?$").Any Then Return True    ' bog standard call with optional suffix
+        If Regex.Matches(callsign, "^VI\d.*$").Any Then Return True    ' special calls
+        If Regex.Matches(callsign, "^(VK|VJ|VL)\d[A-Z]{1,4}/P(/)?\d$").Any Then Return True         ' /P/n /Pn
+        If Regex.Matches(callsign, "^VK\d/[A-Z0-9]{4,10}(/P)?$").Any Then Return True               ' VKn/call(/P)
+        If Regex.Matches(callsign, "^VK|VJ|VL").Any Then Return False                               ' a non recognised VK call
+        If Regex.Matches(callsign, "^(VK\d/)?([A-Z]+[0-9]+[A-Z]+|[0-9]+[A-Z]+[0-9]+)(/VK\d)?$").Any Then Return True          ' letters-numbers-letters or numbers-letters-numbers
+        Return False
+    End Function
     Private Shared Function SuppressZero(value) As String
         ' Cause 0 to be printed as blank
         If IsDBNull(value) OrElse value = 0 Then
@@ -2247,6 +2386,107 @@ GROUP BY basecall(A.sent_call),
         Dim Btime As Date = Convert.ToDateTime(b)
         Return Btime.Subtract(Atime).TotalMinutes
     End Function
+
+    Private Sub ErrorListingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ErrorListingToolStripMenuItem.Click
+        ' produce a listing of all errors
+        Dim contestID As Integer, count As Integer
+        Dim sqlContest As SqliteCommand, sqldrContest As SqliteDataReader
+        Dim sqlEntrant As SqliteCommand
+        Dim sqlQSO As SqliteCommand, sqlQSOdr As SqliteDataReader
+        Dim QSOcounts As New List(Of QSOcount)
+        Dim bandList As New List(Of String)     ' list of all bands used in this contest
+        Dim sqlBand As New List(Of String)
+
+        If dlgContest.ShowDialog = DialogResult.OK Then
+            contestID = dlgContest.DataGridView1.SelectedRows(0).Cells("id").Value
+            dlgEntrant.Tag = contestID      ' pass contestID to dialog
+            Using connect As New SqliteConnection(CheckerDB)
+                connect.Open()
+                connect.CreateFunction("BASECALL", Function(input As String) basecall(input))       ' define a function to remove suffix from call
+                connect.CreateFunction("FREQUENCY", Function(band As String) frequency(band))
+                sqlContest = connect.CreateCommand
+                sqlEntrant = connect.CreateCommand
+                sqlQSO = connect.CreateCommand
+                sqlContest.CommandText = $"Select * FROM Contests WHERE contestID={contestID}"
+                sqldrContest = sqlContest.ExecuteReader()
+                sqldrContest.Read()
+                Using report As New StreamWriter($"{sqldrContest("name")} Error Listing.html")    ' open report file
+                    report.WriteLine(StartHTML)
+
+                    report.WriteLine($"<div class='center'>{sqldrContest("name")} {sqldrContest("Start")}</div>")
+                    sqldrContest.Close()
+                    report.WriteLine("<h1>Error listing</h1>")
+                    report.WriteLine("<h2>Not in log</h2>")
+                    report.WriteLine("<table class='info'>")
+                    report.WriteLine("<tr><th>Callsign</th><th>Date</th><th>Band</th><th>Call</th><th>Sent</th><th>Rcvd</th></tr>")
+                    sqlQSO.CommandText = $"SELECT * FROM `QSO` WHERE `contestID`={contestID} AND (flags & {CInt(flagsEnum.NotInLog)})<>0 ORDER BY sent_call,date"
+                    sqlQSOdr = sqlQSO.ExecuteReader
+                    count = 0
+                    While sqlQSOdr.Read
+                        report.WriteLine($"<tr><td>{sqlQSOdr("sent_call")}</td><td>{sqlQSOdr("date")}</td><td class='center'>{sqlQSOdr("band")}</td><td>{sqlQSOdr("rcvd_call")}</td><td>{sqlQSOdr("sent_exch")}</td><td>{sqlQSOdr("rcvd_exch")}</td></tr>")
+                        count += 1
+                    End While
+                    sqlQSOdr.Close()
+                    report.WriteLine("</table>")
+                    report.WriteLine($"<br>Number of errors: {count}<br>")
+
+                    report.WriteLine("<h2>Call copied incorrectly</h2>")
+                    report.WriteLine("<table class='info'>")
+                    report.WriteLine("<tr><th>Callsign</th><th>Date</th><th>Band</th><th>Call</th><th>Sent</th><th>Rcvd</th><th>Correct</td></tr>")
+                    sqlQSO.CommandText = $"
+SELECT   *,A.sent_call as Asent_call,A.date as Adate,A.sent_exch AS Asent_exch, A.rcvd_exch As Arcvd_exch, A.rcvd_call as IncorrectCall, B.sent_call AS CorrectCall
+FROM     `QSO`AS A
+JOIN     QSO  AS B
+ON       B.id=A.match
+WHERE    A.contestID={contestID}
+AND      (
+                  A.flags & {CInt(flagsEnum.LoggedIncorrectCall)})<>0
+ORDER BY Asent_call,
+         `date`"
+                    sqlQSOdr = sqlQSO.ExecuteReader
+                    count = 0
+                    While sqlQSOdr.Read
+                        report.WriteLine($"<tr><td>{sqlQSOdr("Asent_call")}</td><td>{sqlQSOdr("Adate")}</td><td class='center'>{sqlQSOdr("band")}</td><td class='incorrect'>{sqlQSOdr("IncorrectCall")}</td><td>{sqlQSOdr("Asent_exch")}</td><td>{sqlQSOdr("Arcvd_exch")}</td><td class='correct'>{sqlQSOdr("CorrectCall")}</td></tr>")
+                        count += 1
+                    End While
+                    sqlQSOdr.Close()
+                    report.WriteLine("</table>")
+                    report.WriteLine($"<br>Number of errors: {count}<br>")
+
+                    report.WriteLine("<h2>Exchange copied incorrectly</h2>")
+                    report.WriteLine("<table class='info'>")
+                    report.WriteLine("<tr><th>Callsign</th><th>Date</th><th>Band</th><th>Call</th><th>Sent</th><th>Rcvd</th><th>Correct</td></tr>")
+                    sqlQSO.CommandText = $"
+SELECT   *,A.sent_call as Asent_call,A.date as Adate,A.rcvd_call AS Arcvd_call,A.sent_exch AS Asent_exch, A.rcvd_exch As Arcvd_exch, A.rcvd_exch as IncorrectExch, B.sent_exch AS CorrectExch
+FROM     `QSO`AS A
+JOIN     QSO  AS B
+ON       B.id=A.match
+WHERE    A.contestID={contestID}
+AND      (
+                  A.flags & {CInt(flagsEnum.LoggedIncorrectExchange)})<>0
+ORDER BY Asent_call,
+         `date`"
+                    sqlQSOdr = sqlQSO.ExecuteReader
+                    count = 0
+                    While sqlQSOdr.Read
+                        report.WriteLine($"<tr><td>{sqlQSOdr("Asent_call")}</td><td>{sqlQSOdr("Adate")}</td><td class='center'>{sqlQSOdr("band")}</td><td>{sqlQSOdr("Arcvd_call")}</td><td class='incorrect'>{sqlQSOdr("Asent_exch")}</td><td>{sqlQSOdr("Arcvd_exch")}</td><td class='correct'>{sqlQSOdr("CorrectExch")}</td></tr>")
+                        count += 1
+                    End While
+                    sqlQSOdr.Close()
+                    report.WriteLine("</table>")
+                    report.WriteLine($"<br>Number of errors: {count}<br>")
+
+                    report.WriteLine("<h2>Band logged incorrectly</h2>")
+                    report.WriteLine("<h2>Cross-band using lower Score Band</h2>")
+
+                    report.WriteLine($"<br>End of Report. Created: {Now.ToUniversalTime} UTC by FD Log Checker - Marc Hillman (VK3OHM)<br>")
+                    report.WriteLine("</html>")
+                    TextBox2.Text = $"Report produced in file {CType(report.BaseStream, FileStream).Name}{vbCrLf}"
+                End Using
+            End Using
+        End If
+    End Sub
+
     Private Sub SubmittedLogsToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles SubmittedLogsToolStripMenuItem.Click
         ' produce a submitted logs report
         Dim contestID As Integer
@@ -2271,72 +2511,7 @@ GROUP BY basecall(A.sent_call),
                 sqldrContest = sqlContest.ExecuteReader()
                 sqldrContest.Read()
                 Using report As New StreamWriter($"{sqldrContest("name")} Submitted Logs.html")    ' open report file
-                    report.WriteLine("<!DOCTYPE html>
-<html>
-<style>
- .info table, .info th, .info td {
-    border: 1px solid black;
-}
- .info {
-    border-collapse:collapse
-}
- .info td {
-    padding: 3px;
-}
- .section table, .section th, .section td {
-    border: 1px solid black;
-}
- .section {
-    border-collapse:collapse
-}
- .section td {
-    padding: 3px;
-}
- .section {font-family: Arial, Helvetica, sans-serif; font-size: small;}
- .section td:nth-child(1) {width: 120px;}
- .section td:nth-child(2) {width: 250px;}
- .section td:nth-child(4),.section td:nth-child(5), .section td:nth-child(6), .section td:nth-child(7), .section td:nth-child(8), .section td:nth-child(9), .section td:nth-child(10), .section td:nth-child(11), .section td:nth-child(12),td:nth-child(13),td:nth-child(14),td:nth-child(15),td:nth-child(16) {
-    text-align:right; width: 40px;
-}
- .aligncenter {
-     display:block;
-     margin-left:auto;
-     margin-right:auto 
-}
- .zebra table, .zebra th, .zebra td {
-    border: 1px solid lightblue;
-}
- .zebra {
-    border-collapse:collapse
-}
- .zebra tr:nth-child(even) {
-    background-color:#efefef;
-}
- .zebra tr:nth-child(odd) {
-    background-color:#e1e1e1;
-}
- .zebra tr.deleted td{
-    color:red;
-}
- th {
-    background-color:#e1e1e1
-}
- .center {
-    text-align: center;
-}
- .right{
-    text-align: Right;
-}
- .left{
-    text-align: Left;
-}
- .boxed {
-     border: 1px solid green ;
-}
- h1 {
-    text-align: center
-}
-</style>")
+                    report.WriteLine(StartHTML)
 
                     report.WriteLine($"<div class='center'>{sqldrContest("name")} {sqldrContest("Start")}</div>")
                     sqldrContest.Close()

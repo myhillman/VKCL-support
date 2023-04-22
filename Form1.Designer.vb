@@ -31,10 +31,11 @@ Partial Class Form1
         Me.IndividualResultsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProvisionalResultsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SubmittedLogsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeltaTimeAnalysisToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.DeltaTimeAnalysisToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ErrorListingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -49,7 +50,7 @@ Partial Class Form1
         '
         'ExtractNamesFromLogsToolStripMenuItem
         '
-        Me.ExtractNamesFromLogsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExtractNamesFromLogsToolStripMenuItem1, Me.RemoveDuplicateLogsToolStripMenuItem, Me.IngestLogsToolStripMenuItem, Me.CheckScoreLogsToolStripMenuItem, Me.IndividualResultsToolStripMenuItem, Me.ProvisionalResultsToolStripMenuItem, Me.SubmittedLogsToolStripMenuItem, Me.DeltaTimeAnalysisToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.ExtractNamesFromLogsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExtractNamesFromLogsToolStripMenuItem1, Me.RemoveDuplicateLogsToolStripMenuItem, Me.IngestLogsToolStripMenuItem, Me.CheckScoreLogsToolStripMenuItem, Me.IndividualResultsToolStripMenuItem, Me.ProvisionalResultsToolStripMenuItem, Me.ErrorListingToolStripMenuItem, Me.SubmittedLogsToolStripMenuItem, Me.DeltaTimeAnalysisToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.ExtractNamesFromLogsToolStripMenuItem.Name = "ExtractNamesFromLogsToolStripMenuItem"
         Me.ExtractNamesFromLogsToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.ExtractNamesFromLogsToolStripMenuItem.Text = "File"
@@ -96,6 +97,12 @@ Partial Class Form1
         Me.SubmittedLogsToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
         Me.SubmittedLogsToolStripMenuItem.Text = "Submitted logs"
         '
+        'DeltaTimeAnalysisToolStripMenuItem
+        '
+        Me.DeltaTimeAnalysisToolStripMenuItem.Name = "DeltaTimeAnalysisToolStripMenuItem"
+        Me.DeltaTimeAnalysisToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
+        Me.DeltaTimeAnalysisToolStripMenuItem.Text = "Delta time analysis"
+        '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
@@ -119,11 +126,11 @@ Partial Class Form1
         Me.TextBox1.Size = New System.Drawing.Size(779, 23)
         Me.TextBox1.TabIndex = 2
         '
-        'DeltaTimeAnalysisToolStripMenuItem
+        'ErrorListingToolStripMenuItem
         '
-        Me.DeltaTimeAnalysisToolStripMenuItem.Name = "DeltaTimeAnalysisToolStripMenuItem"
-        Me.DeltaTimeAnalysisToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
-        Me.DeltaTimeAnalysisToolStripMenuItem.Text = "Delta time analysis"
+        Me.ErrorListingToolStripMenuItem.Name = "ErrorListingToolStripMenuItem"
+        Me.ErrorListingToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
+        Me.ErrorListingToolStripMenuItem.Text = "Error listing"
         '
         'Form1
         '
@@ -156,4 +163,5 @@ Partial Class Form1
     Friend WithEvents SubmittedLogsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RemoveDuplicateLogsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DeltaTimeAnalysisToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ErrorListingToolStripMenuItem As ToolStripMenuItem
 End Class
