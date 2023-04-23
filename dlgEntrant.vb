@@ -14,23 +14,19 @@ Public Class dlgEntrant
     End Sub
 
     Private Sub dlgEntrant_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Const CheckerDB = "data Source=Checker.db3"   ' name of the names file
         Dim sql As SqliteCommand, sqldr As SqliteDataReader, entrants As New ArrayList
 
-        Using connect As New SqliteConnection(CheckerDB)
-            connect.Open()
-            sql = connect.CreateCommand
-            sql.CommandText = $"SELECT * FROM Stations WHERE contestID={Me.Tag} ORDER BY station,section"     ' get list of entrants
-            sqldr = sql.ExecuteReader
-            While sqldr.Read
-                If Not IsDBNull(sqldr("station")) And Not IsDBNull(sqldr("name")) Then
-                    entrants.Add(New entrant(sqldr("station"), sqldr("section"), sqldr("name")))
-                End If
-            End While
-            With DataGridView1
-                .DataSource = entrants
-            End With
-        End Using
+        sql = Form1.connect.CreateCommand
+        sql.CommandText = $"SELECT * FROM Stations WHERE contestID={Me.Tag} ORDER BY station,section"     ' get list of entrants
+        sqldr = sql.ExecuteReader
+        While sqldr.Read
+            If Not IsDBNull(sqldr("station")) And Not IsDBNull(sqldr("name")) Then
+                entrants.Add(New entrant(sqldr("station"), sqldr("section"), sqldr("name")))
+            End If
+        End While
+        With DataGridView1
+            .DataSource = entrants
+        End With
     End Sub
     Private Class entrant
         Property station As String
