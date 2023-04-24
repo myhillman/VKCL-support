@@ -26,6 +26,8 @@ Partial Class dlgEntrant
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.chkGenerate = New System.Windows.Forms.CheckBox()
+        Me.chkEmail = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -38,7 +40,7 @@ Partial Class dlgEntrant
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(323, 605)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(799, 729)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
@@ -69,11 +71,31 @@ Partial Class dlgEntrant
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(11, 15)
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 46)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 25
-        Me.DataGridView1.Size = New System.Drawing.Size(452, 578)
+        Me.DataGridView1.Size = New System.Drawing.Size(928, 667)
         Me.DataGridView1.TabIndex = 1
+        '
+        'chkGenerate
+        '
+        Me.chkGenerate.AutoSize = True
+        Me.chkGenerate.Location = New System.Drawing.Point(12, 12)
+        Me.chkGenerate.Name = "chkGenerate"
+        Me.chkGenerate.Size = New System.Drawing.Size(110, 19)
+        Me.chkGenerate.TabIndex = 2
+        Me.chkGenerate.Text = "Toggle generate"
+        Me.chkGenerate.UseVisualStyleBackColor = True
+        '
+        'chkEmail
+        '
+        Me.chkEmail.AutoSize = True
+        Me.chkEmail.Location = New System.Drawing.Point(128, 12)
+        Me.chkEmail.Name = "chkEmail"
+        Me.chkEmail.Size = New System.Drawing.Size(93, 19)
+        Me.chkEmail.TabIndex = 3
+        Me.chkEmail.Text = "Toggle email"
+        Me.chkEmail.UseVisualStyleBackColor = True
         '
         'dlgEntrant
         '
@@ -81,7 +103,9 @@ Partial Class dlgEntrant
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(507, 652)
+        Me.ClientSize = New System.Drawing.Size(983, 776)
+        Me.Controls.Add(Me.chkEmail)
+        Me.Controls.Add(Me.chkGenerate)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -95,10 +119,13 @@ Partial Class dlgEntrant
         Me.TableLayoutPanel1.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents OK_Button As System.Windows.Forms.Button
     Friend WithEvents Cancel_Button As System.Windows.Forms.Button
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents chkGenerate As CheckBox
+    Friend WithEvents chkEmail As CheckBox
 End Class
