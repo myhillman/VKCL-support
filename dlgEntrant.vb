@@ -4,6 +4,9 @@ Imports Microsoft.Data.Sqlite
 Public Class dlgEntrant
     Public entrants As New ArrayList()
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
+        ' Save the template
+        My.Settings.template = ListBox1.GetItemText(ListBox1.SelectedItem)      ' retrieve setting
+        My.Settings.Save()
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
     End Sub
@@ -17,9 +20,19 @@ Public Class dlgEntrant
         ' Load list of contest entrants
         Dim sql As SqliteCommand, sqldr As SqliteDataReader
 
+        sql = Form1.connect.CreateCommand
+        ' Load the email template list
+        sql.CommandText = "SELECT * FROM email ORDER BY template"
+        sqldr = sql.ExecuteReader
+        While sqldr.Read
+            ListBox1.Items.Add(sqldr("template"))
+        End While
+        sqldr.Close()
+        ListBox1.SelectedIndex = ListBox1.FindString(My.Settings.template)    ' select the current setting
+
         ' Create a list of entrants
         entrants.Clear()
-        sql = Form1.connect.CreateCommand
+
         sql.CommandText = $"SELECT * FROM Stations WHERE contestID={Form1.contestID} AND `station` <> ''  AND `name` <> '' ORDER BY station,section"     ' get list of entrants
         sqldr = sql.ExecuteReader
         While sqldr.Read
@@ -33,7 +46,7 @@ Public Class dlgEntrant
             .AutoResizeColumns(DataGridViewAutoSizeColumnMode.AllCells)  ' Autosize all cells
         End With
     End Sub
-    Private Class entrant
+    Public Class entrant
         ' represents a single contest entrant
         Property Generate As Boolean        ' will be rendered as a CheckBox
         Property SendEmail As Boolean       ' will be rendered as a CheckBox
@@ -68,4 +81,5 @@ Public Class dlgEntrant
         DataGridView1.Update()
         DataGridView1.Refresh()
     End Sub
+
 End Class

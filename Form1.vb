@@ -3,6 +3,16 @@ Imports System.IO
 Imports System.Text.RegularExpressions
 Imports Microsoft.Data.Sqlite
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar
+Imports System.Net.Mail
+Imports System.Net.Mime
+Imports Microsoft.SqlServer
+Imports System.Net
+Imports Windows.Media.Protection.PlayReady
+Imports System.Text
+Imports Windows.UI.WebUI
+Imports Microsoft.Extensions.Configuration
+Imports System.Reflection
+Imports SQLitePCL
 
 Public Class Form1
     ' Support functions for VKCL
@@ -646,8 +656,9 @@ GROUP  BY sent,
         TextBox2.Clear()
 
         If dlgEntrant.ShowDialog() = DialogResult.OK Then
-            For Each entrant In dlgEntrant.entrants
-                If entrant.Generate Then IndividualReport(entrant.station, entrant.section)
+            For Each ent As dlgEntrant.entrant In dlgEntrant.entrants
+                If ent.Generate Then IndividualReport(ent.Station, ent.Section)
+                If ent.SendEmail Then EmailReport(ent.Station, ent.Section, ent.Name, ent.Email)
             Next
         End If
     End Sub
@@ -674,8 +685,8 @@ GROUP  BY sent,
 
         Dim DestinationFolder = $"{SolutionDirectory}{sqldrContest("path")}/Check Reports/"      ' folder where reports go
         If (Not Directory.Exists(DestinationFolder)) Then Directory.CreateDirectory(DestinationFolder)
-
-        Using report As New StreamWriter($"{DestinationFolder}{station.Replace("/", "_")}_{sqldrEntrant("section")} - {sqldrContest("name")} check report.html")
+        Dim CheckReportName As String = $"{DestinationFolder}{station.Replace("/", "_")}_{sqldrEntrant("section")} - {sqldrContest("name")} check report.html"
+        Using report As New StreamWriter(CheckReportName)
 
             report.WriteLine(StartHTML)
 
@@ -960,6 +971,87 @@ $"<tr>
             report.WriteLine("</body></html>")
             TextBox2.AppendText($"Report produced in file {CType(report.BaseStream, FileStream).Name}{vbCrLf}")
         End Using
+    End Sub
+    Private Sub EmailReport(station As String, section As String, Name As String, EmailAddress As String)
+        ' Send email using current template
+        Dim sql As SqliteCommand, sqldr As SqliteDataReader
+        Dim template As XDocument       ' XML email template
+        Dim subject As String = "", body As String = "", file As String = ""
+
+        sql = connect.CreateCommand
+
+        ' get some contest details
+        sql.CommandText = $"SELECT * FROM Contests WHERE contestID={contestID}"
+        sqldr = sql.ExecuteReader
+        sqldr.Read()
+        Dim path = $"{SolutionDirectory}{sqldr("path")}"        ' path to log files
+        Dim ContestName = sqldr("name")
+        sqldr.Close()
+
+        ' get the email template
+        sql.CommandText = $"SELECT * FROM email WHERE template='{My.Settings.template}'"
+        sqldr = sql.ExecuteReader
+        sqldr.Read()
+        template = XDocument.Parse(sqldr("text"))
+        sqldr.Close()
+
+        ' Construct email
+        subject = template.Descendants("subject").Value.Replace("[CONTEST]", ContestName)
+        body = template.Descendants("body").Value.Replace("[CONTEST]", ContestName)
+        Dim fromAddr = New MailAddress("myhillman@gmail.com", "Marc (VK3OHM)")       ' from address
+        Dim toAddr = New MailAddress(EmailAddress, Name)                            ' to address
+        Dim message As New MailMessage(fromAddr, toAddr)
+        With message
+            .Subject = subject
+            .Body = body
+            .IsBodyHtml = False
+            .BodyEncoding = Encoding.UTF8
+            .ReplyToList.Add(fromAddr)
+            .Sender = .From
+            .DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure Or DeliveryNotificationOptions.Delay
+            ' attach all attachments
+            For Each attachment In template.Descendants("attach")
+                ' Create  the file attachment(s) for this email message.
+                Select Case attachment.Value
+                    Case "Provisional Report"
+                        file = $"{path}/Contest Reports/{ContestName} Provisional Results.html"
+                    Case "Check Report"
+                        file = $"{path}/Check Reports/{station}_{section} - {ContestName} check report.html"
+                    Case Else
+                        MsgBox($"Unrecognised attachment type {attachment.Value}", vbCritical + vbOKOnly, "Unrecognised attachment type")
+                End Select
+                If Not System.IO.File.Exists(file) Then
+                    MsgBox($"File {file} does not exist", vbCritical + vbOKOnly, "File does not exist")
+                End If
+                Dim Data = New Attachment(file, MediaTypeNames.Application.Octet)
+                Dim disposition As ContentDisposition = Data.ContentDisposition
+                disposition.CreationDate = IO.File.GetCreationTime(file)
+                disposition.ModificationDate = IO.File.GetLastWriteTime(file)
+                disposition.ReadDate = IO.File.GetLastAccessTime(file)
+                ' Add time stamp information for the file.
+                message.Attachments.Add(Data)
+            Next
+        End With
+        ' Send the message.
+
+        Try
+            Using client As New SmtpClient("smtp.gmail.com", 587)
+                With client
+                    .UseDefaultCredentials = False
+                    Dim config = New ConfigurationBuilder().AddJsonFile("secrets.json", True, True).AddUserSecrets(Assembly.GetExecutingAssembly(), True).Build()
+                    ' get the server credentials from the User Secrets, and convert to Dictionary for ease of access
+                    Dim ServerCredentials = config.GetSection("EmailServer").GetChildren.ToDictionary(Function(x) x.Key, Function(x) x.Value)
+                    Dim username = ServerCredentials("username")
+                    Dim password = ServerCredentials("password")
+                    .Credentials = New System.Net.NetworkCredential(username, password)      ' note use of App password
+                    .EnableSsl = True
+                End With
+                client.Send(message)
+            End Using
+            TextBox2.AppendText($"Email sent to {station} - {message.To.ToString}{vbCrLf}")
+        Catch ex As Exception
+            MsgBox(ex.Message, vbCritical + vbOK, "Send mail error")
+        End Try
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         contestID = My.Settings.contestID
@@ -2123,7 +2215,16 @@ WHERE QSO.id=C.id"
                 Case "SINGLE"
                     Dim ListofBands As New Dictionary(Of String, Integer)
                     ListofBands.Clear()
-                    sqlQSO.CommandText = $"SELECT `band`,COUNT(*) as count FROM Stations AS S JOIN QSO AS Q ON S.station=Q.sent_call AND S.`contestID`=Q.`contestID` WHERE S.`contestID`={contestID} AND S.`station`='{sqldr("station")}' GROUP BY `band`"
+                    sqlQSO.CommandText = $"
+SELECT   `band`,
+         COUNT(*) AS COUNT
+FROM     Stations AS S
+JOIN     QSO      AS Q
+ON       S.station=Q.sent_call
+AND      S.`contestID`=Q.`contestID`
+WHERE    S.`contestID`={contestID}
+AND      S.`station`='{sqldr("station")}'
+GROUP BY `band`"
                     sqlQSOdr = sqlQSO.ExecuteReader
                     While sqlQSOdr.Read
                         ListofBands.Add($"'{sqlQSOdr("band")}'", sqlQSOdr("count"))
@@ -2139,7 +2240,18 @@ WHERE QSO.id=C.id"
 
                 Case "FOUR"
                     ' Disqualify any band not one of FOUR (50, 144, 432, 1.2G)
-                    sqlQSO.CommandText = $"SELECT * FROM Stations AS S JOIN QSO AS Q ON S.station=Q.sent_call AND S.`contestID`=Q.`contestID` WHERE S.`contestID`={contestID} AND `station`= '{sqldr("station")}' AND `band` NOT IN ('50','144','432','1.2G')"
+                    sqlQSO.CommandText = $"
+SELECT *
+FROM   Stations AS S
+JOIN   QSO      AS Q
+ON     basecall(S.station)=basecall(Q.sent_call)
+AND    S.`contestID`=Q.`contestID`
+WHERE  S.`contestID`={contestID}
+AND    basecall(`station`)= basecall('{sqldr("station")}')
+AND    `band` NOT IN ('50',
+                      '144',
+                      '432',
+                      '1.2G')"
                     sqlQSOdr = sqlQSO.ExecuteReader
                     While sqlQSOdr.Read
                         updsql.CommandText = $"UPDATE `QSO` SET `flags`=`flags` | {CInt(flagsEnum.NonPermittedBand)} WHERE `id`={sqlQSOdr("id")}"

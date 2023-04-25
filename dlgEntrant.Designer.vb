@@ -28,6 +28,8 @@ Partial Class dlgEntrant
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.chkGenerate = New System.Windows.Forms.CheckBox()
         Me.chkEmail = New System.Windows.Forms.CheckBox()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -97,6 +99,24 @@ Partial Class dlgEntrant
         Me.chkEmail.Text = "Toggle email"
         Me.chkEmail.UseVisualStyleBackColor = True
         '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.ItemHeight = 15
+        Me.ListBox1.Location = New System.Drawing.Point(328, 6)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(329, 34)
+        Me.ListBox1.TabIndex = 4
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(236, 13)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(86, 15)
+        Me.Label1.TabIndex = 5
+        Me.Label1.Text = "Email template"
+        '
         'dlgEntrant
         '
         Me.AcceptButton = Me.OK_Button
@@ -104,6 +124,8 @@ Partial Class dlgEntrant
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(983, 776)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.chkEmail)
         Me.Controls.Add(Me.chkGenerate)
         Me.Controls.Add(Me.DataGridView1)
@@ -128,4 +150,6 @@ Partial Class dlgEntrant
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents chkGenerate As CheckBox
     Friend WithEvents chkEmail As CheckBox
+    Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents Label1 As Label
 End Class
